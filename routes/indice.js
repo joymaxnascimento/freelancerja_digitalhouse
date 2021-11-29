@@ -6,4 +6,5 @@ router.get('/', function(req, res, next) {
   res.render('indice', { title: 'FreelancerJA' });
 });
 
+
 module.exports = router;
