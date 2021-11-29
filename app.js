@@ -4,10 +4,13 @@ var path         = require('path');
 var cookieParser = require('cookie-parser');
 var logger       = require('morgan');
 
-var indiceRouter  = require('./routes/indice');
-var usersRouter   = require('./routes/users');
-var  raizRouter   = require('./routes/raiz')
-var freelancerRouter = require('./routes/freelancer');
+var         inicioRouter  = require('./routes/inicio');
+var      usersRouter      = require('./routes/users');
+var       raizRouter      = require('./routes/raiz')
+var      freelancerRouter = require('./routes/freelancer');
+var         clienteRouter = require('./routes/cliente');
+var           loginRouter = require('./routes/login');
+var cadastrarPessoaRouter = require('./routes/cadastrarPessoaRouter');
 
 var app = express();
 
@@ -19,12 +22,15 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));   
 
-app.use('/',        raizRouter);
-app.use('/users',  usersRouter);
-app.use('/indice', indiceRouter);
-app.use('/freelancer', freelancerRouter);
+app.use(                '/',            raizRouter);  /* meramente temporária */
+app.use(           '/users',           usersRouter);
+app.use(          '/inicio',          inicioRouter);
+app.use(      '/freelancer',      freelancerRouter);
+app.use(         '/cliente',         clienteRouter);
+app.use(           '/login',           loginRouter);
+app.use( '/cadastrarPessoa', cadastrarPessoaRouter);
 
 
 // catch 404 and forward to error handler

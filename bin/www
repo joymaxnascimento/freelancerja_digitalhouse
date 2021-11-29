@@ -15,6 +15,10 @@ var http  = require('http');
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
+/* by Guido 2021 11 28 */
+console.log("$ nodemon bin/www <enter>")
+console.log("localhost:3000/inicio")
+
 /**
  * Create HTTP server.
  */
