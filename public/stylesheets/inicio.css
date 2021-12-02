@@ -23,7 +23,10 @@ header {
   }
 
 .topo {
+  background-color: rgb(238, 238, 240);
   display:flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-around;
 }  
 
@@ -35,6 +38,7 @@ header {
 }
 
 .botao {
+  background-color: rgb(238, 238, 240);
   display: flex;
   align-items: center;
   justify-content: center;
