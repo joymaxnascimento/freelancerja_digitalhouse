@@ -3,7 +3,8 @@
 module.exports = {
     async index(req, res, next){ 
         
-        res.render('cliente', { title: 'Cliente' });
+        /*res.render('cliente', { title: 'Cliente' }); */
+        res.render('soucliente', { title: 'Cliente: propor serço' });
   
     },
   
@@ -22,4 +23,4 @@ module.exports = {
   
     async excluir(req, res, next){
     },
-  }
+}
