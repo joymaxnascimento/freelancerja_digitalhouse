@@ -4,13 +4,14 @@ var path         = require('path');
 var cookieParser = require('cookie-parser');
 var logger       = require('morgan');
 
-var         inicioRouter  = require('./routes/inicio');
-var      usersRouter      = require('./routes/users');
-var       raizRouter      = require('./routes/raiz')
-var      freelancerRouter = require('./routes/freelancer');
-var         clienteRouter = require('./routes/cliente');
-var           loginRouter = require('./routes/login');
-var cadastrarPessoaRouter = require('./routes/cadastrarPessoaRouter');
+var           inicioRouter  = require('./routes/inicio');
+var        usersRouter      = require('./routes/users');
+var         raizRouter      = require('./routes/raiz')
+var        freelancerRouter = require('./routes/freelancer');
+var           clienteRouter = require('./routes/cliente');
+var             loginRouter = require('./routes/login');
+var   cadastrarPessoaRouter = require('./routes/cadastrarPessoaRouter');
+var cadastrarPropostaRouter = require('./routes/cadastrarPropostaRouter');
 
 var app = express();
 
@@ -24,13 +25,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));   
 
-app.use(                '/',            raizRouter);  /* meramente temporária */
-app.use(           '/users',           usersRouter);
-app.use(          '/inicio',          inicioRouter);
-app.use(      '/freelancer',      freelancerRouter);
-app.use(         '/cliente',         clienteRouter);
-app.use(           '/login',           loginRouter);
-app.use( '/cadastrarPessoa', cadastrarPessoaRouter);
+app.use(                '/',              raizRouter);  /* meramente temporária */
+app.use(           '/users',             usersRouter);
+app.use(          '/inicio',            inicioRouter);
+app.use(      '/freelancer',        freelancerRouter);
+app.use(         '/cliente',           clienteRouter);
+app.use(           '/login',             loginRouter);
+app.use( '/cadastrarPessoa',   cadastrarPessoaRouter);
+app.use(        '/proposta', cadastrarPropostaRouter);
 
 
 // catch 404 and forward to error handler

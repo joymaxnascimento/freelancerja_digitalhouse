@@ -3,7 +3,7 @@
 module.exports = {
   async index(req, res, next){ 
       
-      res.render('freelancer', { title: 'FreelancerJA' });
+      res.render('soufreelancer', { title: 'Sou Freelancer' });
 
   },
 
@@ -16,7 +16,7 @@ module.exports = {
   async editar(req, res, next){
   },
 
-  async atualizar(req, res, next){
+  async atualizar(req, res, next){freelancer
 
   },
 
