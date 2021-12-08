@@ -8,47 +8,59 @@
 </head>
 <body>
     <header class="TituloSouCliente">
-        <img class="imagem-logo" src="images/TitIndicaSouCliente.png" alt="soucliente" title="Sou Cliente">  
-    </header>      
-    
+        <img class="imagem-logo" src="images/TitIndicaSouCliente.png" alt="soucliente" title="Sou Cliente">
+    </header>
     <div class="PropostaServico" >
         <div class="TipoServico">
-            <br>
-            <br>
-            Tipo de serviço que gostaria de Contratar 
-            <form action="/action_page.php">
-                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                <label for="vehicle1"> Designer Gráfico</label><br>
-                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                <label for="vehicle2"> Programação</label><br>
-                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                <label for="vehicle3"> Tradução</label><br><br>
-                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                <label for="vehicle3"> Marketing Digital</label><br><br>
-                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                <label for="vehicle3"> Jurídico</label><br><br>
-                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                <label for="vehicle3"> UI / UX Designer</label><br><br>
-                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                <label for="vehicle3"> Administrativo</label><br><br>
-                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                <label for="vehicle3"> Aulas</label><br><br>
+            <span>Tipo de serviço que gostaria de Contratar</span>
+            <form action="/action_page.php" class="FormServico">
+                <div>
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <label for="vehicle1"> Designer Gráfico</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                    <label for="vehicle2"> Programação</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <label for="vehicle3"> Tradução</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <label for="vehicle3"> Marketing Digital</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <label for="vehicle3"> Jurídico</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <label for="vehicle3"> UI / UX Designer</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <label for="vehicle3"> Administrativo</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <label for="vehicle3"> Aulas</label>
+                </div>
                 <!-- <input type="submit" value="Submit"> -->
-              </form> 
+              </form>
             <br>
             <br>
         </div>
         <div class="TempoDescr">
-            <label for="fname">Tipo de entrega:</label>
+            <label for="fname">Tempo de entrega:</label>
             <input type="text" id="fname" name="fname"><br><br>
             <label for="lname">Descreva o Serviço:</label>
-            <input type="text" id="lname" name="lname"><br><br>
+            <textarea id="lname" name="lname" cols="30" rows="10" ></textarea><br><br>
             <label for="lname">Valor a pagar:</label>
             <input type="text" id="lname" name="lname"><br><br>
-            <a href="/proposta">
-            <button class="botoes-home">Criar Serviço</button>
+            <a href="/proposta" class="RedirecionarServico">
+                <button class="BotaoCriarServico">Criar Serviço</button>
             </a>
-    
         </div>
     </div>
 </body>
