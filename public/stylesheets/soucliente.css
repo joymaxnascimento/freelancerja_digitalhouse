@@ -83,3 +83,29 @@ border: #fff 5px solid;
 e faz com que o justify-content seja aplicado para eixo vertical
 flex-direction com valor Row (default) - faz com que o align-items seja aplicado para eixo vertical
 e faz com que o justify-content seja aplicado para eixo horizontal */
+
+
+
+#divBusca{
+  display: flex;
+  justify-content: space-between;
+  background-color:#C4C4C4;
+  border:solid 1px;
+  border-radius:15px;
+  width:520px;
+}
+
+#txtBusca{
+  float:left;
+  background-color:transparent;
+  padding-left:5px;
+  font-style:italic;
+  font-size:20px;
+  border:none;
+  height:32px;
+  width:460px;
+}
+
+#imagemlupa {
+  height:32px;
+}

@@ -14,8 +14,6 @@ justify-content: center;
 /* text-justify: distribute; */
 height: 72px;
 
-
-
 font-family: Open Sans;
 font-style: normal;
 font-weight: bold;
@@ -23,7 +21,6 @@ font-size: 50px;
 line-height: 70px;
 
 color: #FFFFFF;
-
 }
 
 
@@ -46,5 +43,43 @@ display: flex;
 flex-direction: row;  
 justify-content: center;
 
+}
+
+.botoes-home {
+  position: relative;
+  top: 500px;
+  right: 50px;
+  color: #fff;
+  background-color: #38B6FF;
+  width: 400px;
+  height: 80px;
+  font-weight: bold;
+  font-size: 42px;
+  border-radius: 25px;
+  border: #fff 5px solid;
+}
+
+.TempoDescr {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  top:100px;
+  right: 200px;
+  font-weight: bold;
+  font-size: 60px;
+  ;
+  /* line-height: 50%; */
+}
+
+
+.linhaComDois {
+  display:flex;
+  flex-direction: row;
+  /* width: 400px; */
+  justify-content: space-between;
+  align-items: center;
+  /* border-bottom-width: 30px; */
+  margin-top: 50px;
 }
 
