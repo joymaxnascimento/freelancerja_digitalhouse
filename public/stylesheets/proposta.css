@@ -40,15 +40,21 @@ background-color: #1bd5db;
 
 .PropostaServico {
 display: flex;
-flex-direction: row;  
-justify-content: center;
+flex-direction: column;  
+/* justify-content: center; */
+align-items: center;
+width: 100%;
+height: 50vh;
+}
 
+div#botao {
+  display: flex;
+  justify-content: center;
+  /* align-items: flex-end; */
+  margin-top: 250px;
 }
 
 .botoes-home {
-  position: relative;
-  top: 500px;
-  right: 50px;
   color: #fff;
   background-color: #38B6FF;
   width: 400px;
@@ -63,9 +69,6 @@ justify-content: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
-  top:100px;
-  right: 200px;
   font-weight: bold;
   font-size: 60px;
   ;

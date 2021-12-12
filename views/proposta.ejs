@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,27 +12,45 @@
         Proposta
     </header>      
     
-    <!-- <div class="PropostaServico" > -->
-        
-        <div class="TempoDescr">
-            <div class="linhacomdois">
-            <label for="fname" style="color:rgb(27, 205, 236);">Tempo de entrega:</label>
-            <input type="text" id="fname" name="fname" style="font-size: 60;"  >
+    <div class="PropostaServico" >
+        <form action="/proposta" method="post">  
+            <div class="TempoDescr">
+                <div class="linhacomdois">
+                    <label for="fname" style="color:rgb(27, 205, 236);"
+                    >Tempo de entrega:</label>
+                    <input type="text" id="fname" name="fname" 
+                    style="font-size: 60;"  >
+                </div>
+                <div class="linhacomdois">
+                    <label for="lname" style="color:rgb(27, 205, 236);"
+                    >Descreva o Serviço:</label>
+                    <input type="text" id="lname" name="lname" style="font-size: 60;">
+                </div>
+                <div class="linhacomdois">
+                    <label for="vname" style="color:rgb(27, 205, 236);">Valor a pagar:</label>
+                    <input type="text" id="vname" name="vname" style="font-size: 60;">
+                </div>
+                <div class="linhacomdois">
+                    <label for="uname" style="color:rgb(27, 205, 236);">Trabalhos Realizados:</label>
+                    <img src="images/anexararquivo.png">
+                    <img src="images/simboloupload.png">
+                </div>    
             </div>
-            <div class="linhacomdois">
-            <label for="lname" style="color:rgb(27, 205, 236);">Descreva o Serviço:</label>
-            <input type="text" id="lname" name="lname" style="font-size: 60;">
-            </div>
-            <div class="linhacomdois">
-            <label for="vname" style="color:rgb(27, 205, 236);">Valor a pagar:</label>
-            <input type="text" id="vname" name="vname" style="font-size: 60;">
-            </div>
-        </div>
-        <div id="botao">
-            <a href="/soucliente">
-              <button class="botoes-home">Concluir Proposta</button>
+            <div id="botao">
+                <a href="/propParaVoce"> 
+                <button type="submit" class="botoes-home">Concluir Proposta</button>
+                </a>
+            </div>         
+        </form>     
+
+        <div  style="font-size: 22px;">
+            <a href="/propParaVoce"> 
+            <button type="submit" >continuidade navegação</button>
             </a>
-        </div>    
-    <!-- </div> -->
+        </div>         
+    
+
+        
+    </div>
 </body>
 </html>
