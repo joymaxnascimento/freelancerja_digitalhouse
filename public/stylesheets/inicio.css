@@ -17,19 +17,21 @@ header {
 /*    height: 100%; */
     width: 100%;
     display: flex;
-/*    justify-content: space-between; alinha horizontal */
+    justify-content: space-between;
     flex-direction: column;
+    
   }
 
 .topo {
   display:flex;
-  justify-content: space-between;
   align-items: center;
   height: 5em;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .topo .imagem-logo {
-  width: 300px;
+  width: 200px;
 }
 
 .moca {

@@ -54,24 +54,22 @@
   .TempoDescr {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 800px;
   height: 80vh;
-  margin-left: 5vw;
+  margin-left: 20vw;
+  justify-content: space-between; 
+  font-weight: bold; 
   }
-  .TempoDescr label {
-  font-weight: bold;
-  }
-  .TempoDescr textarea {
-  resize: none;
-  }
+  
   .TempoDescr .RedirecionarServico {
   display: flex;
   justify-content: center;
   text-decoration: none;
   }
+
   .TempoDescr .BotaoCriarServico {
   color: #fff;
-  background-color: #38B6FF;
+  background-color:black;
   width: 400px;
   height: 80px;
   font-weight: bold;
@@ -111,13 +109,12 @@
   }
 
   .linhaComDois {
-    display:flex;
+    display: flex;
     flex-direction: row;
-    /* width: 400px; */
     justify-content: space-between;
     align-items: center;
-    /* border-bottom-width: 30px; */
-    margin-top: 50px;
+    width: 100%;
+    
   }
   
 
@@ -128,3 +125,25 @@
     align-items: center;
     width: 100%;
   }
+
+  .doisbotoespretos {
+    display:flex;
+    flex-direction: row;
+    /* width: 400px; */
+    justify-content: space-between;
+    align-items: center;
+    /* border-bottom-width: 30px; */
+    margin-top: 50px;
+    }
+
+    .BotaoCriarServico1 {
+      color: #fff;
+  background-color:#38B6FF;
+  width: 800px;
+  height: 80px;
+  font-weight: bold;
+  font-size: 36px;
+  border-radius: 25px;
+  border: #fff 5px solid;
+  justify-content: space-between;
+    }
