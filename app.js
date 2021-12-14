@@ -12,7 +12,7 @@ var             loginRouter = require('./routes/login');
 var   cadastrarPessoaRouter = require('./routes/cadastrarPessoaRouter');
 var cadastrarPropostaRouter = require('./routes/cadastrarPropostaRouter');
 var      propParaVoceRouter = require('./routes/propParaVoce');
-
+var      propostaaceitaRouter = require('./routes/propostaaceita');
 var app = express();
 
 // view engine setup
@@ -33,7 +33,7 @@ app.use(         '/cliente',           clienteRouter);
 app.use(           '/login',             loginRouter);
 app.use( '/cadastrarPessoa',   cadastrarPessoaRouter);
 app.use(        '/proposta', cadastrarPropostaRouter);
-
+app.use(        '/propostaaceita', propostaaceitaRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
