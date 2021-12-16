@@ -33,7 +33,10 @@ app.use(         '/cliente',           clienteRouter);
 app.use(           '/login',             loginRouter);
 app.use( '/cadastrarPessoa',   cadastrarPessoaRouter);
 app.use(        '/proposta', cadastrarPropostaRouter);
-app.use(        '/propostaaceita', propostaaceitaRouter);
+//app.use(        '/propostaaceita', propostaaceitaRouter);
+
+app.get( '/propostaaceita', (req,res)=>res.render('propostaaceita',{title: "Proposta Aceita!"}));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
