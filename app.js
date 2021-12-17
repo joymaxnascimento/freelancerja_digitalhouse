@@ -35,7 +35,9 @@ app.use( '/cadastrarPessoa',   cadastrarPessoaRouter);
 app.use(        '/proposta', cadastrarPropostaRouter);
 //app.use(        '/propostaaceita', propostaaceitaRouter);
 
+
 app.get( '/propostaaceita', (req,res)=>res.render('propostaaceita',{title: "Proposta Aceita!"}));
+app.get( '/pagamento', (req,res)=>res.render('pagamento',{title: "pagamento"}));
 
 
 // catch 404 and forward to error handler
