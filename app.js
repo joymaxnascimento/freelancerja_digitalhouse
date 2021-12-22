@@ -26,7 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));   
 
 app.use(                '/',              raizRouter);  /* meramente temporária */
-app.use(    '/propParaVoce',      propParaVoceRouter);
+//app.use(    '/propParaVoce',      propParaVoceRouter);
 app.use(          '/inicio',            inicioRouter);
 app.use(      '/freelancer',        freelancerRouter);
 app.use(         '/cliente',           clienteRouter);
@@ -38,8 +38,8 @@ app.use(        '/proposta', cadastrarPropostaRouter);
 
 app.get( '/propostaaceita', (req,res)=>res.render('propostaaceita',{title: "Proposta Aceita!"}));
 app.get( '/pagamento', (req,res)=>res.render('pagamento',{title: "pagamento"}));
-
-
+app.get(    '/propParaVoce', (req,res)=>res.render('propParaVoce',{title: "PropParaVoce"}));
+app.get(    '/propostarecusada', (req,res)=>res.render('propostarecusada',{title: "propostarecusada"}));
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

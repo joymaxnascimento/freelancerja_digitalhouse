@@ -38,6 +38,16 @@
   .linhaComDois {
       display:flex;
       flex-direction: row;
+      margin-top: 50px;
+      
+  }
+
+  .concluirCadastro {
+    margin-top: 50px;
+  }
+
+  .linhaComDois input {
+    margin-left: 50px;
   }
   
   
