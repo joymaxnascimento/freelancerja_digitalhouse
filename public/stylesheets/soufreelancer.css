@@ -28,6 +28,8 @@ background-color: #1BD5DB;
 display: flex;
 width: 100%;
 margin-top: 20px;
+justify-content: flex-start;
+margin-left: 30px;
 }
 .TipoServico {
 background-color: #C4C4C4;
@@ -72,11 +74,11 @@ text-decoration: none;
 .TempoDescr .BotaoCriarServico {
 color: #fff;
 background-color: #38B6FF;
-width: 400px;
-height: 80px;
+width: 300px;
+height: 60px;
 font-weight: bold;
-font-size: 36px;
-border-radius: 25px;
+font-size: 30px;
+border-radius: 20px;
 border: #fff 5px solid;
 }
 /* flex-direction com valor Column - faz com que o align-items seja aplicado para eixo horizontal
@@ -86,7 +88,7 @@ e faz com que o justify-content seja aplicado para eixo horizontal */
 
 
 
-#divBusca{
+.divBusca{
   display: flex;
   justify-content: space-between;
   background-color:#C4C4C4;
@@ -95,7 +97,7 @@ e faz com que o justify-content seja aplicado para eixo horizontal */
   width:520px;
 }
 
-#txtBusca{
+.txtBusca{
   float:left;
   background-color:transparent;
   padding-left:5px;
@@ -107,36 +109,36 @@ e faz com que o justify-content seja aplicado para eixo horizontal */
   border-radius:15px;
 }
 
-#imagemlupa {
+.imagemlupa {
   height:32px;
   border-radius:15px;
 }
 
 
-#DescricaoValor {
+.DescricaoValor {
 background-color: #C4C4C4;
 border-radius: 20px;
 width: 120%; 
 height: 80vh;
 }
 
-#categcodigo {
+.categcodigo {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-left: 50px;
 }
 
-#textodescricao {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+.topicos {
+  padding-left: 90px;
 }
 
-#textodescricao textarea {
-  background-color: #C4C4C4;
+.textodescricao {
+  margin-left: 30px;
+  margin-top: 20px;
+  justify-content: space-between;
 }
 
-#textodescricao input {
-  background-color: #C4C4C4;
+.descricaodoservico {
+  
 }

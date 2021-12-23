@@ -15,35 +15,35 @@
         <div class="TipoServico">
             <span>Categorias</span>
             <form action="/action_page.php" class="FormServico">
-                <div>
+                <div class="topicos">
                     <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
                     <label for="vehicle1"> Designer Gráfico</label>
                 </div>
-                <div>
+                <div class="topicos">
                     <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
                     <label for="vehicle2"> Programação</label>
                 </div>
-                <div>
+                <div class="topicos">
                     <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
                     <label for="vehicle3"> Tradução</label>
                 </div>
-                <div>
+                <div class="topicos">
                     <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
                     <label for="vehicle3"> Marketing Digital</label>
                 </div>
-                <div>
+                <div class="topicos">
                     <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
                     <label for="vehicle3"> Jurídico</label>
                 </div>
-                <div>
+                <div class="topicos">
                     <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
                     <label for="vehicle3"> UI / UX Designer</label>
                 </div>
-                <div>
+                <div class="topicos">
                     <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
                     <label for="vehicle3"> Administrativo</label>
                 </div>
-                <div>
+                <div class="topicos">
                     <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
                     <label for="vehicle3"> Aulas</label>
                 </div>
@@ -56,33 +56,30 @@
 
 
 
-            <div id="divBusca" style="display: flex;">
+            <div class="divBusca" style="display: flex;">
                 <input type       ="text"               
-                       id         ="txtBusca"   
+                       class        ="txtBusca"   
                        placeholder="Buscar..."/>
-                <img src="images/imagemlupa.png" id="imagemlupa" alt="Buscar"/>
+                <img src="images/imagemlupa.png" class="imagemlupa" alt="Buscar"/>
             </div>
 
             <br>
             
-            <div id="DescricaoValor">
-                <br>
-                <div id="categcodigo">
+            <div class="DescricaoValor">                
+                <div class="textodescricao">
                    <label> Categoria: Designer Grafico </label>
-                   <label> Código: 0000001 </label>
                 </div>
-                <br>
-                <div id="textodescricao">
+                   <div class="textodescricao">
+                    <label> Código: 0000001 </label>
+                   </div>                
+                <div class="descricaodoservico">
                   <label for="lname">Descrição do Serviço:</label>
                   <textarea id="lname" name="lname" cols="40" rows="10" ></textarea><br><br>
                 </div> 
-                <br>
-                <div id="textodescricao">
+                <div class="textodescricao">
                   <label for="lname">Valor a Pagar:</label>
                   <textarea cols="40" rows="1" id="lname" name="lname"></textarea><br><br>
-                </div>
-                <br>
-                <br>
+                </div>                               
                   <a href="/proposta" class="RedirecionarServico">    
                       <button class="BotaoCriarServico">Criar Proposta</button>
                   </a>
