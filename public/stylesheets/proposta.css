@@ -69,20 +69,51 @@ div#botao {
 .TempoDescr {
   color: #fff;
     width: 1000px;
- justify-content: space-around;
+ justify-content: space-between;
   font-weight: bold;
   font-size: 42px;
   border-radius: 25px;
   align-items: center;
+  margin-left: 100px;
+  flex-direction: column;
   
 }
 
 .descrevaoservico{
   margin-top: 50px;
-  justify-content: space-between;
+  
+  
 }
 
 .valorapagar{
+  margin-top: 70px;
+}
+
+.trabalhosrealizados{
+  color: #fff;
+    width: 1000px;
+ justify-content: space-between;
+  font-weight: bold;
+  font-size: 42px;
+  border-radius: 25px;
+  align-items: center;
+  margin-left: 0px;
+  flex-direction: column;
   margin-top: 50px;
 }
 
+.imagens{
+  align-items: center;
+}
+
+.linhacomdois{
+  margin-top: 50px;
+}
+
+.botao{
+  margin-bottom: 50px;
+}
+
+.botoes-home{
+  margin-top: 300px;
+}

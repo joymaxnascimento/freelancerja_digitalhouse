@@ -16,27 +16,40 @@
         <form action="/proposta" method="post">  
             <div class="TempoDescr">
                 <div class="linhacomdois">
-                    <label for="fname" style="color:rgb(27, 205, 236);"
+                    <label for="fname" style="color:rgb(27, 205, 236);padding-right: 30px;"
                     ><strong>Tempo de entrega</strong>:</label>
-                    <input type="text" id="fname" name="fname" size="80"
-                    style="font-size: 60;"  >
-                </div>
-                <div class="descrevaoservico">
-                    <label for="lname" style="color:rgb(27, 205, 236);"
+                    <textarea id="lname" name="lname" cols="60" rows="1"></textarea>
+                    </div>
+                <div class="descrevaoservico" style="display: flex; flex-direction: row; align-items: center;padding-right: 50px;" >
+                    
+                    <div>
+                    <label for="lname" style="color:rgb(27, 205, 236);padding-right: 15px;"
                     ><strong>Descreva o Serviço</strong>:</label>
-                    <input type="text" id="lname" size="80" name="lname" style="font-size: 60;">
+                    </div>
+                    <div>
+                    <textarea id="lname" name="lname" cols="60" rows="10"></textarea>
+                    </div>
                 </div>
                 <div class="valorapagar">
-                    <label for="vname" style="color:rgb(27, 205, 236);"><strong>Valor a pagar</strong>:</label>
-                    <input type="text" id="vname" name="vname" style="font-size: 60;">
-                </div>
-                <div class="trabalhosrealizados">
-                    <label for="uname" style="color:rgb(27, 205, 236);"><strong>Trabalhos Realizados</strong:</label>
-                    <img src="images/anexararquivo.png">
-                    <img src="images/simboloupload.png">
+                    <label for="vname" style="color:rgb(27, 205, 236);padding-right: 125px;"><strong>Valor a pagar</strong>:</label>
+                    <textarea id="lname" name="lname" cols="60" rows="1"></textarea>
+                    </div>
+                <div class="trabalhosrealizados" 
+                    style="display: flex; flex-direction: row; align-items: center;" >
+                    <div>
+                        <label for="uname" style="color:rgb(27, 205, 236);">Trabalhos Realizados:</label>
+                    </div>
+                    <div>
+                        <img src="images/anexararquivo.png" style="padding-top: 20px;">
+                    </div>
+                    <div>
+                        <img src="images/simboloupload.png">
+                    </div>
+                </div>    
+
                 </div>    
             </div>
-            <div id="botao">
+            <div class="botao">
                 <a href="/propParaVoce"> 
                 <button type="submit" class="botoes-home">Concluir Proposta</button>
                 </a>
