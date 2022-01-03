@@ -3,7 +3,7 @@
 module.exports = {
     async index(req, res, next){ 
         
-        res.render('propParaVoce', { title: 'Proposta Para Você!' });
+        res.render('Proposta Para Voce', { title: 'Proposta Para Você!' });
   
     },
   
