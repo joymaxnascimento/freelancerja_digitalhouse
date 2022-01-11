@@ -1,10 +1,11 @@
-//  const { Cliente, Sequelize } = require('../models');
+const { TipoServico } = require('../models')
 
 module.exports = {
-    async index(req, res, next){ 
+    async index(req, res, next){
+
+        let tiposServicos = await TipoServico.findAll({order: ['servico']})
         
-        /*res.render('cliente', { title: 'Cliente' }); */
-        res.render('soucliente', { title: 'Cliente: propor serço' });
+        res.render('soucliente', { title: 'Cliente: propor serviço', servicos: tiposServicos} );
   
     },
   
