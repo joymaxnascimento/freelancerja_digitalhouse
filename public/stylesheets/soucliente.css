@@ -41,6 +41,7 @@ display: flex;
 justify-content: center;
 font-size: 18px;
 font-weight: bold;
+padding-top: 20px;
 }
 .FormServico {
 display: flex;
@@ -111,5 +112,14 @@ e faz com que o justify-content seja aplicado para eixo horizontal */
 }
 
 .topicos {
-  margin-left: 90px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-left: 200px;
+}
+
+.entrada{
+  display: flex;
+  align-items: center;
+  line-height: 3;
 }
