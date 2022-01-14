@@ -17,8 +17,10 @@
             <form action="" class="FormServico">
                 <div class="topicos">
                     <% servicos.forEach(tipo => { %>
-                    <input type="radio" name="servicos" id=<%= tipo.servico %>  value=<%= tipo.servico %>>
+                        <div class="entrada">
+                    <input type="radio" name="servicos" id=<%= tipo.servico %>  value=<%= tipo.idtipo_servico %>>
                     <label for="servicos"><%= tipo.servico %></label>
+                </div>
                     <% }) %>
                 </div>
               </form>
