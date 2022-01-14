@@ -131,7 +131,16 @@ height: 80vh;
 }
 
 .topicos {
-  padding-left: 90px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-left: 200px;
+}
+
+.entrada{
+  display: flex;
+  align-items: center;
+  line-height: 3;
 }
 
 .textodescricao {
