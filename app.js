@@ -3,7 +3,7 @@ var express      = require('express');
 var path         = require('path');
 var cookieParser = require('cookie-parser');
 var logger       = require('morgan');
-eercicio
+
 var           inicioRouter  = require('./routes/inicio');
 var         raizRouter      = require('./routes/raiz')
 var        freelancerRouter = require('./routes/freelancer');
