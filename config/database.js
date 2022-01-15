@@ -1,9 +1,11 @@
+const dados = require('../database_config.json')
+
 const config = {
-    username: 'root',
-    password:'root',
-    database: 'freelancerja_db',
-    host: '172.17.0.2',
-    dialect: 'mysql'
+    username: dados.username,
+    password:dados.password,
+    database: dados.database,
+    host: dados.host,
+    dialect: dados.dialect
 }
 
 module.exports = config
