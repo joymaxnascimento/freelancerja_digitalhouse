@@ -109,3 +109,4 @@ dist
 *.mwb.bak
 
 /ignore
+database_config.json
