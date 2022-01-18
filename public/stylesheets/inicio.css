@@ -60,4 +60,6 @@ header {
   font-size: 36px;
   border-radius: 20px;
   border: #fff 5px solid;
+
 }
+.botoes-home:hover { color:#38B6FF; background-color: #fff; border-color:#38B6FF;};

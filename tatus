@@ -1,0 +1,143 @@
+[33mcommit fd708824a1fe999cf37da21a8b212397366bcddd[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m, [m[1;31morigin/dev[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: pauloadm2008 <pauloadm2008@gmail.com>
+Date:   Mon Jan 3 16:22:14 2022 -0300
+
+    criacao das telas cadastro criado e proposta criada / modificação da tela proposta para você
+
+[33mcommit b3f7592b945db21a7782e399a616bbf6c4d93f50[m
+Author: pauloadm2008 <pauloadm2008@gmail.com>
+Date:   Wed Dec 29 16:01:49 2021 -0300
+
+    modificação da tela (proposta)
+
+[33mcommit 2bfb24817d85bbab9fd0015525d5214cbdfc24ba[m
+Author: pauloadm2008 <pauloadm2008@gmail.com>
+Date:   Mon Dec 27 15:15:51 2021 -0300
+
+    modificação das telas (sou freelancer) e (proposta)
+
+[33mcommit 4a942699074435f076152c392935c4308148a240[m
+Author: pauloadm2008 <pauloadm2008@gmail.com>
+Date:   Thu Dec 23 17:29:23 2021 -0300
+
+    modificação das telas (sou cliente) e (sou freelancer)
+
+[33mcommit 706cb7577e987bcf0e768482fd802b07fab9957a[m
+Author: pauloadm2008 <pauloadm2008@gmail.com>
+Date:   Wed Dec 22 15:14:48 2021 -0300
+
+    modificação das telas (login, cadastro e proposta recusada)
+
+[33mcommit 4470da2efba23ffcf36e06be72a572c2d8d99bce[m
+Author: pauloadm2008 <pauloadm2008@gmail.com>
+Date:   Mon Dec 20 15:29:40 2021 -0300
+
+    Tela de pagamento
+
+[33mcommit dacebde494125fd99e30cc4e1e3c1ff329ea661b[m
+Author: pauloadm2008 <pauloadm2008@gmail.com>
+Date:   Fri Dec 17 16:12:10 2021 -0300
+
+    Tela de pagamento
+
+[33mcommit 8a2db15529a1fa072a511475e906a7228cf126e7[m
+Author: pauloadm2008 <pauloadm2008@gmail.com>
+Date:   Thu Dec 16 16:45:15 2021 -0300
+
+    tela proposta aceita
+
+[33mcommit f262e041cd7cdb5773af7487b1b03e58ebea9e87[m
+Author: pauloadm2008 <pauloadm2008@gmail.com>
+Date:   Thu Dec 16 15:39:15 2021 -0300
+
+    tela proposta aceita
+
+[33mcommit a5acedfca7eae722be8e9ee6adfcd16043baded2[m
+Author: pauloadm2008 <pauloadm2008@gmail.com>
+Date:   Tue Dec 14 15:55:43 2021 -0300
+
+    tela proposta aceita
+
+[33mcommit 06026c3c43f8591815c4b73335451f4cd9428493[m
+Author: pauloadm2008 <pauloadm2008@gmail.com>
+Date:   Mon Dec 13 15:41:04 2021 -0300
+
+    Ajuste do arquivo proposta.css
+
+[33mcommit e09df029f9183666227c89ec0599ee8b948407eb[m
+Author: Guido Rafael <guidorafael23@gmail.com>
+Date:   Sat Dec 11 23:37:11 2021 -0300
+
+    melhorias em display-flex. Criaçao pagina proposta. Acrescentou tag 'doctype'
+
+[33mcommit bb352ca388e25f16a13a39ca87cc65a22af3d2ac[m
+Author: Guido Rafael <guidorafael23@gmail.com>
+Date:   Thu Dec 9 19:47:58 2021 -0300
+
+    aperfeiçoamento da view e da css proposta
+
+[33mcommit 165add2216cae4e29cd1ccae61cea9ef139007a5[m
+Author: Guido Rafael <guidorafael23@gmail.com>
+Date:   Wed Dec 8 09:37:55 2021 -0300
+
+    aperfeiçoamento da view e da css soucliente
+
+[33mcommit 2e29d74b3cdf6dfbaefad3316b61c5c38712878b[m
+Author: Guido Rafael <guidorafael23@gmail.com>
+Date:   Mon Dec 6 15:45:57 2021 -0300
+
+    criou tela de proposta e correçoes nas telas de login e cadastro
+
+[33mcommit 752d05fb952f06acf8af2997d2cbd9afb766eb0b[m
+Author: Guido Rafael <guidorafael23@gmail.com>
+Date:   Fri Dec 3 19:35:24 2021 -0300
+
+    atualização de posições
+
+[33mcommit ec2ef68568c84ed8161aa65dc22b059332d7a8f4[m
+Author: Guido Rafael <guidorafael23@gmail.com>
+Date:   Fri Dec 3 18:40:50 2021 -0300
+
+    atualização de posições
+
+[33mcommit df4276be092f0774c66d2eaac0929dd667d765c1[m
+Author: Guido Rafael <guidorafael23@gmail.com>
+Date:   Thu Dec 2 12:20:07 2021 -0300
+
+    correçoes estéticas botões - faltam as demais e telas.
+
+[33mcommit fc45812ea1cfc0109e8ecc6da7ce75230cec9c76[m
+Author: Guido Rafael <guidorafael23@gmail.com>
+Date:   Mon Nov 29 15:31:26 2021 -0300
+
+    criadas telas especificas para login e cadastro de pessoa. Requer revisão estética das telas.
+
+[33mcommit 162b928ee8fe58b92eb75a4f03de782cc1fcffe0[m
+Author: Guido Rafael <guidorafael23@gmail.com>
+Date:   Mon Nov 29 15:15:11 2021 -0300
+
+    simples teste atualização do 'teste_push.txt' pelo git
+
+[33mcommit 4a432ca7948b31ad4412e7299c19538cd8209e5d[m
+Author: Joymax Andrade do Nascimento <joymax.nascimento@equinoxgold.com>
+Date:   Mon Nov 29 08:46:24 2021 -0300
+
+    Teste push to dev
+
+[33mcommit c75eacc3d71df5106f7159c7afaa55308d37679e[m
+Author: Joymax Andrade do Nascimento <joymax.nascimento@equinoxgold.com>
+Date:   Mon Nov 29 08:24:00 2021 -0300
+
+    Ajustes nas rotas, com apoio do Victor.
+
+[33mcommit c8efd0f8d52a5ef3cc1f696cee32ae8b6308b02a[m
+Author: Guido Rafael <guidorafael23@gmail.com>
+Date:   Thu Nov 25 17:31:23 2021 -0300
+
+    primeiro commit do projeto
+
+[33mcommit f6c0a740605b9e23e3dc9c0c6a5eaee24bed6a04[m
+Author: Joymax <62568772+joymaxnascimento@users.noreply.github.com>
+Date:   Fri Nov 19 18:28:40 2021 -0300
+
+    Initial commit
