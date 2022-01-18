@@ -102,3 +102,11 @@ dist
 
 # TernJS port file
 .tern-port
+
+
+*.pdf
+*.mwb
+*.mwb.bak
+
+/ignore
+database_config.json

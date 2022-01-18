@@ -14,40 +14,15 @@
     <div class="PropostaServico" >
         <div class="TipoServico">
             <span>Categorias</span>
-            <form action="/action_page.php" class="FormServico">
+            <form action="" class="FormServico">
                 <div class="topicos">
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1"> Designer Gráfico</label>
+                    <% servicos.forEach(tipo => { %>
+                        <div class="entrada">
+                    <input type="radio" name="servicos" id=<%= tipo.servico %>  value=<%= tipo.idtipo_servico %>>
+                    <label for="servicos"><%= tipo.servico %></label>
                 </div>
-                <div class="topicos">
-                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                    <label for="vehicle2"> Programação</label>
+                    <% }) %>
                 </div>
-                <div class="topicos">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                    <label for="vehicle3"> Tradução</label>
-                </div>
-                <div class="topicos">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                    <label for="vehicle3"> Marketing Digital</label>
-                </div>
-                <div class="topicos">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                    <label for="vehicle3"> Jurídico</label>
-                </div>
-                <div class="topicos">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                    <label for="vehicle3"> UI / UX Designer</label>
-                </div>
-                <div class="topicos">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                    <label for="vehicle3"> Administrativo</label>
-                </div>
-                <div class="topicos">
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                    <label for="vehicle3"> Aulas</label>
-                </div>
-                <!-- <input type="submit" value="Submit"> -->
               </form>
             <br>
             <br>
