@@ -104,8 +104,7 @@ dist
 .tern-port
 
 
-*.pdf
-*.mwb
+
 *.mwb.bak
 
 /ignore
