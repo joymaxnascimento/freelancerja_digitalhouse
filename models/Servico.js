@@ -23,14 +23,14 @@ module.exports = (sequelize, DataType) => {
     })
 
     Servico.associate = (model) => {
-        Servico.hasOne(model.TipoServico, {
+        Servico.belongsTo(model.TipoServico, {
           foreignKey: 'idtipo_servico',
           as: 'tipo_servico'
         })
       }
 
     Servico.associate = (model) => {
-        Servico.hasOne(model.Usuario, {
+        Servico.belongsTo(model.Usuario, {
           foreignKey: 'idusuario_cliente',
           as: 'usuario'
         })
@@ -39,7 +39,7 @@ module.exports = (sequelize, DataType) => {
       Servico.associate = (model) => {
         Servico.hasMany(model.Proposta, {
           foreignKey: 'idproposta',
-          as: 'proposta'
+          as: 'propostas'
         })
       }
 
