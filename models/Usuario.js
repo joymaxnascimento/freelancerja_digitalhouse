@@ -38,18 +38,16 @@ module.exports = (sequelize, DataType) => {
     Usuario.associate = (model) => {
         Usuario.hasMany(model.Proposta, {
             foreignKey: 'idusuario_freelancer',
-            as: 'proposta'
+            as: 'propostas'
         })
     }
 
     Usuario.associate = (model) => {
         Usuario.hasMany(model.Servico, {
             foreignKey: 'idusuario_cliente',
-            as: 'servico'
+            as: 'servicos'
         })
     }
-
-
 
     return Usuario
 }
