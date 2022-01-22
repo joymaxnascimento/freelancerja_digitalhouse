@@ -18,18 +18,18 @@ module.exports = (sequelize, DataType) => {
             allowNull: false
         }
     },{
-        tableName: 'servico',
+        tableName: 'proposta',
         timestamps: false
     })
     Proposta.associate = (model) => {
-        Proposta.hasOne(model.Servico, {
+        Proposta.belongsTo(model.Servico, {
           foreignKey: 'id_servico',
           as: 'servico'
         })
       }
 
     Proposta.associate = (model) => {
-        Proposta.hasOne(model.Usuario, {
+        Proposta.belongsTo(model.Usuario, {
           foreignKey: 'idusuario_freelancer',
           as: 'usuario'
         })
