@@ -1,4 +1,4 @@
-const dados = require('../database_config.json')
+const dados = require('../../database_config.json')
 
 const config = {
     username: dados.username,
