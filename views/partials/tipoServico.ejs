@@ -1,0 +1,15 @@
+<div class="TipoServico">
+    <span>Categorias</span>
+    <form action="" class="FormServico">
+        <div class="topicos">
+            <% tiposServicos.forEach(tipo => { %>
+                <div class="entrada">
+            <input type="radio" name="servicos" id=<%= tipo.servico %>  value=<%= tipo.idtipo_servico %>>
+            <label for="servicos"><%= tipo.servico %></label>
+        </div>
+            <% }) %>
+        </div>
+      </form>
+    <br>
+    <br>
+</div>
