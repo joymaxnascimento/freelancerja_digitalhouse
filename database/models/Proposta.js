@@ -12,10 +12,6 @@ module.exports = (sequelize, DataType) => {
         aceite_cliente:{
             type: DataType.BOOLEAN,
             allowNull: false
-        },
-        data_entrega:{
-            type: DataType.DATE,
-            allowNull: false
         }
     },{
         tableName: 'proposta',
@@ -23,7 +19,7 @@ module.exports = (sequelize, DataType) => {
     })
     Proposta.associate = (model) => {
         Proposta.belongsTo(model.Servico, {
-          foreignKey: 'id_servico',
+          foreignKey: 'idservico',
           as: 'servico'
         })
       }
