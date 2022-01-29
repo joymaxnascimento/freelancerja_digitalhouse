@@ -1,23 +1,10 @@
-var express = require('express');
-var router = express.Router();
-const CadPropController = require("../controllers/CadPropController");
+let express = require('express')
+let router = express.Router()
+
+let CadPropController = require("../controllers/CadPropController")
+
+router.get('/', CadPropController.viewForm)
+router.post('/criar', CadPropController.salvarForm)
 
 
-/* GET home page. */
-// router.get('/', FreelancerController.index );
-/* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   /* res.send('listar propostas'); */ 
-//   res.render('proposta', { title: 'Cadastrar Proposta' });
-// });
-
-router.get('/', CadPropController.index );
-
-module.exports = router;
-
-
-
-
-
-
-
+module.exports = router
