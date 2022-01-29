@@ -62,4 +62,31 @@ header {
   border: #fff 5px solid;
 
 }
-.botoes-home:hover { color:#38B6FF; background-color: #fff; border-color:#38B6FF;};
+.botoes-home:hover { color:#38B6FF; background-color: #fff; border-color:#38B6FF;}
+
+
+.row {
+
+  width: 100%;
+
+  padding: 20px;
+
+  background-color: #cccccc;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+}
+
+.formServico .BotaoCriarProposta{
+  
+  margin-left: 2%;
+
+background-color: #38B6FF;
+width: 200px;
+height: 50px;
+font-weight: bold;
+font-size: 12px;
+border-radius: 25px;
+border: #fff 5px solid;
+
+}
