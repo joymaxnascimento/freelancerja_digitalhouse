@@ -2,37 +2,31 @@
 <html lang="en">
   <%- include('./partials/head') %>  
   <body>
-
     <header>
-
     </header>
-    <main> 
-      
-      <form action="/acaoLogin" id="form1" method="get">
-      </form>
+    <main>       
+      <form action="cadastro/criar" id="formUsuario" method="POST">
       <div class="logins">
         <img                   src="images/CadastroTit.png" alt="Tit Cadastro" >
         <div class="linhaComDois">
             <img                   src="images/CadastroNome.png"        alt="Tit Login Senha"  >
-            <input type="text" id="senha" name="loginSenha" form="loginForm">
+            <input type="text" id="nome" name="nome" form="formUsuario">
           </div>  
         <div class="linhaComDois">
           <img                   src="images/TitLoginEmail.png"        alt="Tit Login e-mail" >
-          <input type="text" id="email" name="loginEmail" form="loginForm">
+          <input type="email" id="email" name="email" form="formUsuario">
         </div>
         <div class="linhaComDois">
           <img                   src="images/TitLoginSenha.png"        alt="Tit Login Senha"  >
-          <input type="text" id="senha" name="loginSenha" form="loginForm">
+          <input type="password" id="senha" name="senha" form="formUsuario">
         </div>
-        <div class="concluirCadastro">
-        <a href="/cadastrocriado">
-             <!-- <img src="images/BtnLoginEntrar.png"       alt="Btn Login ENTRAR" >  -->
-             Concluir Cadastro
-        </a>
+        <button class="BotaoCadastrarUsuario" type="submit">Cadastrar</button>
+        
+        </form>
+        <div class="concluirCadastro"></div>
         </div>
       </div>
-    </main>
-    
+    </main>    
     <footer>
 
     </footer>

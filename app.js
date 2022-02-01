@@ -8,6 +8,7 @@ var inicioRouter = require('./routes/inicio');
 var loginRouter = require('./routes/login');
 var cadastrarPropostaRouter = require('./routes/cadastrarPropostaRouter');
 var cadastrarServicoRouter = require('./routes/cadastrarServicoRouter');
+var cadastrarUsuarioRouter = require('./routes/cadastrarUsuarioRouter')
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use('/inicio', inicioRouter);
 app.use('/login', loginRouter);
 app.use('/proposta', cadastrarPropostaRouter);
 app.use('/servico', cadastrarServicoRouter);
+app.use('/cadastro', cadastrarUsuarioRouter)
 
 app.use(function (req, res, next) {
   next(createError(404));
