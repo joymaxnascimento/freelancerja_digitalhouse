@@ -16,7 +16,16 @@ module.exports = (sequelize, DataType) => {
     },{
         tableName: 'proposta',
         timestamps: false
-    })
+    },
+    {
+      indexes: [
+          {
+              unique: true,
+              fields: ['idservico', 'idusuario_freelancer']
+          }
+      ]
+    }
+    )
     Proposta.associate = (model) => {
         Proposta.belongsTo(model.Servico, {
           foreignKey: 'idservico',
