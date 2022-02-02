@@ -7,8 +7,22 @@
             <img class="imagem-logo" src="images/TitIndicaSouCliente.png" alt="soucliente" title="Sou Cliente">
         </header>
         <div class="PropostaServico">
-            
-            <%- include('./partials/tipoServico') %>
+            <div class="TipoServico">
+                <span>Categorias</span>
+                <div class="topicos">
+                    <% tiposServicos.forEach(tipo=> { %>
+                        <div class="entrada">
+                            <input type="radio" name="idtipo_servico" id=<%=tipo.servico %> value=<%=
+                                tipo.idtipo_servico %> form="formServico">
+                                <label for="idtipo_servico">
+                                    <%= tipo.servico %>
+                                </label>
+                        </div>
+                        <% }) %>
+                </div>
+                <br>
+                <br>
+            </div>
 
             <div class="TempoDescr">
                 <form class="formServico" action="servico/criar" id="formServico" method="POST">
