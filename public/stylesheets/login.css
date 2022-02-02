@@ -13,15 +13,11 @@
     background-color: #cccccc;
    }
   
-  
   .principal {
-  /*    height: 100%; */
-      width: 100%;
-      display: flex;
-  /*    justify-content: space-between; alinha horizontal */
-      flex-direction: column;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     }
-  
   
   .logins {
     display: flex;
@@ -38,16 +34,14 @@
   }
 
   .linhaComDois {
-      display:flex;
-      flex-direction: row;margin-top: 50px; margin-right: 50px;
+    display:flex;
+    flex-direction: row;margin-top: 50px; margin-right: 50px;
   }
   
   .linhaComDois input {
     margin-left: 50px;
   }
 
-
   .botaopreto {
     margin-top: 50px;
   }
-  
