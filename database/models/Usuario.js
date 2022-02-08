@@ -33,7 +33,14 @@ module.exports = (sequelize, DataType) => {
     },{
         tableName: 'usuario',
         timestamps: false
-    })
+    },    {
+        indexes: [
+            {
+                unique: true,
+                fields: ['email']
+            }
+        ]
+      })
 
     Usuario.associate = (model) => {
         Usuario.hasMany(model.Proposta, {
