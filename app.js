@@ -7,6 +7,7 @@ var session = require('express-session');
 
 var inicioRouter = require('./routes/inicio');
 var loginRouter = require('./routes/loginRouter');
+var logoutRouter = require('./routes/logoutRouter');
 var cadastrarPropostaRouter = require('./routes/cadastrarPropostaRouter');
 var cadastrarServicoRouter = require('./routes/cadastrarServicoRouter');
 var cadastrarUsuarioRouter = require('./routes/cadastrarUsuarioRouter')
@@ -29,10 +30,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/inicio', inicioRouter);
-app.use('/login', loginRouter);
+app.use('/', loginRouter);
 app.use('/cadastro', cadastrarUsuarioRouter)
 app.use(auth);
+app.use('/sair', logoutRouter);
+app.use('/inicio', inicioRouter);
 app.use('/proposta', cadastrarPropostaRouter);
 app.use('/servico', cadastrarServicoRouter);
 
@@ -49,7 +51,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', {title: 'Página não encontrada!', loginCadastroUsuario: '', linkLogin: ''});
 });
 
 module.exports = app;
