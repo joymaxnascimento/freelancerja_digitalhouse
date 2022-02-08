@@ -10,13 +10,13 @@ let CadPropController = {
             required: false
         }})
 
-        return res.render('cadastro_proposta_freelancer', {title: 'Proposta', tiposServicos: tiposServicos, servicos: servicos})
+        return res.render('cadastro_proposta_freelancer', {title: 'Proposta', tiposServicos: tiposServicos, servicos: servicos, loginCadastroUsuario: req.session.usuario.nome, linkLogin: '/'})
     },
     salvarForm: async (req, res) => {
 
         `idproposta`,`valor_proposto_freelancer`,`aceite_cliente`,`idusuario_freelancer`
 
-        const {idservico, idusuario_freelancer, valor_proposto_freelancer} = req.body
+        const {idservico, valor_proposto_freelancer} = req.body
 
         console.log('\n\n req_body proposta_controller \n\n')
 
@@ -24,12 +24,12 @@ let CadPropController = {
 
         const salvar = await Proposta.create({
             idservico, 
-            idusuario_freelancer, 
+            idusuario_freelancer: req.session.usuario.idusuario, 
             valor_proposto_freelancer,
             aceite_cliente: 0
         })
 
-        res.render('propostacriada', {title: 'Proposta Criada'})
+        res.render('propostacriada', {title: 'Proposta Criada', loginCadastroUsuario: req.session.usuario.nome, linkLogin: '/'})
         console.log('salvar form proposta\n\n' + salvar)
     }
 }
