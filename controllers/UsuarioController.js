@@ -6,12 +6,10 @@ const UsuarioController = {
 
         let usuarios = await Usuario.findAll({ order: ['nome'] })
 
-        return res.render('cadastro_usuario', { title: 'Cadastro de Usuário', usuarios: usuarios })
+        return res.render('cadastro_usuario', { title: 'Cadastro de Usuário', usuarios: usuarios, loginCadastroUsuario: 'Login', linkLogin: '/'})
     },
     salvarForm: async (req, res) => {
         const { nome, senha, email } = req.body
-
-        console.log(req.body)
 
         const salvar = await Usuario.create({
             nome,
@@ -22,28 +20,31 @@ const UsuarioController = {
             status: 1
         })
 
-        res.render('cadastrocriado', { title: 'Cadastro Criado' })
-        console.log('salvar form servico\n\n' + salvar)
+        res.render('cadastro_usuario_criado', { title: 'Cadastro Criado', loginCadastroUsuario: 'Página inicial', linkLogin: '/inicio' })
+        
     },
 
     loginForm: (req, res) => {
-        res.render('login', { title: 'Login' })
+        res.render('login', { title: 'Login', loginCadastroUsuario: 'Cadastro', linkLogin: '/cadastro' })
     },
 
     logarUsuario: async (req, res) => {
         let { email, senha } = req.body
 
-        let usuario = await Usuario.findOne({ where: { email: email } })
+        let usuarioLogado = await Usuario.findOne({ where: { email: email } })
 
-        console.log('\n\nreq.session.usuario.idusuario\n\n' + usuario + '\n\n')
-
-        if (!bcrypt.compareSync(senha, usuario.senha)) {
+        if (!bcrypt.compareSync(senha, usuarioLogado.senha)) {
             return res.send('Senha inválida!')
         }
 
-        req.session.usuario = usuario
+        req.session.usuario = usuarioLogado
 
-        res.render('inicio', { title: 'Início' })
+        res.render('inicio', { title: 'Início', loginCadastroUsuario: req.session.usuario.nome, linkLogin: '/'})
+    },
+
+    logoutUsuario: (req, res) => {
+        req.session.destroy()
+        res.redirect('/')
     }
 }
 
