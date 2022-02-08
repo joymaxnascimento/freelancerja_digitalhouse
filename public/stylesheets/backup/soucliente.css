@@ -1,6 +1,4 @@
-* { 
-    box-sizing: border-box;
-}
+
     /*header {
     display: flex;
     background-color: #1BD5DB;
@@ -10,14 +8,8 @@
     justify-content: center;
     height: 72px;
 }*/
-body {
-    /*display: flex;
-    flex-direction: column;
-    align-items: center;*/
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+
+
 .TituloSouCliente {
     font-style: italic;
     background-color: #1BD5DB;
@@ -128,10 +120,7 @@ e faz com que o justify-content seja aplicado para eixo horizontal */
     line-height: 3;
 }
 
-input#data_entrega {
-    border-radius: 2em;
-    border-color: #E5E5E5;
-}
+
 
 input[type="number"] {
     border-radius: 2em;
@@ -142,9 +131,6 @@ form#formServico {
     margin: 2.5em 3.7em 3em 4.9em;
 }
 
-.logins {
-    text-align: center;
-}
 
 input#email {
     margin: 87px 0 27px 37px;
