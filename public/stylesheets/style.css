@@ -1,9 +1,18 @@
+@font-face {
+    font-family: SansitaOne;
+    src: url('../Fontes/SansitaOne.ttf');
+ }
+
 * { 
+    font-family: SansitaOne, Arial, Helvetica, sans-serif;
     box-sizing: border-box;
 }
 
+header ul li a{
+    color: #38B6FF;
+}
+
 body{
-    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -11,6 +20,31 @@ body{
 body h1{
     text-align: center;
 }
+
+header {
+    
+font-size: 150%;
+line-height: 75px;
+color: #38B6FF;
+}
+
+header a{    
+text-decoration:none;
+}
+
+header a:visited{    
+    color: #38B6FF;
+    }
+
+    header .menu a:visited{    
+        color: #38B6FF;
+        }
+
+header .menu-lista{
+    font-size: 50%;
+}
+
+
 
 /*header {
     background-color: #cccccc;
@@ -157,7 +191,6 @@ footer{
 }
 
 .TituloSouCliente {
-    font-style: italic;
     background-color: #1BD5DB;
 }
 
@@ -324,4 +357,17 @@ form button{
 textarea{
     border-radius: 2em;
     border-color: #E5E5E5;
+}
+
+.menu ul ul {
+    position: absolute;
+    visibility: hidden;
+    }
+
+.menu ul li:hover ul {
+    visibility: visible;
+    }
+
+.menu li{
+    list-style-type: none;
 }
