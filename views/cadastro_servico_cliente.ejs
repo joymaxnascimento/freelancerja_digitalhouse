@@ -1,52 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<%- include('./partials/head') %>
-
-    <body>
-        <header class="TituloSouCliente">
-            <img class="imagem-logo" src="images/TitIndicaSouCliente.png" alt="soucliente" title="Sou Cliente">
-        </header>
-        <div class="PropostaServico">
-            <div class="TipoServico">
-                <span>Categorias</span>
-                <div class="topicos">
-                    <% tiposServicos.forEach(tipo=> { %>
-                        <div class="entrada">
-                            <input type="radio" name="idtipo_servico" id=<%=tipo.servico %> value=<%=
-                                tipo.idtipo_servico %> form="formServico">
-                                <label for="idtipo_servico">
-                                    <%= tipo.servico %>
-                                </label>
-                        </div>
-                        <% }) %>
-                </div>
-                <br>
-                <br>
+<%- include('./partials/header') %>
+    <div class="PropostaServico">
+        <div class="TipoServico">
+            <span>Categorias</span>
+            <div class="topicos">
+                <% tiposServicos.forEach(tipo=> { %>
+                    <div class="entrada">
+                        <input type="radio" name="idtipo_servico" id=<%=tipo.servico %> value=<%= tipo.idtipo_servico %>
+                            form="formServico">
+                            <label for="idtipo_servico">
+                                <%= tipo.servico %>
+                            </label>
+                    </div>
+                    <% }) %>
             </div>
-
-            <div class="TempoDescr">
-                <form class="formServico" action="servico/criar" id="formServico" method="POST">
-
-                    <label for="idusuario_cliente">Código do Usuário</label>
-                    <input type="number" name="idusuario_cliente" name="idusuario_cliente"><br><br>
-
-                    <label for="data_entrega">Data de entrega:</label>
-                    <input type="date" id="data_entrega" name="data_entrega"><br><br>
-
-                    <label for="decricao">Descreva o Serviço:</label>
-                    <textarea rows="10" name="descricao" id="descricao" form="formServico"></textarea><br><br>
-                    <!-- <input type="text" id="decricao" name="decricao"><br><br> -->
-
-                    <label for="valor_a_pagar">Valor a pagar:</label><br>
-                    <input type="number" step="0.01" placeholder="R$ 0.0" id="valor_a_pagar"
-                        name="valor_a_pagar"><br><br>
-
-                    <button class="BotaoCriarServico" type="submit">Criar Serviço</button>
-
-                </form>
-                </a>
-            </div>
+            <br>
+            <br>
         </div>
-    </body>
 
-</html>
+        <div class="TempoDescr">
+            <form class="formServico" action="servico/criar" id="formServico" method="POST">
+
+                <label for="data_entrega">Data de entrega:</label>
+                <input type="date" id="data_entrega" name="data_entrega"><br><br>
+
+                <label for="decricao">Descreva o Serviço:</label>
+                <textarea rows="10" name="descricao" id="descricao" form="formServico"></textarea><br><br>
+
+                <label for="valor_a_pagar">Valor a pagar:</label><br>
+                <input type="number" step="0.01" placeholder="R$ 0.0" id="valor_a_pagar" name="valor_a_pagar"><br><br>
+
+                <button class="BotaoCriarServico" type="submit">Criar Serviço</button>
+
+            </form>
+            </a>
+        </div>
+    </div>
+    <%- include('./partials/footer') %>

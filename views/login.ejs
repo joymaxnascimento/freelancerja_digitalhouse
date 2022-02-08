@@ -1,37 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<%- include('./partials/head') %>
-  </head>
-
-  <body>
-
-    <header>
-
-    </header>
-    <main>
-      <br>
-      <h1 style="text-align: center;">Faz Login ou o Cadastro Inicial</h1>
-      <br>
-      <form action="login/submit" id="formLogin" method="POST">
-        <div class="logins">
-          <img                   src="images/CadastroTit.png" alt="Tit Cadastro" >
-          
-          <div class="linhaComDois">
-            <img                   src="images/TitLoginEmail.png"        alt="Tit Login e-mail" >
-            <input type="email" id="email" name="email" form="formLogin">
-          </div>
-          <div class="linhaComDois">
-            <img                   src="images/TitLoginSenha.png"        alt="Tit Login Senha"  >
-            <input type="password" id="senha" name="senha" form="formLogin">
-          </div>
-          <button class="BotaoCadastrarUsuario" type="submit">Entrar</button>
-          
-          </form>
-    </main>
-
-    <footer>
-
-    </footer>
-  </body>
-
-</html>
+<%- include('./partials/header') %>
+  <h1>Faz Login ou o Cadastro Inicial</h1>
+  <form action="/submit" id="formLogin" method="POST">
+    <div class="login-cadastro">
+      <img src="images/CadastroTit.png" alt="Tit Cadastro">
+      <div class="entrada">
+        <img src="images/TitLoginEmail.png" alt="Tit Login e-mail">
+        <input type="email" id="email" name="email" form="formLogin">
+      </div>
+      <div class="entrada">
+        <img src="images/TitLoginSenha.png" alt="Tit Login Senha">
+        <input type="password" id="senha" name="senha" form="formLogin">
+      </div>
+      <button class="botoes-home" type="submit">Entrar</button>
+  </form>
+  <%- include('./partials/footer') %>

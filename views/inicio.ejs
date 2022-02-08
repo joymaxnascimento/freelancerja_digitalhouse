@@ -1,40 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-  <%- include('./partials/head') %>
-  <body>
-
-    <header>
-
-    </header>
-    <main>
-      <section class="principal">
-        <div class="topo">
-          <img class="imagem-logo" src="images/TxtFreelancerJa.png" alt="TxtFreelancerJa" title="TxtFree">  
-          <a href="/login">
-            <img class="imglogin" src="images/BtnLogin.png"         alt="TxtFreelancerJa" title="login ou cadastro">
-          </a>
-        </div>
-        
-        <div class="moca">
-          <h1>Seja seu Chefe !</h1>
-          <div>
-            <a href="/servico">
-              <button class="botoes-home">Sou Cliente</button>
-            </a>
-            <a href="/proposta"> 
-              <button class="botoes-home">Sou Freelancer</button>
-            </a> 
-          </div>
-        </div>  
-      </section>
-  
-      <!-- h1><%= title %></h1          -->
-      <!-- p> benvindo  <%= title %></p -->
-    
-    </main>
-    
-    <footer>
-
-    </footer>
-  </body>
-</html>
+<%- include('./partials/header') %>
+  <section class="principal">
+    <div class="moca">
+      <h1>Seja seu Chefe!</h1>
+      <div class="inicio">
+        <a href="/servico">
+          <button class="botoes-home">Sou Cliente</button>
+        </a>
+        <a href="/proposta">
+          <button class="botoes-home">Sou Freelancer</button>
+        </a>
+      </div>
+    </div>
+  </section>
+  <%- include('./partials/footer') %>
