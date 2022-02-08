@@ -1,34 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-  <%- include('./partials/head') %>  
-  <body>
-    <header>
-    </header>
-    <main>       
-      <form action="cadastro/criar" id="formUsuario" method="POST">
-      <div class="logins">
-        <img                   src="images/CadastroTit.png" alt="Tit Cadastro" >
-        <div class="linhaComDois">
-            <img                   src="images/CadastroNome.png"        alt="Tit Login Senha"  >
-            <input type="text" id="nome" name="nome" form="formUsuario">
-          </div>  
-        <div class="linhaComDois">
-          <img                   src="images/TitLoginEmail.png"        alt="Tit Login e-mail" >
-          <input type="email" id="email" name="email" form="formUsuario">
+<%- include('./partials/header') %>
+    <form action="cadastro/criar" id="formCadastroUsuario" method="POST">
+      <div class="login-cadastro">
+        <img src="images/CadastroTit.png" alt="Tit Cadastro">
+        <div class="entrada">
+          <img src="images/CadastroNome.png" alt="Tit Login Senha">
+          <input type="text" id="nome" name="nome">
         </div>
-        <div class="linhaComDois">
-          <img                   src="images/TitLoginSenha.png"        alt="Tit Login Senha"  >
-          <input type="password" id="senha" name="senha" form="formUsuario">
+        <div class="entrada">
+          <img src="images/TitLoginEmail.png" alt="Tit Login e-mail">
+          <input type="email" id="email" name="email">
         </div>
-        <button class="BotaoCadastrarUsuario" type="submit">Cadastrar</button>
-        
-        </form>
-        <div class="concluirCadastro"></div>
+        <div class="entrada">
+          <img src="images/TitLoginSenha.png" alt="Tit Login Senha">
+          <input type="password" id="senha" name="senha">
         </div>
+        <button class="botoes-home" type="submit">Cadastrar</button>
       </div>
-    </main>    
-    <footer>
-
-    </footer>
-  </body>
-</html>
+    </form>
+    <%- include('./partials/footer') %>
