@@ -132,12 +132,14 @@ footer{
 .botoes-home {
     color: #fff;
     background-color: #38B6FF;
-    width: 110%;
-    height: 250%;
+    width: 20%;
+    height: 50%;
     font-weight: bold;
     font-size: 36px;
     border-radius: 20px;
     border: #fff 5px solid;
+    
+    
 }
 
 .botoes-home:hover { 
@@ -370,4 +372,25 @@ textarea{
 
 .menu li{
     list-style-type: none;
+}
+
+.email001{
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    
+}
+.senha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.botoes-home001 {
+    display: flex;
+    flex-direction:column;
+    align-items:center; 
+}
+.textoFreelancerJa{
+    padding-left: 50px;
+    font-size: 50px;
 }
