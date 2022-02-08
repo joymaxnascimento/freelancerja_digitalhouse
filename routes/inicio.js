@@ -3,7 +3,7 @@ var router  = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('inicio', { title: 'FreelancerJA' });
+  res.render('inicio', { title: 'Freelancer JÁ', loginCadastroUsuario: req.session.usuario.nome, linkLogin: '/' });
 });
 
 
