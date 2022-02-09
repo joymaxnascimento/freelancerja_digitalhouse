@@ -390,13 +390,15 @@ textarea{
     display:flex;
     flex-direction:row;
     justify-content:center;
-    padding-bottom: 2vh
+    padding-bottom: 2vh;
+    color: white
 }
 .senha{
     display: flex;
     flex-direction: row;     /* column; */
     justify-content: center; /* align-items: center; */
     padding-bottom: 2vw;
+    color: white
 }    
 .botoes-home001 {
     display: flex;
