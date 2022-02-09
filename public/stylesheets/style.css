@@ -120,6 +120,12 @@ footer{
     
 }
 
+.login-cadastro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .login-cadastro .botoes-home{
     width: 150%;
     height: 130%;
@@ -130,6 +136,7 @@ footer{
     background-color: #fff; 
     border-color:#38B6FF;
 }
+
 
 .botoes-home {
     color: #fff;
@@ -169,16 +176,29 @@ footer{
     border: #fff 5px solid;
 }
 
+.login-cadastro-001 {
+    display: flexbox;
+    flex-direction: column;
+    justify-items:flex-end;
+}
+
 .entrada {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content:flex-end;
+    
+    width: 60vw;   
+    padding-bottom: 0.5vh; 
+    padding-top:    0.5vh; 
+}
+
+/* .entrada{
+    display: flex;
     align-items: center;
-    width: 100%;    
-  }
+                          line-height: 3;
+} */ 
 
-
-  .PropostaServico {
+.PropostaServico {
     display: flex;
     width: 100%;
     margin-top: 20px;
@@ -299,11 +319,6 @@ footer{
     margin-left: 200px;
 }
 
-.entrada{
-    display: flex;
-    align-items: center;
-    line-height: 3;
-}
 
 .textodescricao {
     margin-left: 30px;
