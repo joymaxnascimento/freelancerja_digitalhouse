@@ -5,7 +5,8 @@ const config = {
     password:dados.password,
     database: dados.database,
     host: dados.host,
-    dialect: dados.dialect
+    dialect: dados.dialect,
+    logging: console.log
 }
 
 module.exports = config
