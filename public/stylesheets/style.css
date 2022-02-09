@@ -419,6 +419,10 @@ label {
 .justificavertival {
     padding-bottom: 10vh;
 }
-.class-padding-right-5vw {
-    padding-right: 5vw;
+#souCliente {
+    padding-right: 2.5vw;
+}
+
+#souFreelancer {
+    padding-left: 2.5vw;
 }
