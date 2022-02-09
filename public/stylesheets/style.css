@@ -52,13 +52,6 @@ header .menu-lista{
     Top: 134,01px;
 }*/
 
-/*.principal {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-}*/
-
 header #imagemFreelancerJa{
     width: 30%;
 }
@@ -423,4 +416,7 @@ label {
 } 
 .justificavertival {
     padding-bottom: 10vh;
+}
+.class-padding-right-5vw {
+    padding-right: 5vw;
 }
