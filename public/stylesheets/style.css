@@ -88,10 +88,10 @@ footer{
 
 .topo {
     display:flex;
-    align-items: center;
-    height: 4em;
-    justify-content: space-between;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 4em;
     border-bottom: 10px solid #38B6FF;
 }
 
@@ -132,7 +132,7 @@ footer{
 .botoes-home {
     color: #fff;
     background-color: #38B6FF;
-    width: 20%;
+    width: 20vw;
     height: 50%;
     font-weight: bold;
     font-size: 36px;
@@ -335,7 +335,9 @@ footer{
 
 input{
     border-radius: 2em;
-    border-color: #E5E5E5;
+    border-color:  #E5E5E5;
+    padding-left:  0.8em;
+    padding-right: 0.8em;
 }
 
 .txtBusca{
@@ -374,23 +376,34 @@ textarea{
     list-style-type: none;
 }
 
-.email001{
-    display: flex;
-    flex-direction:column;
-    align-items:center;
-    
+.email001 {
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    padding-bottom:2vh
 }
 .senha{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    flex-direction: row;     /* column; */
+    justify-content: center; /* align-items: center; */
+    padding-bottom: 2vw;
+}    
 .botoes-home001 {
     display: flex;
     flex-direction:column;
-    align-items:center; 
+    align-items:center;
+    padding-bottom:2vh 
 }
-.textoFreelancerJa{
-    padding-left: 50px;
+.textoFreelancerJa {
+    padding-left: 5vw;
     font-size: 50px;
+}
+#atribuipddright {
+    padding-right: 5vw;
+}
+label {
+    padding-right: 1vw;
+} 
+.justificavertival {
+  padding-bottom:10vh ;
 }
