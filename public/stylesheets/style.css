@@ -139,8 +139,7 @@ footer{
     border-radius: 20px;
     border: #fff 5px solid;
     min-width: 142px;
-    
-    
+    max-width: 175px;    
 }
 
 .botoes-home:hover { 
