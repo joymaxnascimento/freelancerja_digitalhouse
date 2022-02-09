@@ -1,46 +1,40 @@
 module.exports = (sequelize, DataType) => {
     const Usuario = sequelize.define('Usuario', {
-        idusuario:{
+        idusuario: {
             type: DataType.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        nome:{
+        nome: {
             type: DataType.STRING,
             allowNull: false
         },
-        senha:{
+        senha: {
             type: DataType.STRING,
             allowNull: false
         },
-        data_cadastro:{
+        data_cadastro: {
             type: DataType.DATE,
             allowNull: false
         },
-        data_atualizacao:{
+        data_atualizacao: {
             type: DataType.DATE,
             allowNull: false
         },
-        email:{
+        email: {
             type: DataType.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
-        status:{
+        status: {
             type: DataType.BOOLEAN,
             allowNull: false,
             defaultValue: true
         },
-    },{
+    }, {
         tableName: 'usuario',
         timestamps: false
-    },    {
-        indexes: [
-            {
-                unique: true,
-                fields: ['email']
-            }
-        ]
-      })
+    })
 
     Usuario.associate = (model) => {
         Usuario.hasMany(model.Proposta, {
@@ -55,6 +49,6 @@ module.exports = (sequelize, DataType) => {
             as: 'servicos'
         })
     }
-
+    
     return Usuario
 }
