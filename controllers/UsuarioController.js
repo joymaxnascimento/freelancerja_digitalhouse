@@ -20,7 +20,7 @@ const UsuarioController = {
             status: 1
         })
 
-        res.render('cadastro_usuario_criado', { title: 'Cadastro Criado', loginCadastroUsuario: nome, linkLogin: '/inicio' })
+        res.render('cadastro_usuario_criado', { title: 'Cadastro Criado', loginCadastroUsuario: nome, linkLogin: '/' })
         
     },
 
