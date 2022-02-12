@@ -179,10 +179,17 @@ footer{
     display: flex;
     flex-direction: row;
     justify-content:flex-end;
-    
+    align-items: center;
+    height: 50px;
     width: 60vw;   
     padding-bottom: 0.5vh; 
     padding-top:    0.5vh; 
+    margin: 25px 0;
+}
+
+.entrada input {
+height: 25px;
+border-color: #38B6FF;
 }
 
 /* .entrada{
