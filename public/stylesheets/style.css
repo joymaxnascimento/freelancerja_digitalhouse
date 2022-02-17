@@ -407,3 +407,28 @@ footer{
     white-space: nowrap;
 }
 
+.faleconosco {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5vw;
+    font-size: 80px;
+}
+
+
+#faleconoscoazul {
+    background-color: #1BD5DB;
+
+}
+
+.fale001 {
+    font-size: 3rem;
+    color: #fff;
+    margin-top: 0px;
+}
+
+.faleimg {
+    margin: 0;
+    width:80%;
+    padding-left: 80px;
+}
