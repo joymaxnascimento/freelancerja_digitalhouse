@@ -400,3 +400,10 @@ footer{
     border-top: 0.5vw solid #38B6FF;
 }
 
+.input_servico{
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+    white-space: nowrap;
+}
+
