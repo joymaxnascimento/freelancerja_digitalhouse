@@ -418,6 +418,10 @@ footer{
 
 #faleconoscoazul {
     background-color: #1BD5DB;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 
