@@ -24,7 +24,7 @@ module.exports = (sequelize, DataType) => {
         email: {
             type: DataType.STRING,
             allowNull: false,
-            unique: 'email'
+            unique: false
         },
         status: {
             type: DataType.BOOLEAN,
