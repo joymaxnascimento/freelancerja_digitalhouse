@@ -404,7 +404,7 @@ footer{
 
 .input_servico{
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 0.5vh;
     align-items: center;
     white-space: nowrap;
 }
