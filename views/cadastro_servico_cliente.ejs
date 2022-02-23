@@ -1,27 +1,7 @@
 <%- include('./partials/header') %>
     <div class="PropostaServico">
-        <div class="TipoServico">
-            <span>Categorias</span>
-            <div class="topicos">
-                <% tiposServicos.forEach(tipo=> { %>
-                    <div class="entrada">
-                        <label>
-                        <input type  = "radio" 
-                               name  = "idtipo_servico" 
-                               class = bolaradiobutton
-                               id    = <%=tipo.servico %> 
-                               value = <%= tipo.idtipo_servico %>
-                               form  = "formServico"
-                        >
-                                <%= tipo.servico %>
-                        </label>
-                    </div>
-                    <% }) %>
-            </div>
-            <br>
-            <br>
-        </div>
-
+        <%- include('./partials/tipoServico.ejs') %>
+ 
         <div class="TempoDescr">
             <form class="formServico" 
                   action="servico/criar" 
