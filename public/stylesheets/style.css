@@ -150,7 +150,7 @@ img.imglogin {
     width: 60vw;   
     padding-bottom: 0.5vh; 
     padding-top:    0.5vh; 
-    margin: 25px 0;
+    margin: 0.5vh;
 }
 
 .entrada input {
@@ -328,8 +328,9 @@ form button{
 }
 
 textarea{
-    border-radius: 2em;
+    border-radius: 0.75em;
     border-color: #E5E5E5;
+    padding:       0.25em;
 }
 
 
@@ -438,3 +439,9 @@ footer{
     width:80%;
     padding-left: 80px;
 }
+
+/* tamanho da bola do radio button */
+.bolaradiobutton {
+    width:  24px;
+    height: 24px;  
+   }

@@ -5,11 +5,16 @@
             <div class="topicos">
                 <% tiposServicos.forEach(tipo=> { %>
                     <div class="entrada">
-                        <input type="radio" name="idtipo_servico" id=<%=tipo.servico %> value=<%= tipo.idtipo_servico %>
-                            form="formServico">
-                            <label for="idtipo_servico">
+                        <label>
+                        <input type  = "radio" 
+                               name  = "idtipo_servico" 
+                               class = bolaradiobutton
+                               id    = <%=tipo.servico %> 
+                               value = <%= tipo.idtipo_servico %>
+                               form  = "formServico"
+                        >
                                 <%= tipo.servico %>
-                            </label>
+                        </label>
                     </div>
                     <% }) %>
             </div>
@@ -18,7 +23,10 @@
         </div>
 
         <div class="TempoDescr">
-            <form class="formServico" action="servico/criar" id="formServico" method="POST">
+            <form class="formServico" 
+                  action="servico/criar" 
+                  id="formServico" 
+                  method="POST">
                 <div class="input_servico">
 
                     <label for="data_entrega">Data de entrega:</label>
