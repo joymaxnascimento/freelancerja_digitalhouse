@@ -12,6 +12,8 @@ var cadastrarPropostaRouter = require('./routes/cadastrarPropostaRouter');
 var cadastrarServicoRouter = require('./routes/cadastrarServicoRouter');
 var cadastrarUsuarioRouter = require('./routes/cadastrarUsuarioRouter')
 var faleconoscoRouter      = require('./routes/faleconoscoRouter');
+var adminRouter      = require('./routes/adminRouter');
+
 var auth = require('./middlewares/auth')
 
 var app = express();
@@ -32,6 +34,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', loginRouter);
+app.use('/admin', adminRouter);
 app.use('/cadastro', cadastrarUsuarioRouter)
 app.use('/faleconosco', faleconoscoRouter)
 app.use(auth);
