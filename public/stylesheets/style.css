@@ -18,7 +18,7 @@ body h1{
     text-align: center;
 }
 
-header .topo{
+/* header .topo{
     display:flex;
     flex-direction: row;
     align-items: center;
@@ -28,7 +28,40 @@ header .topo{
     width: 100vw;
     border-bottom: .5vw solid#fff;
     background-color: #38B6FF;
-    color: #fff;
+    
+} */
+header .topo{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 4vw;
+    width: 100vw;
+    border-bottom: .5vw solid #FFF;
+    background-color: #38B6FF;
+}
+
+#faleconosco {
+    color: #FFF;
+    align-items: center;
+}
+
+footer .topo{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 4vw;
+    width: 100vw;
+    border-top: .5vw solid #FFF;
+    background-color: #38B6FF;
+}
+
+
+
+
+#faleconosco a {
+    text-decoration: none;
 }
 
 
@@ -65,7 +98,7 @@ img.imglogin {
     justify-content: center;
     position: relative;
     width:  100vw;
-    height:  100vh;
+    height:  85vh;
     background-image: url('/images/AMoca.png');
     background-size: cover;
     background-position: center;
@@ -395,6 +428,7 @@ textarea{
     display: flex;
     padding-left: 1.5vw;
     font-size: 2vw;
+    color:#FFF;
 }
 
 #menu-usuario {
