@@ -1,15 +1,22 @@
+
+
 <div class="TipoServico">
-    <span>Categorias</span>
-    <form action="" class="FormServico">
+    <span>Categorias</span>    
         <div class="topicos">
             <% tiposServicos.forEach(tipo => { %>
                 <div class="entrada">
-            <input type="radio" name="servicos" id=<%= tipo.servico %>  value=<%= tipo.idtipo_servico %>>
-            <label for="servicos"><%= tipo.servico %></label>
-        </div>
+                    <label>
+                    <input  type="radio" 
+                            name="idtipo_servico" 
+                            class = bolaradiobutton
+                            id    = <%= tipo.servico %>  
+                            value = <%= tipo.idtipo_servico %>
+                    >
+                    <%= tipo.servico %>
+                    </label>
+                </div>
             <% }) %>
         </div>
-      </form>
     <br>
     <br>
 </div>

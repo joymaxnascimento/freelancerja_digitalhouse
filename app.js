@@ -11,6 +11,7 @@ var logoutRouter = require('./routes/logoutRouter');
 var cadastrarPropostaRouter = require('./routes/cadastrarPropostaRouter');
 var cadastrarServicoRouter = require('./routes/cadastrarServicoRouter');
 var cadastrarUsuarioRouter = require('./routes/cadastrarUsuarioRouter')
+var faleconoscoRouter      = require('./routes/faleconoscoRouter');
 var auth = require('./middlewares/auth')
 
 var app = express();
@@ -20,7 +21,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(session({
   secret: 'fullstack_freelancer_ja',
-  resave: true,
+  /*resave: true,*/
   saveUninitialized: true
 }))
 
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', loginRouter);
 app.use('/cadastro', cadastrarUsuarioRouter)
+app.use('/faleconosco', faleconoscoRouter)
 app.use(auth);
 app.use('/sair', logoutRouter);
 app.use('/inicio', inicioRouter);

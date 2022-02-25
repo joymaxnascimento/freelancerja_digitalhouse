@@ -4,7 +4,7 @@ const Op = Sequelize.Op
 
 
 const  CadServicoController = {
-     viewForm: async (req, res) =>{
+    viewForm: async (req, res) =>{
         
         let tiposServicos = await TipoServico.findAll({order: ['servico']})
 
