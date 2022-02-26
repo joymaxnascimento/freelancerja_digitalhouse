@@ -109,3 +109,4 @@ dist
 
 /ignore
 database_config.json
+.vscode/
