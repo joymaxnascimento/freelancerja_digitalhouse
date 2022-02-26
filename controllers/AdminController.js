@@ -1,4 +1,4 @@
-const TipoServico = require("../database/models")
+const {TipoServico} = require("../database/models")
 const  AdminController = {
     admin:  (req, res) =>{
         return res.render('admin', {title: 'Administracao', linkLogin: "/", loginCadastroUsuario: "login" })
