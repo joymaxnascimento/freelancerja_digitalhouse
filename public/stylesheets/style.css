@@ -1,3 +1,58 @@
+:root{
+    --cor-principal: #38B6FF
+}
+
+@font-face {
+    font-family: SansitaOne;
+    src: url('../Fontes/SansitaOne.ttf');
+ }
+
+body {
+    font-family: SansitaOne, Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    font-size: 2vh;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4vh;
+    width: 100vw;
+    background-color: var(--cor-principal);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    border-bottom: .5vh solid #FFF;    
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    font-weight: bolder;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 4vh;
+    width: 100vw;
+    background-color: var(--cor-principal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-top: .5vh solid #FFF;    
+}
+
+/* css antigo
 @font-face {
     font-family: SansitaOne;
     src: url('../Fontes/SansitaOne.ttf');
@@ -18,18 +73,6 @@ body h1{
     text-align: center;
 }
 
-/* header .topo{
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    height: 4vw;
-    width: 100vw;
-    border-bottom: .5vw solid#fff;
-    background-color: #38B6FF;
-    
-} */
 header .topo{
     display:flex;
     flex-direction: row;
@@ -262,7 +305,7 @@ border-color: #38B6FF;
     border-radius: 20px;
     border: #fff 5px solid;
 }
-/* 
+
 .divBusca{
     display: flex;
     justify-content: space-between;
@@ -284,7 +327,6 @@ border-color: #38B6FF;
     width:460px;
     border-radius:15px;
 }
- */
 
 .imagemlupa {
     height:60%;
@@ -413,8 +455,8 @@ textarea{
 }
 .senha{
     display: flex;
-    flex-direction: row;     /* column; */
-    justify-content: center; /* align-items: center; */
+    flex-direction: row;     
+    justify-content: center; 
     padding-bottom: 2vw;
     color: white
 }    
@@ -500,8 +542,9 @@ footer{
     padding-left: 80px;
 }
 
-/* tamanho da bola do radio button */
+tamanho da bola do radio button
 .bolaradiobutton {
     width:  24px;
     height: 24px;  
    }
+*/
