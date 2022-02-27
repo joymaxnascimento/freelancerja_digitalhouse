@@ -6,7 +6,7 @@ const UsuarioController = {
 
         let usuarios = await Usuario.findAll({ order: ['nome'] })
 
-        return res.render('cadastro_usuario', { title: 'Cadastro de Usuário', usuarios: usuarios, loginCadastroUsuario: 'Login', linkLogin: '/'})
+        return res.render('cadastro_usuario', { title: 'Cadastro de Usuário', linkHome:'/', usuarios: usuarios, loginCadastroUsuario: 'Login', linkLogin: '/'})
     },
     salvarForm: async (req, res) => {
         const { nome, senha, email } = req.body
@@ -20,12 +20,12 @@ const UsuarioController = {
             status: 1
         })
 
-        res.render('cadastro_usuario_criado', { title: 'Cadastro Criado', loginCadastroUsuario: nome, linkLogin: '/' })
+        res.render('cadastro_usuario_criado', { title: 'Cadastro Criado', linkHome:'/', loginCadastroUsuario: nome, linkLogin: '/' })
         
     },
 
     loginForm: (req, res) => {
-        res.render('login', { title: 'Login', loginCadastroUsuario: 'Cadastro', linkLogin: '/cadastro' })
+        res.render('login', { title: 'Login', linkHome:'/', loginCadastroUsuario: 'Cadastro', linkLogin: '/cadastro' })
     },
 
     logarUsuario: async (req, res) => {
@@ -39,7 +39,7 @@ const UsuarioController = {
 
         req.session.usuario = usuarioLogado
 
-        res.render('inicio', { title: 'Início', loginCadastroUsuario: req.session.usuario.nome, linkLogin: '/'})
+        res.render('inicio', { title: 'Início', linkHome:'/inicio', loginCadastroUsuario: req.session.usuario.nome, linkLogin: '/'})
     },
 
     logoutUsuario: (req, res) => {
