@@ -1,8 +1,8 @@
 let express = require('express')
 let router  = express.Router()
 
-router.get('/', function(req, res, next) {
-  res.render('inicio', { title: 'Freelancer JÁ', loginCadastroUsuario: req.session.usuario.nome, linkLogin: '/' });
-});
+let InicioController = require('../controllers/InicioController')
+
+router.get('/', InicioController.inicio)
 
 module.exports = router;
