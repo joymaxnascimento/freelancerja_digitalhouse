@@ -10,7 +10,7 @@ let CadPropController = {
             required: false
         }})
 
-        return res.render('cadastro_proposta_freelancer', {title: 'Proposta', tiposServicos: tiposServicos, servicos: servicos, loginCadastroUsuario: req.session.usuario.nome, linkLogin: '/'})
+        return res.render('cadastro_proposta_freelancer', {title: 'Proposta', linkHome:'/inicio', tiposServicos: tiposServicos, servicos: servicos, loginCadastroUsuario: req.session.usuario.nome, linkLogin: '/'})
     },
     salvarForm: async (req, res) => {
 
@@ -29,7 +29,7 @@ let CadPropController = {
             aceite_cliente: 0
         })
 
-        res.render('propostacriada', {title: 'Proposta Criada', loginCadastroUsuario: req.session.usuario.nome, linkLogin: '/'})
+        res.render('propostacriada', {title: 'Proposta Criada', linkHome:'/inicio', loginCadastroUsuario: req.session.usuario.nome, linkLogin: '/'})
         console.log('salvar form proposta\n\n' + salvar)
     }
 }
