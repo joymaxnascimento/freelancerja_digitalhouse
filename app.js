@@ -23,7 +23,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(session({
   secret: 'fullstack_freelancer_ja',
-  /*resave: true,*/
+  resave: true,
   saveUninitialized: true
 }))
 
