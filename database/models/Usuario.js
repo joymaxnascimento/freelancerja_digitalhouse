@@ -23,8 +23,7 @@ module.exports = (sequelize, DataType) => {
         },
         email: {
             type: DataType.STRING,
-            allowNull: false,
-            unique: true
+            allowNull: false
         },
         status: {
             type: DataType.BOOLEAN,
@@ -34,7 +33,15 @@ module.exports = (sequelize, DataType) => {
     }, {
         tableName: 'usuario',
         timestamps: false
-    })
+    },
+        {
+            indexes: [
+                {
+                    unique: true,
+                    fields: ['email']
+                }
+            ]
+        })
 
     Usuario.associate = (model) => {
         Usuario.hasMany(model.Proposta, {
@@ -49,6 +56,6 @@ module.exports = (sequelize, DataType) => {
             as: 'servicos'
         })
     }
-    
+
     return Usuario
 }
