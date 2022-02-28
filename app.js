@@ -56,7 +56,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error', {title: 'Página não encontrada!', loginCadastroUsuario: '', linkLogin: ''});
+  res.render('error', {title: 'Página não encontrada!', linkHome: '/', loginCadastroUsuario: '', linkLogin: ''});
 });
 
 module.exports = app;
