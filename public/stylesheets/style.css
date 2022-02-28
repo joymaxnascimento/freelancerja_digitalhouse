@@ -7,36 +7,53 @@
     src: url('../Fontes/SansitaOne.ttf');
  }
 
-body {
+ body{
     font-family: SansitaOne, Arial, Helvetica, sans-serif;
+    display: block;
     box-sizing: border-box;
-    font-size: 2vh;
     margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-}
+    color: white;
+    background-color: var(--cor-principal);
+ }
 
-header{
+ header{
     position: fixed;
     top: 0;
-    left: 0;
     height: 4vh;
     width: 100vw;
-    background-color: var(--cor-principal);
+    border-bottom: 1vh solid white;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: white;
-    border-bottom: .5vh solid #FFF;    
-}
-a{
+ }
+
+ a{
     text-decoration: none;
     color: white;
 }
+
 a:hover{
     font-weight: bolder;
 }
+
+ main{
+    position: fixed;
+    top: 5vh;
+    height: 90vh;
+    width: 100vw;
+
+ }
+
+ footer{
+    position: fixed;
+    bottom: 0;
+    height: 4vh;
+    width: 100vw;
+    border-top: 1vh solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
 
 /* menu usuario */
 nav ul {
@@ -68,7 +85,7 @@ nav ul {
   }
 
 /* fim do menu usuario */
-
+/*
 footer{
     position: fixed;
     bottom: 0;
@@ -82,6 +99,7 @@ footer{
     color: white;
     border-top: .5vh solid #FFF;    
 }
+*/
 
 /* css antigo
 @font-face {
