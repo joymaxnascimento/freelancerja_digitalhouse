@@ -1,9 +1,10 @@
-<nav class="menu-usuario">
-    <ul>
-        <li><a class="nome_usuario" href=<%=linkLogin %> ><%= loginCadastroUsuario %></a>
-            <ul>
-                <li><a href="/sair">Sair</a></li>
-            </ul>
-        </li>
-    </ul>
+<nav>
+<ul>
+    <li class="menu-usuario">
+      <a href=<%=linkLogin %> class="menu-usuario-btn"><%= loginCadastroUsuario %></a>
+      <div class="menu-usuario-oculto">
+        <a href="/sair">Sair</a>
+      </div>
+    </li>
+  </ul>
 </nav>

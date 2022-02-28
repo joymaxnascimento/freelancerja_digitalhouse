@@ -38,6 +38,37 @@ a:hover{
     font-weight: bolder;
 }
 
+/* menu usuario */
+nav ul {
+    list-style-type: none;
+    overflow: hidden;
+  }
+  
+  nav li a, .menu-usuario-btn {
+    display: inline-block;
+    padding: 1.3vh 0;
+  }
+  
+  li.menu-usuario {
+    display: inline-block;
+  }
+  
+  .menu-usuario-oculto {
+    display: none;
+    position: absolute;
+    background-color: var(--cor-principal);
+    max-height: 4vh;
+    min-width: 20vw;
+    box-shadow: 0vh .5vw 1vh 0vh rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+    
+  .menu-usuario:hover .menu-usuario-oculto {
+    display: block;
+  }
+
+/* fim do menu usuario */
+
 footer{
     position: fixed;
     bottom: 0;
