@@ -51,6 +51,19 @@ a:hover{
     border-radius: 2vw;
 }
 
+button{
+    cursor: pointer;
+    color: white;
+    background-color: var(--cor-principal);
+    border: 0.2vw solid;
+}
+
+button:hover{
+    color: var(--cor-principal);
+    background-color: white;
+    border-color: var(--cor-principal);
+}
+
  .moca{
     display: flex;
     flex-direction: column;
@@ -93,42 +106,25 @@ a:hover{
      min-width: 10vw;
  }
 
- button{
-     cursor: pointer;
-     color: white;
-     background-color: var(--cor-principal);
-     border: 0.2vw solid;
+ .inicio{
+     display: flex;
+     min-width: 65vw;
+     justify-content: space-around;
+     padding: 1vh;
  }
 
- button:hover{
-     color: var(--cor-principal);
-     background-color: white;
-     border-color: var(--cor-principal);
+ .inicio button{
+    min-height: 5vh;
+    min-width: 30vw;
  }
 
-/* 
-.botoes-home {
-    color: white;
-    background-color: #38B6FF;
-    width: 30vw;
-    border-radius: 2vw;
-    border: white 0.2vw solid;
-    font-size: 3vw;
-}
+ .moca img{
+    max-height: 40vh;
+    max-width: 40vw;
+    height: auto;
+    width: auto;
+ }
 
-.botoes-home:hover { 
-    color:#38B6FF; 
-    background-color: #fff; 
-    border-color:#38B6FF;
-  }
-
-  .botoes-home001 {
-    display: flex;
-    flex-direction:column;
-    align-items:center;
-    padding-bottom: 2vh;     
-}
-*/
  
  footer{
     position: fixed;
@@ -171,21 +167,7 @@ nav ul {
   }
 
 /* fim do menu usuario */
-/*
-footer{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 4vh;
-    width: 100vw;
-    background-color: var(--cor-principal);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    border-top: .5vh solid #FFF;    
-}
-*/
+
 
 /* css antigo
 @font-face {
@@ -234,8 +216,6 @@ footer .topo{
     border-top: .5vw solid #FFF;
     background-color: #38B6FF;
 }
-
-
 
 
 #faleconosco a {
@@ -313,9 +293,6 @@ img.imglogin {
     background-color: #fff; 
     border-color:#38B6FF;
 }
-
-
-
 
 .row {
     width: 100%;
@@ -541,33 +518,6 @@ textarea{
     padding:       0.25em;
 }
 
-.menu-usuario .nome_usuario{
-        color: #fff;
-}
-.menu-usuario ul ul {
-    position: absolute;
-    visibility: hidden;
-    }
-
-.menu-usuario ul li:hover ul {
-    visibility: visible;
-    background-color: white;
-    }
-
-.menu-usuario ul{
-    padding: 0 20px;
-}
-
-.menu-usuario li{
-    list-style-type: none;
-    
-}
-
-.menu-usuario a{
-    font-size: 1.5vw;
-    color: #fff;
-}
-
 .email001 {
     display:flex;
     flex-direction:row;
@@ -590,29 +540,12 @@ textarea{
     color:#FFF;
 }
 
-#menu-usuario {
-    display: flex;
-    align-items: center;
-    padding-right: 1.5vw;
-    font-size: .6vw;
-}
-
 label {
     padding-right: 1vw;
 } 
+
 .justificavertival {
     padding-bottom: 10vh;
-}
-
-footer{
-    display:flex;
-    align-items: center;
-    position: relative;
-    width: 100vw;
-    height: 5vh;
-    justify-content: center;
-    flex-direction: row;
-    border-top: 0.5vw solid #38B6FF;
 }
 
 .input_servico{
@@ -636,7 +569,6 @@ footer{
     padding: 5vw;
     font-size: 80px;
 }
-
 
 #faleconoscoazul {
     background-color: #1BD5DB;
