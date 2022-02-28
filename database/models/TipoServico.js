@@ -1,17 +1,25 @@
 module.exports = (sequelize, DataType) => {
     const TipoServico = sequelize.define('TipoServico', {
-        idtipo_servico:{
+        idtipo_servico: {
             type: DataType.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        servico:{
+        servico: {
             type: DataType.STRING,
             allowNull: false
         }
-    },{
+    }, {
         tableName: 'tipo_servico',
-        timestamps: false
+        timestamps: false,
+        indexes: [
+            {
+                name: 'unique_servico',
+                unique: true,
+                fields: ['servico']
+
+            }
+        ]
     })
 
     TipoServico.associate = (model) => {
