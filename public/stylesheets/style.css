@@ -7,8 +7,12 @@
     src: url('../Fontes/SansitaOne.ttf');
  }
 
- body{
+ *{
     font-family: SansitaOne, Arial, Helvetica, sans-serif;
+    letter-spacing: .2vw;
+ }
+
+ body{
     display: block;
     box-sizing: border-box;
     margin: 0;
@@ -41,9 +45,91 @@ a:hover{
     top: 5vh;
     height: 90vh;
     width: 100vw;
-
  }
 
+ input, textarea, button{
+    border-radius: 2vw;
+}
+
+ .moca{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    background-image: url('/images/AMoca.png');
+    background-size: cover;
+    background-position: center;
+ }
+
+ .moca h1, .moca label{
+    text-shadow: -1vw 0vw 2vw black
+ }
+
+
+ .moca form{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ }
+
+ .moca form label{
+    display: inline-block;
+    min-width: 5vw;
+}
+
+.moca form input{
+    display: inline-block;
+    min-height: 3vh;
+    min-width: 30vw;
+}
+
+ .moca form div{
+     padding: 1vh;
+ }
+
+ .moca button{
+     min-height: 3vh;
+     min-width: 10vw;
+ }
+
+ button{
+     cursor: pointer;
+     color: white;
+     background-color: var(--cor-principal);
+     border: 0.2vw solid;
+ }
+
+ button:hover{
+     color: var(--cor-principal);
+     background-color: white;
+     border-color: var(--cor-principal);
+ }
+
+/* 
+.botoes-home {
+    color: white;
+    background-color: #38B6FF;
+    width: 30vw;
+    border-radius: 2vw;
+    border: white 0.2vw solid;
+    font-size: 3vw;
+}
+
+.botoes-home:hover { 
+    color:#38B6FF; 
+    background-color: #fff; 
+    border-color:#38B6FF;
+  }
+
+  .botoes-home001 {
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    padding-bottom: 2vh;     
+}
+*/
+ 
  footer{
     position: fixed;
     bottom: 0;
@@ -229,20 +315,7 @@ img.imglogin {
 }
 
 
-.botoes-home {
-    color: white;
-    background-color: #38B6FF;
-    width: 30vw;
-    border-radius: 2vw;
-    border: white 0.2vw solid;
-    font-size: 3vw;
-}
 
-.botoes-home:hover { 
-    color:#38B6FF; 
-    background-color: #fff; 
-    border-color:#38B6FF;
-  }
 
 .row {
     width: 100%;
@@ -509,12 +582,7 @@ textarea{
     padding-bottom: 2vw;
     color: white
 }    
-.botoes-home001 {
-    display: flex;
-    flex-direction:column;
-    align-items:center;
-    padding-bottom: 2vh;     
-}
+
 #txtFreelancerJaHeader {
     display: flex;
     padding-left: 1.5vw;

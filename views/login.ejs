@@ -1,22 +1,16 @@
 <%- include('./partials/header') %>
-<div class="moca">
-
-
-  <h1>Seja seu chefe!</h1>
-  <form action="/submit" id="formLogin" method="POST">
- 
-    <div class="email001">
-        <label for="email">email:</label>
+  <div class="moca">
+    <h1>Seja seu chefe!</h1>
+    <form action="/submit" id="formLogin" method="POST">
+      <div>
+        <label for="email">E-mail:</label>
         <input type="email" id="email" name="email">
-    </div>          
-    <div class="senha">
-        <label for="senha">senha:</label>
+      </div>
+      <div>
+        <label for="senha">Senha:</label>
         <input type="password" id="senha" name="senha">
-    </div>
-    <div class="botoes-home001">
-      <button class="botoes-home" type="submit">Entrar</button>
-    </div>
- 
-  </form>
-</div>
+      </div>
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
   <%- include('./partials/footer') %>
