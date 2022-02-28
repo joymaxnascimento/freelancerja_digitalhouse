@@ -1,30 +1,22 @@
 <%- include('./partials/header') %>
-    <div class="PropostaServico">
+    <h1>Sou Cliente</h1>
+    <div class="servico">
         <%- include('./partials/tipoServico.ejs') %>
- 
-        <div class="TempoDescr">
-            <form class="formServico" 
-                  action="servico/criar" 
-                  id="formServico" 
-                  method="POST">
-                <div class="input_servico">
-
+            <form action="servico/criar" id="formServico" method="POST">
+                <div>
                     <label for="data_entrega">Data de entrega:</label>
-                    <input type="date" id="data_entrega" name="data_entrega"><br><br>
+                    <input type="date" id="data_entrega" name="data_entrega">
                 </div>
-                <div class="input_servico">
+                <div>
                     <label for="decricao">Descreva o Serviço:</label>
-                    <textarea rows="5" name="descricao" id="descricao" form="formServico"></textarea><br><br>
+                    <textarea name="descricao" id="descricao"></textarea>
                 </div>
-                <div class="input_servico">
-                    <label for="valor_a_pagar">Valor a pagar:</label><br>
+                <div>
+                    <label for="valor_a_pagar">Valor a pagar:</label>
                     <input type="number" step="0.01" placeholder="R$ 0.0" id="valor_a_pagar"
                         name="valor_a_pagar"><br><br>
                 </div>
                 <button class="BotaoCriarServico" type="submit">Criar Serviço</button>
-
             </form>
-            </a>
-        </div>
     </div>
     <%- include('./partials/footer') %>

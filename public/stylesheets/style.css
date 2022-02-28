@@ -47,8 +47,17 @@ a:hover{
     width: 100vw;
  }
 
+ main h1{
+     text-align: center;
+ }
+
  input, textarea, button{
     border-radius: 2vw;
+    padding: 1vh 1vh;
+}
+
+input, textarea{
+    border: .3vh solid black;
 }
 
 button{
@@ -123,6 +132,66 @@ button:hover{
     max-width: 40vw;
     height: auto;
     width: auto;
+ }
+
+ .tipo-servico, .servico form{
+     background-color: var(--cor-principal);
+     border-radius: 2vw;
+     padding: 2vh;
+ }
+
+ .tipo-servico p{
+    text-align: center;
+}
+
+.tipo-servico input[type="radio"]{
+    height: 1.5vh;
+    width: 1.5vh;
+}
+
+.servico form div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+ .servico form label{
+    display: inline-block;
+    min-width: 20vw;
+ }
+
+ .servico form input, .servico textarea{
+    display: inline-block;
+    min-width: 30vw;
+ }
+
+
+ .servico{
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: space-between;
+     padding: 5vh;
+     background-color: white;
+ }
+
+ .servico .tipo-servico{
+     height: auto;
+     width: 30vw;
+ }
+
+ .servico form{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: space-between;
+     min-height: 68vh;
+     min-width: 50vw;
+ }
+
+ .servico textarea{
+    resize: none;
+    height: 50vh;
  }
 
  
