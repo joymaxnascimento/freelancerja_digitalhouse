@@ -1,9 +1,8 @@
-function auth(req, res, next){
-    if(typeof(req.session.usuario) != undefined){
+function auth(req, res, next) {
+    if (typeof (req.session.usuario) != 'undefined') {
         return next()
-    }else{
+    } else {
         return res.redirect('/')
-        //return res.render('login', { title: 'Login', loginCadastroUsuario: 'Cadastro', linkLogin: '/cadastro' })
     }
 }
 
