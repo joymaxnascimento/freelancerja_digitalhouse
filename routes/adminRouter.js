@@ -7,5 +7,4 @@ router.get('/', AdminController.admin)
 router.get('/cadtiposervico', AdminController.tiposervicoView)
 router.post('/cadtiposervico', AdminController.tiposervicoSalvar)
 
-
 module.exports = router
