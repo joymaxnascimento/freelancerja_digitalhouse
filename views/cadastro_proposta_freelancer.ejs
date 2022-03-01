@@ -1,44 +1,27 @@
 <%- include('./partials/header') %>
-    <div class="PropostaServico">
+    <h1>Sou Freelancer</h1>
+    <div class="proposta">
         <%- include('./partials/tipoServico') %>
-            <div class="TempoDescr">
-
-                <div class="divBusca">
-                    <input type="text" class="txtBusca" placeholder="Buscar..." />   
-                    <button id="btnBusca"></button>                 
+            <div>
+                <div class="buscar">
+                    <input type="text" placeholder="Buscar..." />
+                    <button>Buscar</button>
                 </div>
-                <br>
-                <div class="TempoDescr">
+                <div class="cards">
                     <% servicos.forEach(servico=> { %>
-                        <div class="row">
-                            <form class="formServico" action="proposta/criar" id="formProposta" method="POST">
-                                <div class="col-sm">
-                                    <div class="card border-danger mb-3" style="max-width: 20rem;">
-                                        <div class="card-body">
-                                            <h4 class="card-title">
-                                                Data de Entrega: <br>
-                                                <%= servico.data_entrega %>
-                                            </h4>
-                                            <h3 class="card-text">
-                                                Valor a Pagar: <%= servico.valor_a_pagar %><br>
-                                            </h3>
-
-                                            <p class="card-text">Descrição : <%= servico.descricao %>
-                                            </p>
-                                        </div>
-                                        <input hidden name="idservico" value=<%=servico.idservico %>>
-
-                                        <label for="valor_proposto_freelancer">Valor Proposta:</label><br>
-                                        <input type="number" step="0.01" placeholder="R$ 0.0"
-                                            id="valor_proposto_freelancer" name="valor_proposto_freelancer"><br><br>
-
-                                        <button class="BotaoCriarProposta" type="submit">Criar Proposta</button>
-                                    </div>
-                                </div>
-                            </form>
+                        <div class="card">
+                            <h4>
+                                <%= servico.data_entrega.toLocaleDateString("pt-BR") %>
+                            </h4>
+                            <p>
+                                <%= servico.descricao %>
+                            </p>
+                            <h3>
+                                <%= servico.valor_a_pagar %>
+                            </h3>
+                            <button>Fazer Proposta</button>
                         </div>
                         <% }) %>
-
                 </div>
             </div>
     </div>

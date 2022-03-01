@@ -43,8 +43,9 @@ a:hover{
  main{
     position: fixed;
     top: 5vh;
-    height: 90vh;
+    height: 91vh;
     width: 100vw;
+    overflow: overlay;
  }
 
  main h1{
@@ -134,7 +135,11 @@ button:hover{
     width: auto;
  }
 
- .tipo-servico, .servico form{
+ .tipo-servico{
+     max-width: 20vw;
+ }
+
+ .tipo-servico, .servico form, .proposta .cards{
      background-color: var(--cor-principal);
      border-radius: 2vw;
      padding: 2vh;
@@ -166,7 +171,7 @@ button:hover{
  }
 
 
- .servico{
+ .servico, .proposta{
      display: flex;
      flex-direction: row;
      align-items: center;
@@ -192,6 +197,45 @@ button:hover{
  .servico textarea{
     resize: none;
     height: 50vh;
+ }
+
+ .proposta .cards{
+     display: flex;
+     flex-direction: column;
+     max-height: 50vh;
+     overflow: overlay;
+     padding: 2vh;
+ }
+
+ .proposta div{
+     display: flex;
+     flex-direction: column;
+     min-width: 50vw;
+ }
+
+ .proposta .buscar{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    padding-bottom: 2vh;
+}
+
+.proposta .buscar input[type="text"]{
+    width: 50vw;
+}
+
+ .cards .card{
+     background-color: white;
+     color: var(--cor-principal);
+     border-radius: 2vw;
+     padding: 2vh;
+     margin: 2vh;
+     align-items: center;
+ }
+
+ .card div{
+     display: flex;
  }
 
  
