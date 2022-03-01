@@ -6,26 +6,32 @@ const UsuarioController = {
 
         let usuarios = await Usuario.findAll({ order: ['nome'] })
 
-        return res.render('cadastro_usuario', { title: 'Cadastro de Usuário', linkHome:'/', usuarios: usuarios, loginCadastroUsuario: 'Login', linkLogin: '/'})
+        return res.render('cadastro_usuario', { title: 'Cadastro de Usuário', linkHome: '/', usuarios: usuarios, loginCadastroUsuario: 'Login', linkLogin: '/' })
     },
     salvarForm: async (req, res) => {
         const { nome, senha, email } = req.body
 
-        const salvar = await Usuario.create({
-            nome,
-            senha: bcrypt.hashSync(senha, 10),
-            data_cadastro: new Date(),
-            data_atualizacao: new Date(),
-            email,
-            status: 1
-        })
+        let usuarioExistente = await Usuario.findOne({ where: { email } })
 
-        res.render('cadastro_usuario_criado', { title: 'Cadastro Criado', linkHome:'/', loginCadastroUsuario: nome, linkLogin: '/' })
-        
+        if (!usuarioExistente) {
+            await Usuario.create({
+                nome,
+                senha: bcrypt.hashSync(senha, 10),
+                data_cadastro: new Date(),
+                data_atualizacao: new Date(),
+                email,
+                status: 1
+            })
+
+            res.render('cadastro_usuario_criado', { title: 'Cadastro Criado', linkHome: '/', loginCadastroUsuario: nome, linkLogin: '/' })
+
+        } else {
+            res.send('Email já cadastrado!')
+        }
     },
 
     loginForm: (req, res) => {
-        res.render('login', { title: 'Login', linkHome:'/', loginCadastroUsuario: 'Cadastro', linkLogin: '/cadastro' })
+        res.render('login', { title: 'Login', linkHome: '/', loginCadastroUsuario: 'Cadastro', linkLogin: '/cadastro' })
     },
 
     logarUsuario: async (req, res) => {
@@ -33,13 +39,17 @@ const UsuarioController = {
 
         let usuarioLogado = await Usuario.findOne({ where: { email: email } })
 
-        if (!bcrypt.compareSync(senha, usuarioLogado.senha)) {
-            return res.send('Senha inválida!')
+        if (!usuarioLogado) {
+            res.redirect('/')
+        } else {
+            if (!bcrypt.compareSync(senha, usuarioLogado.senha)) {
+                return res.send('Senha inválida!')
+            } else {
+                req.session.usuario = usuarioLogado
+
+                res.render('inicio', { title: 'Início', linkHome: '/inicio', loginCadastroUsuario: req.session.usuario.nome, linkLogin: '/' })
+            }
         }
-
-        req.session.usuario = usuarioLogado
-
-        res.render('inicio', { title: 'Início', linkHome:'/inicio', loginCadastroUsuario: req.session.usuario.nome, linkLogin: '/'})
     },
 
     logoutUsuario: (req, res) => {
