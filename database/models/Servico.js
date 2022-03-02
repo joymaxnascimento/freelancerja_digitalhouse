@@ -6,7 +6,7 @@ module.exports = (sequelize, DataType) => {
             autoIncrement: true
         },
         descricao:{
-            type: DataType.STRING,
+            type: DataType.TEXT('long'),
             allowNull: false
         },
         valor_a_pagar:{
