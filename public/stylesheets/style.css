@@ -9,6 +9,7 @@
 
 *{
     font-family: SansitaOne, Arial, Helvetica, sans-serif;
+    font-size: 1em;
     letter-spacing: .2vw;
 }
 
@@ -31,7 +32,7 @@ header{
     justify-content: space-between;
 }
 
- a{
+a{
     text-decoration: none;
     color: white;
 }
@@ -46,26 +47,49 @@ main{
     height: 91vh;
     width: 100vw;
     overflow: overlay;
+    background-color: white;
 }
 
 main h1{
-     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    margin: 0;
+    height: 5vh;
+    width: 100vw;
+    background-color: var(--cor-principal);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form label, form input{
+   display: inline-block;
+}
+
+form div{
+   padding: 1vh;
 }
 
 input, textarea, button{
+    border: 0.2vw solid;
     border-radius: 2vw;
     padding: 1vh 1vh;
 }
 
 input, textarea{
-    border: .3vh solid black;
+    border-color: gray;
 }
 
 button{
     cursor: pointer;
     color: white;
     background-color: var(--cor-principal);
-    border: 0.2vw solid;
 }
 
 button:hover{
@@ -85,30 +109,17 @@ button:hover{
     background-position: center;
 }
 
-.moca h1, .moca label{
+.moca p, .moca label{
     text-shadow: -1vw 0vw 2vw black
 }
 
-
-.moca form{
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-}
-
-.moca form label{
-    display: inline-block;
-    min-width: 5vw;
+.moca p{
+    font-size: 2em;
 }
 
 .moca form input{
-    display: inline-block;
     min-height: 3vh;
     min-width: 30vw;
-}
-
-.moca form div{
-     padding: 1vh;
 }
 
 .moca button{
@@ -117,10 +128,10 @@ button:hover{
 }
 
 .inicio{
-     display: flex;
-     min-width: 65vw;
-     justify-content: space-around;
-     padding: 1vh;
+    display: flex;
+    min-width: 65vw;
+    justify-content: space-around;
+    padding: 1vh;
 }
 
 .inicio button{
@@ -136,13 +147,13 @@ button:hover{
 }
 
 .tipo-servico{
-     max-width: 20vw;
+    max-width: 20vw;
 }
 
-.tipo-servico, .servico form, .proposta .cards{
-     background-color: var(--cor-principal);
-     border-radius: 2vw;
-     padding: 2vh;
+.tipo-servico, .servico form, .proposta .cards, .cadastro-usuario{
+    background-color: var(--cor-principal);
+    border-radius: 2vw;
+    padding: 2vh;
 }
 
 .tipo-servico p{
@@ -160,9 +171,12 @@ button:hover{
     align-items: center;
 }
 
-.servico form label, form{
-    display: inline-block;
+.servico form label{    
     min-width: 20vw;
+}
+
+.cadastro-usuario label{
+    min-width: 15vw;
 }
 
 .servico form input, .servico textarea{
@@ -170,27 +184,30 @@ button:hover{
     min-width: 30vw;
 }
 
+.cadastro-usuario input{
+    min-width: 35vw;
+}
+
 .servico, .proposta{
-     display: flex;
-     flex-direction: row;
-     align-items: center;
-     justify-content: space-between;
-     padding: 5vh;
-     background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    top: 5vh;
+    height: 76vh;
+    padding: 5vh;
 }
 
 .servico .tipo-servico{
-     height: auto;
-     width: 30vw;
+    height: auto;
+    width: 30vw;
 }
 
 .servico form{
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: space-between;
-     min-height: 68vh;
-     min-width: 50vw;
+    justify-content: space-between;
+    min-height: 68vh;
+    min-width: 50vw;
 }
 
 .servico textarea{
@@ -199,17 +216,17 @@ button:hover{
 }
 
 .proposta .cards{
-     display: flex;
-     flex-direction: column;
-     max-height: 50vh;
-     overflow: overlay;
-     padding: 2vh;
+    display: flex;
+    flex-direction: column;
+    max-height: 50vh;
+    overflow: overlay;
+    padding: 2vh;
 }
 
 .proposta div{
-     display: flex;
-     flex-direction: column;
-     min-width: 50vw;
+    display: flex;
+    flex-direction: column;
+    min-width: 50vw;
 }
 
 .proposta .buscar{
@@ -225,16 +242,16 @@ button:hover{
 }
 
 .cards .card{
-     background-color: white;
-     color: var(--cor-principal);
-     border-radius: 2vw;
-     padding: 2vh;
-     margin: 2vh;
-     align-items: center;
+    background-color: white;
+    color: var(--cor-principal);
+    border-radius: 2vw;
+    padding: 2vh;
+    margin: 2vh;
+    align-items: center;
 }
 
 .card div{
-     display: flex;
+    display: flex;
 }
  
 footer{
