@@ -3,7 +3,7 @@
     <% tiposServicos.forEach(tipo=> { %>
         <div>
             <label>
-                <input type="radio" name="idtipo_servico" id=<%=tipo.servico %> value = <%= tipo.idtipo_servico %>>
+                <input type="radio" name="idtipo_servico" id=<%=tipo.servico %> value = <%= tipo.idtipo_servico %> form=<%= formulario %>>
                     <%= tipo.servico %>
             </label>
         </div>

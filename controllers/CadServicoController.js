@@ -8,7 +8,7 @@ const  CadServicoController = {
         
         let tiposServicos = await TipoServico.findAll({order: ['servico']})
 
-        return res.render('cadastro_servico_cliente', {title: 'Propor Serviço', linkHome:'/inicio', tiposServicos: tiposServicos, loginCadastroUsuario: req.session.usuario.nome, linkLogin: '/'})
+        return res.render('cadastro_servico_cliente', {title: 'Propor Serviço', linkHome:'/inicio', tiposServicos: tiposServicos, loginCadastroUsuario: req.session.usuario.nome, linkLogin: '/', formulario:'formCadastroServico'})
     },
     salvarForm: async (req, res) => {
         const {idtipo_servico, descricao, valor_a_pagar, data_entrega} = req.body

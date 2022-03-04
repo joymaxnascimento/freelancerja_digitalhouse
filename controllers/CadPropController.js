@@ -14,7 +14,7 @@ let CadPropController = {
             }
         })
 
-        return res.render('cadastro_proposta_freelancer', { title: 'Proposta', linkHome: '/inicio', tiposServicos: tiposServicos, servicos: servicos, loginCadastroUsuario: req.session.usuario.nome, linkLogin: '/' })
+        return res.render('cadastro_proposta_freelancer', { title: 'Proposta', linkHome: '/inicio', tiposServicos: tiposServicos, servicos: servicos, loginCadastroUsuario: req.session.usuario.nome, linkLogin: '/', formulario:'' })
     },
     salvarForm: async (req, res) => {
 
