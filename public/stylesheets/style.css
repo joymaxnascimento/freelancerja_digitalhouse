@@ -25,11 +25,13 @@ header{
     position: fixed;
     top: 0;
     height: 4vh;
-    width: 100vw;
+    width: 96vw;
     border-bottom: 1vh solid white;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-left: 2vw;
+    padding-right: 2vw;
 }
 
 a{
