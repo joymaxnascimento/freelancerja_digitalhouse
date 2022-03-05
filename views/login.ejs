@@ -12,5 +12,10 @@
       </div>
       <button type="submit">Entrar</button>
     </form>
+    <div>
+        <% if (locals.senhainvalida) { %>
+        <p>SENHA INVÁLIDA !</p>
+        <% } %>
+    </div>
   </div>
   <%- include('./partials/footer') %>

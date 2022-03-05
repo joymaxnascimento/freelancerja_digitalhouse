@@ -43,7 +43,9 @@ const UsuarioController = {
             res.redirect('/')
         } else {
             if (!bcrypt.compareSync(senha, usuarioLogado.senha)) {
-                return res.send('Senha inválida!')
+                res.locals.senhainvalida = true;
+                return res.render('login', { title: 'Login', linkHome: '/', loginCadastroUsuario: 'Cadastro', linkLogin: '/cadastro' })
+                // return res.send('Senha inválida!')
             } else {
                 req.session.usuario = usuarioLogado
 
