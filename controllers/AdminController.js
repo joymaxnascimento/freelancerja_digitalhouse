@@ -1,4 +1,3 @@
-const { nextTick } = require("process")
 const { TipoServico } = require("../database/models")
 const AdminController = {
 

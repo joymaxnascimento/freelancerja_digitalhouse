@@ -40,7 +40,7 @@ window.addEventListener('load', () => {
             for (let i = 0; i < servicos.length; i++) {
                 let texto = servicos[i].querySelector('p');
 
-                if (texto.textContent.toLocaleUpperCase().indexOf(e.target.value.toUpperCase()) > -1) {
+                if (texto.textContent.toUpperCase().indexOf(e.target.value.toUpperCase()) > -1) {
                     servicos[i].style.display = ''
                 }else{
                     servicos[i].style.display = 'none'
