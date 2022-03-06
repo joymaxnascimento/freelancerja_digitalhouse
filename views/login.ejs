@@ -10,12 +10,12 @@
         <label for="senha">Senha:</label>
         <input type="password" id="senha" name="senha">
       </div>
+      <div class="erros">
+        <% if (locals.senhainvalida) { %>
+          <p>Senha inválida!</p>
+          <% } %>
+      </div>
       <button type="submit">Entrar</button>
     </form>
-    <div>
-        <% if (locals.senhainvalida) { %>
-        <p>SENHA INVÁLIDA !</p>
-        <% } %>
-    </div>
   </div>
   <%- include('./partials/footer') %>
