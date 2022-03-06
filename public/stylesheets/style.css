@@ -258,6 +258,7 @@ button:hover{
 
 .erros{
     color: red;
+    text-shadow: 0.7vw 0vw 0.7vw white;
 }
 
 li:empty{
