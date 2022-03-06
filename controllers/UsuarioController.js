@@ -26,7 +26,8 @@ const UsuarioController = {
             res.render('cadastro_usuario_criado', { title: 'Cadastro Criado', linkHome: '/', loginCadastroUsuario: nome, linkLogin: '/' })
 
         } else {
-            res.send('Email já cadastrado!')
+            res.locals.emailExistente = true
+            return res.render('cadastro_usuario', { title: 'Cadastro de Usuário', linkHome: '/', usuarios: '', loginCadastroUsuario: 'Login', linkLogin: '/' })
         }
     },
 
@@ -45,7 +46,6 @@ const UsuarioController = {
             if (!bcrypt.compareSync(senha, usuarioLogado.senha)) {
                 res.locals.senhainvalida = true;
                 return res.render('login', { title: 'Login', linkHome: '/', loginCadastroUsuario: 'Cadastro', linkLogin: '/cadastro' })
-                // return res.send('Senha inválida!')
             } else {
                 req.session.usuario = usuarioLogado
 

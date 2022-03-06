@@ -9,6 +9,11 @@
       <input type="email" id="email" name="email" required="true">
     </div>
     <div>
+      <% if (locals.emailExistente) { %>
+        <p class="erros">E-mail já cadastrado no sistema!</p>
+        <% } %>
+    </div>
+    <div>
       <label for="senha">Senha:</label>
       <input type="password" id="senha" name="senha" required="true">
     </div>
