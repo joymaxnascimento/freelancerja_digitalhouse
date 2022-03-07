@@ -49,8 +49,11 @@ main{
     height: 91vh;
     width: 100vw;
     overflow: overlay;
-    background-color: white;
+    background-color:white;
+    
 }
+
+
 
 main h1{
     display: flex;
@@ -150,6 +153,11 @@ button:hover{
 
 .tipo-servico{
     max-width: 20vw;
+      
+}
+
+.tipo-servico div{
+    padding-bottom: 2.5vh;
 }
 
 .tipo-servico, .servico form, .proposta .cards, .cadastro-usuario{
@@ -163,15 +171,17 @@ button:hover{
 }
 
 .tipo-servico input[type="radio"]{
-    height: 1.5vh;
-    width: 1.5vh;
+    height: 2vh;
+    width: 2vh;
 }
 
 .servico form div{
     display: flex;
     flex-direction: row;
     align-items: center;
+    
 }
+
 
 .servico form label{    
     min-width: 20vw;
@@ -202,7 +212,7 @@ button:hover{
 }
 
 .servico .tipo-servico{
-    height: auto;
+    height: 76vh;
     width: 30vw;
 }
 
@@ -212,9 +222,14 @@ button:hover{
     min-width: 50vw;
 }
 
+.servico div div p{
+color: white;
+}
+
+
 .servico textarea{
     resize: none;
-    height: 50vh;
+    height: 44vh;
 }
 
 .proposta .cards{
