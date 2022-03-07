@@ -13,13 +13,22 @@
                 </div>
                 <div>
                     <label for="valor_a_pagar">Valor a pagar:</label>
-                    <input type="number" step="0.01" placeholder="R$ 0.0" id="valor_a_pagar"
-                        name="valor_a_pagar" required="true"><br><br>
+                    <input type="number" step="0.01" placeholder="R$ 0.0" id="valor_a_pagar" name="valor_a_pagar"
+                        required="true"><br><br>
                 </div>
-                <button type="submit">Criar Serviço</button>
+               
+                <div>
+                    <div>
+                        <button type="submit">Criar Serviço</button>
+                    </div>
+                    <div>
+                        <% if (locals.servicoCriado) { %>
+                            <p class="erros">Serviço criado com sucesso!</p>
+                            <% } %>
+                    </div>
+                                        
+                </div>
             </form>
-            <div class="erros">
-                <ul></ul>
-            </div>
+           
     </div>
     <%- include('./partials/footer') %>
