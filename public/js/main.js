@@ -2,7 +2,7 @@ window.addEventListener('load', () => {
     /*
     View: cadastro_usuario.ejs
     */
-    let frmCadUsuario = document.getElementById('formCadastroUsuario')
+    var frmCadUsuario = document.getElementById('formCadastroUsuario')
 
     if (frmCadUsuario != null) {
         frmCadUsuario.addEventListener('submit', (e) => {
@@ -29,20 +29,44 @@ window.addEventListener('load', () => {
     Lista de serviços
     View: cadastro_proposta_freelancer.ejs
     */
+    var listaCategorias = document.querySelectorAll('.tipo-servico div')
 
-    let textoBusca = document.querySelector('.buscar')
+    if (listaCategorias != null) {
+        listaCategorias.forEach((categoria) => {
+            categoria.addEventListener('click', (e) => {
+
+                let listaServicos = document.querySelector('.cards')
+                let servicos = listaServicos.querySelectorAll('.card')
+                console.log(servicos)
+
+                for (let i = 0; i < servicos.length; i++) {
+                    let idTipoServico = servicos[i].querySelector('.card input[type="hidden"]')
+
+                    if (e.target.value == idTipoServico.value) {
+                        servicos[i].style.display = ''
+                    } else {
+                        servicos[i].style.display = 'none'
+                    }
+                }
+
+            })
+        })
+    }
+
+    var textoBusca = document.querySelector('.buscar')
 
     if (textoBusca != null) {
-        let listaServicos = document.querySelector('.cards')
-        let servicos = listaServicos.getElementsByClassName('card')
-
         textoBusca.addEventListener('keyup', (e) => {
+
+            let listaServicos = document.querySelector('.cards')
+            let servicos = listaServicos.getElementsByClassName('card')
+
             for (let i = 0; i < servicos.length; i++) {
                 let texto = servicos[i].querySelector('p');
 
                 if (texto.textContent.toUpperCase().indexOf(e.target.value.toUpperCase()) > -1) {
                     servicos[i].style.display = ''
-                }else{
+                } else {
                     servicos[i].style.display = 'none'
                 }
             }

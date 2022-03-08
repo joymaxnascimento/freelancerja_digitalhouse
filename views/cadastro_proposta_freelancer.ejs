@@ -10,6 +10,7 @@
                 <div class="cards">
                     <% servicos.forEach(servico=> { %>
                         <div class="card">
+                            <input id="servico-tipo-servico" type="hidden" value=<%= servico.idtipo_servico %>>
                             <h4>
                                 <%= servico.data_entrega.toLocaleDateString("pt-BR") %>
                             </h4>
