@@ -23,6 +23,13 @@ let CadPropController = {
                              linkLogin: '/', 
                              formulario:'' })
     },
+    redirectForm: (req,res)=>{
+      res.render('proposta', 
+      { title: 'Proposta', 
+        linkHome: '/inicio', 
+        loginCadastroUsuario: req.session.usuario.nome, 
+        linkLogin: '/' })
+    },
     salvarForm: async (req, res) => {
 
         `idproposta`, `valor_proposto_freelancer`, `aceite_cliente`, `idusuario_freelancer`

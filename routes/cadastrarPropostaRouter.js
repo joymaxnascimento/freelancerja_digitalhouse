@@ -4,6 +4,7 @@ let router = express.Router()
 let CadPropController = require("../controllers/CadPropController")
 
 router.get('/', CadPropController.viewForm)
+router.post('/listaservicos',  CadPropController.redirectForm)
 router.post('/criar', CadPropController.salvarForm)
 
 

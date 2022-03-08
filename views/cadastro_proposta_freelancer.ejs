@@ -10,6 +10,7 @@
                 <div class="cards">
                     <% servicos.forEach(servico=> { %>
                         <div class="card">
+                            <form action="/proposta/listaservicos" method="post">
                             <input id="servico-tipo-servico" type="hidden" value=<%= servico.idtipo_servico %>>
                             <h4>
                                 <%= servico.data_entrega.toLocaleDateString("pt-BR") %>
@@ -21,6 +22,7 @@
                                 <%= servico.valor_a_pagar %>
                             </h3>
                             <button>Fazer Proposta</button>
+                        </form>
                         </div>
                         <% }) %>
                 </div>
