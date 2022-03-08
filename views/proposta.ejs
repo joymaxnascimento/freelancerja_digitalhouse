@@ -1,0 +1,31 @@
+<%- include('./partials/header') %>
+    <h1>Sou Cliente</h1>
+    <div class="servico">
+        
+            <form action="servico/criar" id="formCadastroServico" method="POST">
+                
+                <div>
+                    <label for="decricao">Informações para execução do serviço:</label>
+                    <textarea name="descricao" id="descricao" required="true"></textarea>
+                </div>
+                <div>
+                    <label for="valor_a_pagar">Valor cobrado:</label>
+                    <input type="number" step="0.01" placeholder="R$ 0.0" id="valor_a_pagar" name="valor_a_pagar"
+                        required="true"><br><br>
+                </div>
+               
+                <div>
+                    <div>
+                        <button type="submit">Concluir proposta</button>
+                    </div>
+                    <div>
+                        <% if (locals.servicoCriado) { %>
+                            <p class="erros">Serviço criado com sucesso!</p>
+                            <% } %>
+                    </div>
+                                        
+                </div>
+            </form>
+           
+    </div>
+    <%- include('./partials/footer') %>
