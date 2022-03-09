@@ -1,4 +1,4 @@
-const { TipoServico, Servico, Proposta } = require('../database/models')
+const { TipoServico, Servico, Proposta, Usuario } = require('../database/models')
 const Sequelize = require('sequelize')
 const Op = Sequelize.Op
 
@@ -10,7 +10,9 @@ let CadPropController = {
         let servicos = await Servico.findAll({
             where: { [Op.not]: { idusuario_cliente: req.session.usuario.idusuario } }, 
             order: ['data_entrega', 'descricao'], 
-            include: [ {model: Proposta, required: false}, 
+            include: [ {model: Proposta,    required: false}, 
+                       {model: TipoServico, required: false},
+                       {model: Usuario,     required: false},
                      ]
         })
 
