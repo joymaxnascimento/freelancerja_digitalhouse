@@ -10,25 +10,27 @@
                 <div class="cards">
                     <% servicos.forEach(servico=> { %>
                         <div class="card">
-                            <form action="/proposta/listaservicos" method="post">
-                            <input id="servico-tipo-servico" type="hidden" value=<%= servico.idtipo_servico %>>
-                            <h5>  
-                                <%= servico.Usuario.nome %>
-                            </h5>
-                            <h5>  
-                                <%= servico.TipoServico.servico %>
-                            </h5>
-                            <h4>
-                                <%= servico.data_entrega.toLocaleDateString("pt-BR") %>
-                            </h4>
-                            <p>
-                                <%= servico.descricao %>
-                            </p>
-                            <h3>
-                                <%= servico.valor_a_pagar %>
-                            </h3>
-                            <button>Fazer Proposta</button>
-                        </form>
+                            <form action="../proposta/listaservicos" id="formListaServicos" method="POST">
+
+                                <input id="idservico" type="hidden" name="idservico" value=<%=servico.idservico %>>
+
+                                <h5>
+                                    <%= servico.Usuario.nome %>
+                                </h5>
+                                <h5>
+                                    <%= servico.TipoServico.servico %>
+                                </h5>
+                                <h4>
+                                    <%= servico.data_entrega.toLocaleDateString("pt-BR") %>
+                                </h4>
+                                <p>
+                                    <%= servico.descricao %>
+                                </p>
+                                <h3>
+                                    <%= servico.valor_a_pagar %>
+                                </h3>
+                                <button type="submit">Fazer Proposta</button>
+                            </form>
                         </div>
                         <% }) %>
                 </div>

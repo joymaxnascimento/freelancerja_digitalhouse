@@ -1,31 +1,30 @@
 <%- include('./partials/header') %>
     <h1>Sou Cliente</h1>
     <div class="servico">
-        
-            <form action="servico/criar" id="formCadastroServico" method="POST">
-                
+
+        <form action="../proposta/criar" id="formCadastroServico" method="POST">
+
+            <input type="hidden" name="idservico" id="idservico" value=<%=servico_idservico %> >
+
+            <div>
+                <label for="decricao">Informações para execução do serviço:</label>
+                <textarea name="descricao" id="descricao" required="true"></textarea>
+            </div>
+            <div>
+                <label for="valor_proposto_freelancer">Valor cobrado:</label>
+                <input type="number" step="0.01" placeholder="R$ 0.0" id="valor_proposto_freelancer"
+                    name="valor_proposto_freelancer" required="true"><br><br>
+            </div>
+            <div>
                 <div>
-                    <label for="decricao">Informações para execução do serviço:</label>
-                    <textarea name="descricao" id="descricao" required="true"></textarea>
+                    <button type="submit">Concluir proposta</button>
                 </div>
                 <div>
-                    <label for="valor_a_pagar">Valor cobrado:</label>
-                    <input type="number" step="0.01" placeholder="R$ 0.0" id="valor_a_pagar" name="valor_a_pagar"
-                        required="true"><br><br>
+                    <% if (locals.popostaCriada) { %>
+                        <p class="erros">Proposta criada com sucesso!</p>
+                        <% } %>
                 </div>
-               
-                <div>
-                    <div>
-                        <button type="submit">Concluir proposta</button>
-                    </div>
-                    <div>
-                        <% if (locals.servicoCriado) { %>
-                            <p class="erros">Serviço criado com sucesso!</p>
-                            <% } %>
-                    </div>
-                                        
-                </div>
-            </form>
-           
+            </div>
+        </form>
     </div>
     <%- include('./partials/footer') %>
