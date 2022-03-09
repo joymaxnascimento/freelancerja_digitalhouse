@@ -8,9 +8,9 @@ let CadPropController = {
     let tiposServicos = await TipoServico.findAll({ order: ['servico'] })
 
     let servicos = await Servico.findAll({
-      where: { [Op.not]: { idusuario_cliente: req.session.usuario.idusuario } },
+      where: { [Op.not]: { idusuario_cliente: req.session.usuario.idusuario }},
       order: ['data_entrega', 'descricao'],
-      include: [{ model: Proposta, required: false },
+      include: [{ model: Proposta, required: true, where: { [Op.or]: {[Op.not]: {idusuario_freelancer: req.session.usuario.idusuario}, [Op.not]: {aceite_cliente: true}}} },
       { model: TipoServico, required: false },
       { model: Usuario, required: false },
       ]
