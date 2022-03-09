@@ -5,6 +5,10 @@ module.exports = (sequelize, DataType) => {
       primaryKey: true,
       autoIncrement: true
     },
+    descricao: {
+      type: DataType.TEXT('long'),
+      allowNull: false
+    },
     valor_proposto_freelancer: {
       type: DataType.FLOAT(10, 2),
       allowNull: false
