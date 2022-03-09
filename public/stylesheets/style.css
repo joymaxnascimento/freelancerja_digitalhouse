@@ -8,20 +8,23 @@
 }
 
 *{
-    font-family: SansitaOne, Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-weight: bold;
     font-size: 1em;
     letter-spacing: .2vw;
+    color: black;
 }
 
 body{
     display: block;
     box-sizing: border-box;
     margin: 0;
-    color: white;
+    
     background-color: var(--cor-principal);
 }
 
 header{
+    font-family: SansitaOne;
     position: fixed;
     top: 0;
     height: 4vh;
@@ -32,6 +35,10 @@ header{
     justify-content: space-between;
     padding-left: 2vw;
     padding-right: 2vw;
+}
+
+header p{
+    color: white;
 }
 
 a{
@@ -56,6 +63,8 @@ main{
 
 
 main h1{
+    color: white;
+    font-size: 2em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -161,7 +170,7 @@ button:hover{
 }
 
 .tipo-servico, .servico form, .proposta .cards, .cadastro-usuario{
-    background-color: var(--cor-principal);
+    background-color: #cdcdcd;
     border-radius: 2vw;
     padding: 2vh;
 }
@@ -211,7 +220,7 @@ button:hover{
     padding: 5vh;
 }
 
-.servico .tipo-servico{
+.servico .tipo-servico, .proposta .tipo-servico{
     height: 76vh;
     width: 30vw;
 }
@@ -255,7 +264,7 @@ color: white;
 }
 
 .proposta .buscar input[type="text"]{
-    width: 50vw;
+    width: 70vw;
 }
 
 .cards .card{
@@ -267,9 +276,21 @@ color: white;
     align-items: center;
 }
 
+
 .card div{
     display: flex;
 }
+
+.card div div{
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card div div div{
+    flex-direction: column;
+    padding: 0;
+}
+
 
 .erros{
     color: red;

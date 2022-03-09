@@ -5,30 +5,50 @@
             <div>
                 <div class="buscar">
                     <input type="text" placeholder="Buscar..." />
-                    <button>Buscar</button>
                 </div>
                 <div class="cards">
                     <% servicos.forEach(servico=> { %>
                         <div class="card">
                             <form action="../proposta/listaservicos" id="formListaServicos" method="POST">
-
                                 <input id="idservico" type="hidden" name="idservico" value=<%=servico.idservico %>>
 
-                                <h5>
-                                    <%= servico.Usuario.nome %>
-                                </h5>
-                                <h5>
-                                    <%= servico.TipoServico.servico %>
-                                </h5>
-                                <h4>
-                                    <%= servico.data_entrega.toLocaleDateString("pt-BR") %>
-                                </h4>
-                                <p>
-                                    <%= servico.descricao %>
-                                </p>
-                                <h3>
-                                    <%= servico.valor_a_pagar %>
-                                </h3>
+                                <div>
+                                    <div>
+                                        <h4>Categoria:</h4>
+                                        <h5>
+                                            <%= servico.TipoServico.servico %>
+                                        </h5>
+                                    </div>
+
+                                    <div>
+                                        <div>
+                                            <h4>Descrição:</h4>
+                                        <p>
+                                            <%= servico.descricao %>
+                                        </p>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h4>Data de entrega:</h4>
+                                        <h4>
+                                            <%= servico.data_entrega.toLocaleDateString("pt-BR") %>
+                                        </h4>
+                                    </div>
+
+                                    <div>
+                                        <h4>Valor:</h4>
+                                        <h3>
+                                            <%= servico.valor_a_pagar %>
+                                        </h3>
+                                    </div>
+
+
+
+
+                                </div>
+
+
                                 <button type="submit">Fazer Proposta</button>
                             </form>
                         </div>
