@@ -268,7 +268,8 @@ color: white;
 .proposta .cards{
     display: flex;
     flex-direction: column;
-    max-height: 50vh;
+    max-height: 68vh;
+    max-width: 70vw;
     overflow: overlay;
     padding: 2vh;
 }
