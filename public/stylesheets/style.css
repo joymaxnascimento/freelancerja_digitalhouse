@@ -12,32 +12,40 @@
     font-weight: bold;
     font-size: 1em;
     letter-spacing: .2vw;
-    color: black;
+    padding: 0;
+    margin: 0;
 }
 
 body{
-    display: block;
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
     margin: 0;
-    
-    background-color: var(--cor-principal);
 }
 
 header{
-    font-family: SansitaOne;
-    position: fixed;
-    top: 0;
-    height: 4vh;
-    width: 96vw;
-    border-bottom: 1vh solid white;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding-left: 2vw;
-    padding-right: 2vw;
+    background-color: var(--cor-principal);
+    height: 4vh;
+    width: 98vw;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    border-bottom: 1vh solid white;
+    font-family: SansitaOne;
 }
 
 header p{
+    margin: 0;
+    padding: 0;
     color: white;
 }
 
@@ -50,17 +58,17 @@ a:hover{
     font-weight: bolder;
 }
 
-main{
-    position: fixed;
-    top: 5vh;
-    height: 91vh;
-    width: 100vw;
-    overflow: overlay;
-    background-color:white;
-    
+nav{
+    margin: 0;
+    padding: 0;
 }
 
-
+main{
+    height: 90vh;
+    width: 100vw;
+    overflow: auto;
+    background-color:white;    
+}
 
 main h1{
     color: white;
@@ -68,8 +76,6 @@ main h1{
     display: flex;
     align-items: center;
     justify-content: center;
-    position: fixed;
-    margin: 0;
     height: 5vh;
     width: 100vw;
     background-color: var(--cor-principal);
@@ -124,11 +130,23 @@ button:hover{
 }
 
 .moca p, .moca label{
+    color: white;
     text-shadow: -1vw 0vw 2vw black
 }
 
 .moca p{
-    font-size: 2em;
+    font-size: 3em;
+    padding-bottom: 4vh;
+}
+
+.moca form div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.moca label{
+    font-size: 1.2em;
 }
 
 .moca form input{
@@ -214,15 +232,14 @@ button:hover{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    position: relative;
-    top: 5vh;
-    height: 76vh;
-    padding: 5vh;
+    height: 85vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
 }
 
 .servico .tipo-servico, .proposta .tipo-servico{
-    height: 76vh;
-    width: 30vw;
+    height: 75vh;
+    width: 20vw;
 }
 
 .servico form{
@@ -252,7 +269,6 @@ color: white;
 .proposta div{
     display: flex;
     flex-direction: column;
-    min-width: 50vw;
 }
 
 .proposta .buscar{
@@ -302,20 +318,21 @@ li:empty{
 }
  
 footer{
-    position: fixed;
-    bottom: 0;
-    height: 4vh;
-    width: 100vw;
-    border-top: 1vh solid white;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 4vh;
+    width: 100vw;
+    border-top: 1vh solid white;
+    background-color: var(--cor-principal);   
 }
 
 /* menu usuario */
 nav ul {
     list-style-type: none;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
   
 nav li a, .menu-usuario-btn {
