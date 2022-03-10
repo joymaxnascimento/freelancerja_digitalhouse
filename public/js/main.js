@@ -40,7 +40,7 @@ window.addEventListener('load', () => {
                 console.log(servicos)
 
                 for (let i = 0; i < servicos.length; i++) {
-                    let idTipoServico = servicos[i].querySelector('.card input[type="hidden"]')
+                    let idTipoServico = servicos[i].querySelector('.card #idtipo_servico')
 
                     if (e.target.value == idTipoServico.value) {
                         servicos[i].style.display = ''
@@ -48,7 +48,6 @@ window.addEventListener('load', () => {
                         servicos[i].style.display = 'none'
                     }
                 }
-
             })
         })
     }
