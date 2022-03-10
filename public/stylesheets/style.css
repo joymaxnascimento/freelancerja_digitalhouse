@@ -320,6 +320,8 @@ color: white;
 
 .card div{
     display: flex;
+    color: black;
+    width: 60vw;
 }
 
 .card div div{
