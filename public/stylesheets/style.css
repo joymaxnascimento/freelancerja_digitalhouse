@@ -161,9 +161,16 @@ button:hover{
 
 .inicio{
     display: flex;
-    min-width: 65vw;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 1vh;
+    height: 88vh;
+}
+
+.inicio img{
+    padding-bottom: 10vh;
+    width: 50vh;
 }
 
 .inicio button{
