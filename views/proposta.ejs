@@ -1,19 +1,23 @@
 <%- include('./partials/header') %>
-    <h1>Sou Cliente</h1>
-    <div class="servico">
+    <h1>Sou Freelancer</h1>
+    <div class="servico proposta">
 
         <form action="../proposta/criar" id="formCadastroServico" method="POST">
 
             <input type="hidden" name="idservico" id="idservico" value=<%=servico_idservico %> >
 
             <div>
-                <label for="decricao">Informações para execução do serviço:</label>
-                <textarea name="descricao" id="descricao" required="true"></textarea>
+                <div>
+                    <label for="decricao">Informações para execução do serviço:</label>
+                    <textarea name="descricao" id="descricao" required="true"></textarea>
+                </div>
             </div>
             <div>
-                <label for="valor_proposto_freelancer">Valor cobrado:</label>
-                <input type="number" step="0.01" placeholder="R$ 0.0" id="valor_proposto_freelancer"
-                    name="valor_proposto_freelancer" required="true"><br><br>
+                <div>
+                    <label for="valor_proposto_freelancer">Valor cobrado:</label>
+                    <input type="number" step="0.01" placeholder="R$ 0.0" id="valor_proposto_freelancer"
+                        name="valor_proposto_freelancer" required="true"><br><br>
+                </div>
             </div>
             <div>
                 <div>

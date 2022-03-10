@@ -221,6 +221,10 @@ button:hover{
     min-width: 20vw;
 }
 
+.servico form div div label{
+    min-width: 25vw;
+}
+
 .cadastro-usuario label{
     min-width: 15vw;
 }
