@@ -194,7 +194,7 @@ button:hover{
     padding-bottom: 2.5vh;
 }
 
-.tipo-servico, .servico form, .proposta .cards, .cadastro-usuario, .concluir-proposta form{
+.tipo-servico, .servico form, .proposta .cards, .cadastro-usuario, .concluir-proposta form, .fale-conosco form{
     background-color: #cdcdcd;
     border-radius: 2vw;
     padding: 2vh;
@@ -209,14 +209,14 @@ button:hover{
     width: 2vh;
 }
 
-.servico form div, .concluir-proposta form div{
+.servico form div, .concluir-proposta form div, .fale-conosco form div{
     display: flex;
     flex-direction: row;
     align-items: center;
     
 }
 
-.concluir-proposta form input, .concluir-proposta form textarea{
+.concluir-proposta form input, .concluir-proposta form textarea, .fale-conosco form textarea, .fale-conosco form input{
     width: 30vw;
 }
 
@@ -383,4 +383,23 @@ li.menu-usuario {
     
 .menu-usuario:hover .menu-usuario-oculto {
     display: block;
+}
+
+.fale-conosco{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fale-conosco img{
+    padding-bottom: 5vh;
+    width: 15vw;
+}
+
+.fale-conosco label{
+    width: 7vw;
+}
+
+.fale-conosco .erros{
+    color: black;
 }

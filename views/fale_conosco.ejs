@@ -1,31 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel='stylesheet' href='/stylesheets/style.css'>
-</head>
-
-<body id="faleconoscoazul">
-    <div class="faleconosco">
-        <div >
-             <p class="fale001" >Freelancer Já</p>
-        </div>
+<%- include('./partials/header') %>
+    <div class="fale-conosco">
         <div>
-        <img class="faleimg" src="/images/contato3.png" alt="">
+            <img src="/images/contato3.png" alt="">
         </div>
-        <div>
-            <a class="fale001">freelancerja@gmail.com</a>
-        </div>
+        <form action="../faleconosco/enviar" id="formFaleConosco" method="POST">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required="true">
+            </div>
+            <div>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required="true">
+            </div>
+            <div>
+                <label for="mensagem">Mensagem:</label>
+                <textarea name="mensagem" id="mensagem" cols="30" rows="10" required="true"></textarea>
+            </div>
+            <button type="submit">Enviar</button>
+            <div>
+                <% if (locals.mensagemEnviada) { %>
+                  <p class="erros">Mensagem enviada com sucesso!</p>
+                  <% } %>
+              </div>
+        </form>
     </div>
-
-</body>
-
-</html>
-
-
-
-<!--  <div style="margin: auto auto;">   -->
+    <%- include('./partials/footer') %>
