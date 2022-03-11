@@ -403,3 +403,8 @@ li.menu-usuario {
 .fale-conosco .erros{
     color: black;
 }
+
+.administracao a {
+    padding-left:5vw;
+    color:var(--cor-principal);
+}

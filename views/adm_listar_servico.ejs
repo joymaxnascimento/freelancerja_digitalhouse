@@ -1,0 +1,39 @@
+<%- include('./partials/header') %>
+  <!-- form action="../admin/cadtiposervico" id="formCadastroTipoServico" method="POST">
+      <div>
+          <label for="tiposervico">Tipo de Servico</label>
+          <input type="text" id="tiposervico" name="tiposervico">
+      </div>
+      <button type="submit">Cadastrar</button>
+  </form -->
+
+<!-- array.forEach(function(currentValue, index, arr), thisValue)  -->
+<!-- https://www.w3schools.com/jsref/jsref_foreach.asp -->
+
+
+<table style="color:rgb(25, 0, 255);">
+
+  <% tpservicos.forEach( (item, index ) => { %>
+    <% if( index == 0){ %>
+        <tr> 
+          <td> Código...</td> 
+          <td> Descrição</td>
+          <td> Editar   </td> 
+          <td> Excluir  </td> 
+        </tr>
+    <%  }; %>
+        <tr>   
+               
+          <td> <%= item.idtipo_servico %> </td>
+          <td> <%= item.servico %>        </td>
+          <td> <button> editar  </button>  </td>
+          <td> <button> excluir </button>  </td>
+        </tr>
+
+  <% }) %>   
+  
+</table> 
+  
+
+<%- include('./partials/footer') %>
+  
