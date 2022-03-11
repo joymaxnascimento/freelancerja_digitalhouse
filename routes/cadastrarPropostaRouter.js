@@ -8,5 +8,6 @@ router.post('/listaservicos', CadPropController.redirectForm)
 router.post('/criar', CadPropController.salvarForm)
 
 router.get('/listapropostas', CadPropController.viewPropostas)
+router.post('/listapropostas', CadPropController.aceitarProposta)
 
 module.exports = router

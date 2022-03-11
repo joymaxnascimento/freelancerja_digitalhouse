@@ -72,9 +72,10 @@ let CadPropController = {
           idusuario_cliente: req.session.usuario.idusuario
         }}
       ],
+      where: {aceite_cliente: false}
     })
 
-    let tiposServicos = await TipoServico.findAll({ order: ['servico'] })
+    let listaServicos = await Servico.findAll({where: {idusuario_cliente: req.session.usuario.idusuario}, order: ['idservico']})
 
     return res.render('lista_propostas_cliente',
     {
@@ -82,10 +83,18 @@ let CadPropController = {
       linkHome: '/inicio',
       loginCadastroUsuario: req.session.usuario.nome,
       linkLogin: '/',
-      tiposServicos,
       formulario: "formListaPropostas",
-      propostas: listaPropostas
+      propostas: listaPropostas,
+      listaServicos
     })
+  },
+  aceitarProposta: async (req, res) => {
+
+    let { idproposta } = req.body
+    
+    await Proposta.update(
+      {aceite_cliente: true},
+      {where: {'idproposta': idproposta}}).then(res.redirect('../proposta/listapropostas'))
   }
 }
 
