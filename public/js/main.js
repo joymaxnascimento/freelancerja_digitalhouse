@@ -1,4 +1,16 @@
 window.addEventListener('load', () => {
+
+    /*
+    Mensagem serviço criado com sucesso - tela de serviço
+    */
+
+    var msgServicoCriado = document.querySelector('p.erros')
+
+    document.addEventListener('click', (e) =>{
+        msgServicoCriado.style.display = 'none'
+    })
+
+
     /*
     View: cadastro_usuario.ejs
     */
@@ -36,16 +48,18 @@ window.addEventListener('load', () => {
             categoria.addEventListener('click', (e) => {
 
                 let listaServicos = document.querySelector('.cards')
-                let servicos = listaServicos.querySelectorAll('.card')
-                console.log(servicos)
 
-                for (let i = 0; i < servicos.length; i++) {
-                    let idTipoServico = servicos[i].querySelector('.card #idtipo_servico')
+                if (listaServicos != null) {
+                    let servicos = listaServicos.querySelectorAll('.card')
 
-                    if (e.target.value == idTipoServico.value) {
-                        servicos[i].style.display = ''
-                    } else {
-                        servicos[i].style.display = 'none'
+                    for (let i = 0; i < servicos.length; i++) {
+                        let idTipoServico = servicos[i].querySelector('.card #idtipo_servico')
+
+                        if (e.target.value == idTipoServico.value) {
+                            servicos[i].style.display = ''
+                        } else {
+                            servicos[i].style.display = 'none'
+                        }
                     }
                 }
             })
