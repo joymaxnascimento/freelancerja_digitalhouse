@@ -16,7 +16,7 @@ let CadPropController = {
       ]
     })
 
-    return res.render('cadastro_proposta_freelancer',
+    return res.render('lista_servicos_freelancer',
       {
         title: 'Proposta',
         linkHome: '/inicio',
@@ -31,7 +31,7 @@ let CadPropController = {
 
     let { idservico } = req.body
 
-    return res.render('proposta',
+    return res.render('cadastro_proposta_freelancer',
       {
         title: 'Proposta',
         linkHome: '/inicio',
