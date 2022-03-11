@@ -1,0 +1,11 @@
+<section class="tipo-servico">
+    <p>Serviços</p>
+    <% listaServicos.forEach(servico=> { %>
+        <div>
+            <label>
+                <input type="radio" name="idservico" id=<%=servico.idservico %> value = <%= servico.idservico %> form=<%= formulario %>>
+                    <%= servico.idservico %>
+            </label>
+        </div>
+        <% }) %>
+</section>
