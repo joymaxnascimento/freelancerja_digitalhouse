@@ -1,0 +1,49 @@
+<%- include('./partials/header') %>
+    <h1>Sou Freelancer</h1>
+    <div class="proposta">
+        <%- include('./partials/tipoServico') %>
+            <div>
+                <div class="buscar">
+                    <input type="text" placeholder="Buscar..." />
+                </div>
+                <div class="cards">
+                    <% propostas.forEach(proposta=> { %>
+                        <div class="card">
+                            <form action="../proposta/listapropostas" id="formListaPropostas" method="POST">
+                                <input id="idservico" type="hidden" name="idservico" value=<%=proposta.idservico %>>
+                                <div>
+                                    <div>
+                                        <h4>Categoria:</h4>
+                                        <h5>
+                                            <%= proposta.Servico.TipoServico.servico %>
+                                        </h5>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h4>Descrição:</h4>
+                                            <p>
+                                                <%= proposta.descricao %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4>Veja meus trabalhos:</h4>
+                                        <h4>
+                                            <%= proposta.arq_trabalhos %>
+                                        </h4>
+                                    </div>
+                                    <div>
+                                        <h4>Valor proposto:</h4>
+                                        <h3>
+                                            <%= proposta.valor_proposto_freelancer %>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <button type="submit">Aceitar</button>
+                            </form>
+                        </div>
+                        <% }) %>
+                </div>
+            </div>
+    </div>
+    <%- include('./partials/footer') %>

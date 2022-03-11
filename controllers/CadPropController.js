@@ -59,6 +59,33 @@ let CadPropController = {
         loginCadastroUsuario: req.session.usuario.nome,
         linkLogin: '/'
       })
+  },
+  viewPropostas: async (req, res) => {
+
+    let listaPropostas = await Proposta.findAll({
+      include:[
+        {model: Servico, include: [
+          {model: TipoServico}
+        ],
+        required: true,
+        where: {
+          idusuario_cliente: req.session.usuario.idusuario
+        }}
+      ],
+    })
+
+    let tiposServicos = await TipoServico.findAll({ order: ['servico'] })
+
+    return res.render('lista_propostas_cliente',
+    {
+      title: 'Propostas Recebidas',
+      linkHome: '/inicio',
+      loginCadastroUsuario: req.session.usuario.nome,
+      linkLogin: '/',
+      tiposServicos,
+      formulario: "formListaPropostas",
+      propostas: listaPropostas
+    })
   }
 }
 
