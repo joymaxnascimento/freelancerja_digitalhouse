@@ -15,7 +15,8 @@ module.exports = (sequelize, DataType) => {
     },
     aceite_cliente: {
       type: DataType.BOOLEAN,
-      allowNull: false
+      allowNull: false,
+      defaultValue: false
     },
     arq_trabalhos: {
       type: DataType.BLOB('medium'),
@@ -35,11 +36,17 @@ module.exports = (sequelize, DataType) => {
 
   Proposta.associate = (model) => {
     Proposta.belongsTo(model.Servico, {
-      foreignKey: 'idservico'
+      foreignKey: {
+        name: 'idservico',
+        allowNull: false
+      }
     })
 
     Proposta.belongsTo(model.Usuario, {
-      foreignKey: 'idusuario_freelancer'
+      foreignKey: {
+        name: 'idusuario_freelancer',
+        allowNull: false
+      }
     })
   }
 

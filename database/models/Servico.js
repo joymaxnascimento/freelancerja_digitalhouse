@@ -24,15 +24,24 @@ module.exports = (sequelize, DataType) => {
 
   Servico.associate = (model) => {
     Servico.belongsTo(model.TipoServico, {
-      foreignKey: 'idtipo_servico'
+      foreignKey: {
+        name: 'idtipo_servico',
+        allowNull: false
+      }
     })
 
     Servico.belongsTo(model.Usuario, {
-      foreignKey: 'idusuario_cliente'
+      foreignKey: {
+        name: 'idusuario_cliente',
+        allowNull: false
+      }
     })
 
     Servico.hasMany(model.Proposta, {
-      foreignKey: 'idservico'
+      foreignKey: {
+        name: 'idservico',
+        allowNull: false
+      }
     })
   }
 
