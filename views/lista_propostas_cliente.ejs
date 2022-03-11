@@ -1,7 +1,7 @@
 <%- include('./partials/header') %>
-    <h1>Sou Freelancer</h1>
+    <h1>Sou Cliente</h1>
     <div class="proposta">
-        <%- include('./partials/tipoServico') %>
+        <%- include('./partials/lista_servicos') %>
             <div>
                 <div class="buscar">
                     <input type="text" placeholder="Buscar..." />
@@ -11,6 +11,7 @@
                         <div class="card">
                             <form action="../proposta/listapropostas" id="formListaPropostas" method="POST">
                                 <input id="idservico" type="hidden" name="idservico" value=<%=proposta.idservico %>>
+                                <input id="idproposta" type="hidden" name="idproposta" value=<%= proposta.idproposta %> >
                                 <div>
                                     <div>
                                         <h4>Categoria:</h4>
