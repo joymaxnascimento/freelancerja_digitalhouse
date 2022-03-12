@@ -96,7 +96,32 @@ let CadPropController = {
       {aceite_cliente: true},
       {where: {'idproposta': idproposta}})
 
-      return res.redirect('../proposta/cliente/listapropostas')
+      return res.redirect('../cliente/listapropostas')
+  },
+  viewPropostasFreelancer: async (req, res) => {
+
+    let listaPropostas = await Proposta.findAll({
+      include:[
+        {model: Servico, include: [
+          {model: TipoServico}
+        ],
+        required: true}
+      ],
+      where: {idusuario_freelancer: req.session.usuario.idusuario}
+    })
+
+    let tiposServicos = await TipoServico.findAll({ order: ['servico'] })
+
+    return res.render('lista_propostas_freelancer',
+    {
+      title: 'Propostas Recebidas',
+      linkHome: '/inicio',
+      loginCadastroUsuario: req.session.usuario.nome,
+      linkLogin: '/',
+      formulario: "formListaPropostasCliente",
+      propostas: listaPropostas,
+      tiposServicos
+    })
   }
 }
 
