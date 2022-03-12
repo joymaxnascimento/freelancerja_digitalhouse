@@ -7,7 +7,7 @@ router.get('/listaservicos', CadPropController.viewForm)
 router.post('/listaservicos', CadPropController.redirectForm)
 router.post('/criar', CadPropController.salvarForm)
 
-router.get('/listapropostas', CadPropController.viewPropostas)
-router.post('/listapropostas', CadPropController.aceitarProposta)
+router.get('/cliente/listapropostas', CadPropController.viewPropostas)
+router.post('/cliente/listapropostas', CadPropController.aceitarProposta)
 
 module.exports = router

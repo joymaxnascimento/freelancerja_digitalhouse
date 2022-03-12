@@ -83,7 +83,7 @@ let CadPropController = {
       linkHome: '/inicio',
       loginCadastroUsuario: req.session.usuario.nome,
       linkLogin: '/',
-      formulario: "formListaPropostas",
+      formulario: "formListaPropostasCliente",
       propostas: listaPropostas,
       listaServicos
     })
@@ -94,7 +94,9 @@ let CadPropController = {
     
     await Proposta.update(
       {aceite_cliente: true},
-      {where: {'idproposta': idproposta}}).then(res.redirect('../proposta/listapropostas'))
+      {where: {'idproposta': idproposta}})
+
+      return res.redirect('../proposta/cliente/listapropostas')
   }
 }
 
