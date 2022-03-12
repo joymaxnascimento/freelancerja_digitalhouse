@@ -60,7 +60,7 @@ let CadPropController = {
         linkLogin: '/'
       })
   },
-  viewPropostas: async (req, res) => {
+  viewPropostasCliente: async (req, res) => {
 
     let listaPropostas = await Proposta.findAll({
       include:[
@@ -88,7 +88,7 @@ let CadPropController = {
       listaServicos
     })
   },
-  aceitarProposta: async (req, res) => {
+  aceitarPropostaCliente: async (req, res) => {
 
     let { idproposta } = req.body
     
