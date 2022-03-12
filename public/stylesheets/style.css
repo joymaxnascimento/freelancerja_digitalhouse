@@ -408,3 +408,25 @@ li.menu-usuario {
     padding-left:5vw;
     color:var(--cor-principal);
 }
+
+.inicio nav div{
+    width: 80vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.inicio nav div li ul{
+    display: none;
+}
+
+.inicio nav div li ul a{
+    padding-top: 1vh;
+}
+
+.inicio nav div li:hover ul{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}

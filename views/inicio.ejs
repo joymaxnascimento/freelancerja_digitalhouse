@@ -1,12 +1,42 @@
 <%- include('./partials/header') %>
   <div class="inicio">
     <img src="/images/pessoa_computador.svg" alt="estação de trabalho">
-    <div>
-      <a href="/servico">
-        <button>Sou Cliente</button>
-      </a>
-      <a href="/proposta/listaservicos">
-        <button>Sou Freelancer</button>
-      </a>
-    </div>
+    <nav>
+      <div>
+        <ul>
+          <li>
+            <button>Sou Cliente</button>
+            <ul>
+              <li>
+                <a href="../servico">
+                  <button>Propor Serviço</button>
+                </a>
+              </li>
+              <li>
+                <a href="../proposta/cliente/listapropostas">
+                  <button>Propostas Recebidas</button>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <button>Sou Freelancer</button>
+            <ul>
+              <li>
+                <a href="../proposta/listaservicos">
+                  <button>Ver Serviços</button>
+                </a>
+              </li>
+              <li>
+                <a href="../proposta/freelancer/listapropostas">
+                  <button>Minhas Propostas</button>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <%- include('./partials/footer') %>
