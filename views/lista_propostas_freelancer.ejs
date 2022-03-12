@@ -1,0 +1,66 @@
+<%- include('./partials/header') %>
+    <h1>Sou Freelancer</h1>
+    <div class="proposta">
+        <%- include('./partials/tipoServico.ejs') %>
+            <div>
+                <div class="buscar">
+                    <input type="text" placeholder="Buscar..." />
+                </div>
+                <div class="cards">
+                    <% propostas.forEach(proposta=> { %>
+                        <div class="card">
+                            <form action="../proposta/freelancer/listapropostas" id="formListaPropostasFreelancer" method="POST">
+                                <input id="idservico" type="hidden" name="idservico" value=<%=proposta.idservico %>>
+                                <input id="idproposta" type="hidden" name="idproposta" value=<%= proposta.idproposta %> >
+                                <input id="idtipo_servico" type="hidden" name="idtipo_servico" value=<%= proposta.Servico.idtipo_servico %> >
+                                <div>
+                                    <div>
+                                        <h4>Categoria:</h4>
+                                        <h5>
+                                            <%= proposta.Servico.TipoServico.servico %>
+                                        </h5>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <h4>Descrição:</h4>
+                                            <p>
+                                                <%= proposta.descricao %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4>Veja meus trabalhos:</h4>
+                                        <h4>
+                                            <%= proposta.arq_trabalhos %>
+                                        </h4>
+                                    </div>
+                                    <div>
+                                        <h4>Valor proposto:</h4>
+                                        <h3>
+                                            <%= proposta.valor_proposto_freelancer %>
+                                        </h3>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4>Proposta Aceita?</h4>
+                                        <h3>
+                                            <% if(proposta.aceite_cliente){ %>
+                                                Sim                                            
+                                            <%} else{ %>
+                                                Não                                            
+                                            <%}%>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <button type="submit"><% if(proposta.aceite_cliente){ %>
+                                    Enviar Trabalho                                            
+                                <%} else{ %>
+                                    Excluir                                            
+                                <%}%></button>
+                            </form>
+                        </div>
+                        <% }) %>
+                </div>
+            </div>
+    </div>
+    <%- include('./partials/footer') %>
