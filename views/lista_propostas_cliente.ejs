@@ -9,7 +9,7 @@
                 <div class="cards">
                     <% propostas.forEach(proposta=> { %>
                         <div class="card">
-                            <form action="../proposta/cliente/listapropostas" id="formListaPropostasCliente" method="POST">
+                            <form action="../cliente/listapropostas" id="formListaPropostasCliente" method="POST">
                                 <input id="idservico" type="hidden" name="idservico" value=<%=proposta.idservico %>>
                                 <input id="idproposta" type="hidden" name="idproposta" value=<%= proposta.idproposta %> >
                                 <div>
