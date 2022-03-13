@@ -430,3 +430,13 @@ li.menu-usuario {
     display: flex;
     flex-direction: column;
 }
+
+
+
+
+
+
+
+
+.eh_dinheiro:before{ content:'R$'; }
+
