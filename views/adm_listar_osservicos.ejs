@@ -1,0 +1,46 @@
+<%- include('./partials/header') %>
+  <!-- form action="../admin/cadtiposervico" id="formCadastroTipoServico" method="POST">
+      <div>
+          <label for="tiposervico">Tipo de Servico</label>
+          <input type="text" id="tiposervico" name="tiposervico">
+      </div>
+      <button type="submit">Cadastrar</button>
+  </form -->
+
+<!-- array.forEach(function(currentValue, index, arr), thisValue)  -->
+<!-- https://www.w3schools.com/jsref/jsref_foreach.asp -->
+
+
+<table style="color:rgb(25, 0, 255);">
+
+  <% osservicos.forEach( (item, index ) => { %>
+    <% if( index == 0){ %>
+        <tr> 
+          <td>Cód.</td> 
+          <td>Descrição (30 do inicio)......</td>
+          <!--123456789012345678901234567890-->
+          <td>Valor a pagar</td>   
+          <td>data_entrega</td>    
+          <td>Editar</td> 
+          <td>Excluir</td> 
+        </tr>
+    <%  }; %>   
+        <tr>   
+               
+          <td> <%= item.idservico %>                  </td>
+          <td> <%= item.descricao.substring(0, 30) %> </td>
+          <td class="eh_dinheiro"> 
+               <%= item.valor_a_pagar %>              </td>
+          <td> <%= item.data_entrega  %>              </td>
+          <td> <button> editar  </button>             </td>
+          <td> <button> excluir </button>             </td>
+        
+        </tr>
+
+  <% }) %>   
+  
+</table> 
+  
+
+<%- include('./partials/footer') %>
+  
