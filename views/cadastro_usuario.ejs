@@ -1,12 +1,18 @@
 <%- include('./partials/header') %>
-  <form class="cadastro-usuario" action="cadastro/criar" id="formCadastroUsuario" method="POST">
+  <form class="cadastro-usuario" action="../cadastro/criar" id="formCadastroUsuario" method="post">
     <div>
       <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required="true">
+      <input type="text" id="nome" name="nome" value="<%= locals.dadosAntigos && dadosAntigos.nome %>">
+      <% if(locals.erros && erros.nome){ %>
+        <p class="erros"><%= erros.nome.msg %></p>
+        <% } %>
     </div>
     <div>
       <label for="email">E-mail</label>
-      <input type="email" id="email" name="email" required="true">
+      <input type="email" id="email" name="email" value="<%= locals.dadosAntigos && dadosAntigos.email %>">
+      <% if(locals.erros && erros.email){ %>
+        <p class="erros"><%= erros.email.msg %></p>
+        <% } %>
     </div>
     <div>
       <% if (locals.emailExistente) { %>
@@ -15,15 +21,18 @@
     </div>
     <div>
       <label for="senha">Senha:</label>
-      <input type="password" id="senha" name="senha" required="true">
+      <input type="password" id="senha" name="senha" value="<%= locals.dadosAntigos && dadosAntigos.senha %>">
+      <% if(locals.erros && erros.senha){ %>
+        <p class="erros"><%= erros.senha.msg %></p>
+        <% } %>
     </div>
     <div>
       <label for="repetirSenha">Repetir senha:</label>
-      <input type="password" id="repetirSenha" name="repetirSenha" required="true">
+      <input type="password" id="repetirSenha" name="repetirSenha" value="<%= locals.dadosAntigos && dadosAntigos.repetirSenha %>">
+      <% if(locals.erros && erros.repetirSenha){ %>
+        <p class="erros"><%= erros.repetirSenha.msg %></p>
+        <% } %>
     </div>
     <button type="submit">Cadastrar</button>
   </form>
-  <div class="erros">
-    <ul></ul>
-  </div>
   <%- include('./partials/footer') %>

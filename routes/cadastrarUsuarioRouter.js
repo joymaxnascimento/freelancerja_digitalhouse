@@ -3,8 +3,9 @@ let router = express.Router()
 
 let CadUsuarioController = require("../controllers/UsuarioController")
 
-router.get('/', CadUsuarioController.viewForm)
-router.post('/criar', CadUsuarioController.salvarForm)
+const validacoesCadUsuario = require('../middlewares/validacoesCadUsuario')
 
+router.get('/', CadUsuarioController.viewForm)
+router.post('/criar', validacoesCadUsuario, CadUsuarioController.salvarForm)
 
 module.exports = router
