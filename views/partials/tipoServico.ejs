@@ -1,5 +1,10 @@
 <section class="tipo-servico">
     <p>Categorias</p>
+    <div class="erros">
+        <% if(locals.erros && erros.idtipo_servico){ %>
+            <span><%= erros.idtipo_servico.msg %></span>
+            <% } %>
+    </div>
     <% tiposServicos.forEach(tipo=> { %>
         <div>
             <label>

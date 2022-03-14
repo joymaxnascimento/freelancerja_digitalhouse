@@ -212,20 +212,17 @@ button:hover{
 .servico form div, .concluir-proposta form div, .fale-conosco form div{
     display: flex;
     flex-direction: row;
-    align-items: center;
-    
+    align-items: center;    
 }
 
 .concluir-proposta form input, .concluir-proposta form textarea, .fale-conosco form textarea, .fale-conosco form input{
     width: 30vw;
 }
 
-
-.servico form label{    
+.servico form label, div.erros{    
     min-width: 20vw;
+    max-width: 20vw;
 }
-
-
 
 .cadastro-usuario label{
     min-width: 15vw;
@@ -257,12 +254,20 @@ button:hover{
 
 .servico form{
     justify-content: space-between;
-    min-height: 68vh;
+    min-height: 75vh;
     min-width: 50vw;
 }
 
 .servico div div p{
-color: white;
+    color: white;
+}
+
+.servico form div div.erros{
+    color: red;
+    position: absolute;
+    margin: 0;
+    padding-left: 0;
+    padding-top: 7vh;
 }
 
 
@@ -431,12 +436,6 @@ li.menu-usuario {
     flex-direction: column;
 }
 
-
-
-
-
-
-
-
-.eh_dinheiro:before{ content:'R$'; }
-
+.eh_dinheiro:before{
+    content:'R$';
+}
