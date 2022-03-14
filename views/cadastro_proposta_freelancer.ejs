@@ -8,14 +8,31 @@
             <div>
                 <div>
                     <label for="decricao">Informações para execução do serviço:</label>
-                    <textarea name="descricao" id="descricao" required="true"></textarea>
+                    <textarea name="descricao"
+                        id="descricao"><%= locals.dadosAntigos && dadosAntigos.descricao %></textarea>
+                    <div class="erros">
+                        <% if(locals.erros && erros.descricao){ %>
+                            <span>
+                                <%= erros.descricao.msg %>
+                            </span>
+                            <% } %>
+                    </div>
                 </div>
             </div>
             <div>
                 <div>
                     <label for="valor_proposto_freelancer">Valor cobrado:</label>
-                    <input type="number" step="0.01" placeholder="R$ 0.0" id="valor_proposto_freelancer"
-                        name="valor_proposto_freelancer" required="true"><br><br>
+                    <input type="number" step="0.01" placeholder="R$ 0.00" id="valor_proposto_freelancer"
+                        name="valor_proposto_freelancer"
+                        value="<%= locals.dadosAntigos && dadosAntigos.valor_proposto_freelancer %>">
+                    <div class="erros">
+                        <% if(locals.erros && erros.valor_proposto_freelancer){ %>
+                            <span>
+                                <%= erros.valor_proposto_freelancer.msg %>
+                            </span>
+                            <% } %>
+                    </div>
+                    <br><br>
                 </div>
             </div>
             <div>
@@ -23,9 +40,13 @@
                     <button type="submit">Concluir proposta</button>
                 </div>
                 <div>
-                    <% if (locals.popostaCriada) { %>
-                        <p class="erros">Proposta criada com sucesso!</p>
-                        <% } %>
+                    <div class="erros">
+                        <% if(locals.erros && erros.idservico){ %>
+                            <span>
+                                <%= erros.idservico.msg %>
+                            </span>
+                            <% } %>
+                    </div>
                 </div>
             </div>
         </form>

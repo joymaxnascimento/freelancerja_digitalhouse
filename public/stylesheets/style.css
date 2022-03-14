@@ -262,14 +262,13 @@ button:hover{
     color: white;
 }
 
-.servico form div div.erros{
+.servico form div div.erros, .concluir-proposta form div div.erros{
     color: red;
     position: absolute;
     margin: 0;
     padding-left: 0;
     padding-top: 7vh;
 }
-
 
 .servico textarea, .concluir-proposta textarea{
     resize: none;
@@ -322,7 +321,6 @@ button:hover{
     align-items: center;
 }
 
-
 .card div{
     display: flex;
     color: black;
@@ -338,7 +336,6 @@ button:hover{
     flex-direction: column;
     padding: 0;
 }
-
 
 .erros{
     color: red;
