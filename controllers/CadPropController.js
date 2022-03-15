@@ -52,16 +52,18 @@ let CadPropController = {
 
     if (erros.isEmpty()) {
 
-      let propExistente = await Proposta.findAll({
+      let propExistente = await Proposta.findOne({
         where: {
           [Op.and]: [
-            { idservico },
+            { idservico: idservico },
             { idusuario_freelancer: req.session.usuario.idusuario }
           ]
-        }
+        },
+        attributes: ['idproposta', 'idservico', 'idusuario_freelancer'],
+        raw: true
       })
 
-      if (!propExistente) {
+      if (propExistente === null) {
         await Proposta.create({
           idservico,
           idusuario_freelancer: req.session.usuario.idusuario,
