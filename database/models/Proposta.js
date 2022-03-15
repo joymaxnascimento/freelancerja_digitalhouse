@@ -24,28 +24,23 @@ module.exports = (sequelize, DataType) => {
     }
   }, {
     tableName: 'proposta',
-    timestamps: false,
-    indexes: [
-      {
-        name: 'unique_idservico_idusuariofreelancer',
-        unique: true,
-        fields: ['idservico', 'idusuario_freelancer']
-      }
-    ]
+    timestamps: false
   })
 
   Proposta.associate = (model) => {
     Proposta.belongsTo(model.Servico, {
       foreignKey: {
         name: 'idservico',
-        allowNull: false
+        allowNull: false,
+        unique: 'unique_idservico_idusuariofreelancer'
       }
     })
 
     Proposta.belongsTo(model.Usuario, {
       foreignKey: {
         name: 'idusuario_freelancer',
-        allowNull: false
+        allowNull: false,
+        unique: 'unique_idservico_idusuariofreelancer'
       }
     })
   }
