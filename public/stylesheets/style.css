@@ -244,6 +244,7 @@ button:hover{
     height: 85vh;
     padding-left: 1vw;
     padding-right: 1vw;
+    flex-wrap: wrap;
 }
 
 .servico .tipo-servico, .proposta .tipo-servico{
@@ -439,5 +440,7 @@ li.menu-usuario {
 @media only screen and (max-width: 480px) {
     img {
       width: 100%;
-    }
+      max-width: 100%;
+      width: 500px; 
+        }
   }
