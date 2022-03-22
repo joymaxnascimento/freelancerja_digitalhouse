@@ -443,4 +443,15 @@ li.menu-usuario {
       max-width: 100%;
       width: 500px; 
         }
+    .tipo-servico{
+    background-color: #cdcdcd;
+    border-radius: 2vw;
+    padding: 15vh;
+    margin: auto;
+    padding-left: 50px 50px ;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start ;
+    white-space: nowrap;
+}    
   }
