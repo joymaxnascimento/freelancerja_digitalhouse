@@ -435,3 +435,9 @@ li.menu-usuario {
 .eh_dinheiro:before{
     content:'R$';
 }
+
+@media only screen and (max-width: 480px) {
+    img {
+      width: 100%;
+    }
+  }
