@@ -448,17 +448,17 @@ li.menu-usuario {
     border-radius: 2vw;
     padding: 15vh;
     margin: auto;
-    padding-left: 50px 50px ;
+    padding-left: 50vw 50vw ;
     display: flex;
     flex-direction: column;
     align-items: flex-start ;
     white-space: nowrap;
-    margin-top: 20px;
-    margin:35px;
-    margin-top: 20px;
-    padding-left: 20px;
-    margin-left: 85px;
-    padding-top: 25px;  
+    margin-top: 20vh;
+    margin:5vh;
+    margin-top: 5vh;
+    padding-left: 5vw;
+    margin-left: 20vw;
+    padding-top: 10vw;  
 }   
     .servico .tipo-servico{
     height: 25vh;
@@ -468,7 +468,7 @@ li.menu-usuario {
     *{
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 0.8rem;
     letter-spacing: .2vw;
     padding: 0;
     margin: 0;
