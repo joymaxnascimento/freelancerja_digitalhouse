@@ -474,4 +474,45 @@ li.menu-usuario {
     margin: 0;
     margin: auto;
     }
+
+    .card div{
+    color: black;
+    width: 25vw;
+    display: flow-root;
+    }
+
+    .concluir-proposta form textarea{
+    width: 50vw;
+    margin-top: 5vh;
+    }
+
+    .concluir-proposta form div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+    footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4vh;
+    width: 100vw;
+    border-top: 1vh solid white;
+    background-color: var(--cor-principal);
+    margin-bottom: 2vh;
+}
+
+    nav li a, .menu-usuario-btn {
+    padding: 2vw;
+    }
+
+    a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 10vw;
+}
   }
