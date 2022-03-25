@@ -447,19 +447,25 @@ li.menu-usuario {
     background-color: #cdcdcd;
     border-radius: 2vw;
     padding: 15vh;
-    margin: auto;
-    padding-left: 50vw 50vw ;
+    margin: 5vh;
+
     display: flex;
     flex-direction: column;
     align-items: flex-start ;
     white-space: nowrap;
     margin-top: 20vh;
-    margin:5vh;
+
     margin-top: 5vh;
     padding-left: 5vw;
     margin-left: 20vw;
     padding-top: 10vw;  
-}   
+    }  
+
+    .proposta .tipo-servico {
+       height: 15vh;
+        width: 20vw;
+    }
+
     .servico .tipo-servico{
     height: 25vh;
     width: 25vw;        
@@ -472,12 +478,12 @@ li.menu-usuario {
     letter-spacing: .2vw;
     padding: 0;
     margin: 0;
-    margin: auto;
+    margin:auto;    
     }
 
     .card div{
     color: black;
-    width: 25vw;
+    width: 43vw;
     display: flow-root;
     }
 
@@ -514,5 +520,6 @@ li.menu-usuario {
     display: flex;
     justify-content: space-around;
     padding-left: 10vw;
+    }
+
 }
-  }
