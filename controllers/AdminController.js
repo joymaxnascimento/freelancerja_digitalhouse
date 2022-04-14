@@ -1,18 +1,20 @@
-const { TipoServico , Servico } = require("../database/models")
+const { TipoServico , Servico , Usuario } 
+      = require("../database/models")
 const AdminController = {
 
     admin: (req, res) => {
         return res.render('admin', 
-                           { title: 'Administracao', 
-                             linkHome:  '/', 
-                             linkLogin: '/', 
-                             loginCadastroUsuario: 'login' })
+        { title: 'Administracao', 
+          linkHome:  '/', 
+          linkLogin: '/', 
+          loginCadastroUsuario: 'login'
+        })
     },
 
     tiposervicoView: (req, res) => {
         return res.render('cadastro_tipo_servico', 
         { title: 'Cadastro Tipo de Servico', 
-          linkHome: '/', 
+          linkHome:  '/', 
           linkLogin: '/', 
           loginCadastroUsuario: 'login' })
     },
@@ -23,6 +25,16 @@ const AdminController = {
         { title: 'Listar Tipos de Servico', 
           linkHome:   '/', 
           tpservicos: tpservicos,
+          linkLogin:  '/', 
+          loginCadastroUsuario: 'login' })
+    },
+
+    listarusuariosView: async (req, res) => {
+        let usuarios = await Usuario.findAll({order: ['nome']});
+        return res.render('adm_listar_usuarios', 
+        { title: 'Listar Usuarios', 
+          linkHome:   '/', 
+          usuarios: usuarios,
           linkLogin:  '/', 
           loginCadastroUsuario: 'login' })
     },

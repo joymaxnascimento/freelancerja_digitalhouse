@@ -5,7 +5,7 @@ let AdminController = require(
     "../controllers/AdminController")
 
  router.get('/', 
-            AdminController.admin)
+    AdminController.admin)
 
  router.get('/listartiposervico', 
     AdminController.listartiposervicoView)
@@ -16,6 +16,9 @@ let AdminController = require(
  router.get('/listarservico', 
     AdminController.listarservicoView)
  
+ router.get('/listarusuarios', 
+    AdminController.listarusuariosView)
+
 
 router.post('/cadtiposervico', 
     AdminController.tiposervicoSalvar)
