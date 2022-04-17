@@ -12,11 +12,11 @@ const validacoesCadServico = [
             } else {
                 return true
             }
-        }),
+        }).escape(),
     check('descricao').notEmpty().withMessage('Preencha a descrição!').bail().isLength({ min: 100 })
-        .withMessage('Descreva o serviço com, pelo menos 100 caracteres!'),
+        .withMessage('Descreva o serviço com, pelo menos 100 caracteres!').escape(),
     check('valor_a_pagar').notEmpty().withMessage('Preencha o valor a pagar!').bail()
-        .isFloat({ min: 20, max: 5000 }).withMessage('O valor precisa ser numérico, entre R$ 20 e R$ 5000!'),
+        .isFloat({ min: 20, max: 5000 }).withMessage('O valor precisa ser numérico, entre R$ 20 e R$ 5000!').escape(),
     check('idtipo_servico').custom(async (value, { req }) => {
         const tiposServicos = await TipoServico.findAll({ order: ['idtipo_servico'], attributes: ['idtipo_servico'], raw: true })
 
@@ -27,7 +27,7 @@ const validacoesCadServico = [
         } else {
             return true
         }
-    })
+    }).escape()
 ]
 
 module.exports = validacoesCadServico

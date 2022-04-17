@@ -12,11 +12,11 @@ const validacoesCadProposta = [
         } else {
             return true
         }
-    }),
+    }).escape(),
     check('descricao').notEmpty().withMessage('Preencha o campo de informações!').bail()
-        .isLength({ min: 50 }).withMessage('Descreva com, pelo menos 50 caracteres!'),
+        .isLength({ min: 50 }).withMessage('Descreva com, pelo menos 50 caracteres!').escape(),
     check('valor_proposto_freelancer').notEmpty().withMessage('Preencha o valor proposto!').bail()
-        .isFloat({ min: 100, max: 5000 }).withMessage('O valor precisa ser numérico, entre R$ 100 e R$ 5000!')
+        .isFloat({ min: 100, max: 5000 }).withMessage('O valor precisa ser numérico, entre R$ 100 e R$ 5000!').escape()
 ]
 
 module.exports = validacoesCadProposta
