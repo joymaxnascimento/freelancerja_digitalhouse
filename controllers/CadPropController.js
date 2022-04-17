@@ -1,6 +1,6 @@
 const { TipoServico, Servico, Proposta, Usuario } = require('../database/models')
-const Sequelize = require('sequelize')
-const Op = Sequelize.Op
+const {Sequelize, QueryTypes, Op} = require('sequelize')
+const {sequelize} = require('../database/models/index')
 
 const { validationResult } = require('express-validator')
 
@@ -8,19 +8,27 @@ let CadPropController = {
   viewForm: async (req, res) => {
 
     let tiposServicos = await TipoServico.findAll({ order: ['servico'] })
-
-    let servicos = await Servico.findAll({
-      where: {
-        [Op.not]: { idusuario_cliente: req.session.usuario.idusuario }
-      },
-      order: ['data_entrega', 'descricao'],
+    let servicos = await sequelize.query("\
+    SELECT  * FROM servico \
+    LEFT JOIN tipo_servico \
+    ON servico.idtipo_servico = tipo_servico.idtipo_servico \
+    WHERE idusuario_cliente <> :usuario \
+    AND idservico NOT IN( \
+      SELECT idservico FROM proposta \
+      WHERE aceite_cliente = 1 \
+      OR idusuario_freelancer = :usuario) \
+    ", {
+      raw: true,
+      model: Servico,
+      replacements: {usuario: req.session.usuario.idusuario},
+      type: QueryTypes.SELECT,
       include: [
         { model: Proposta, required: false },
         { model: TipoServico, required: false },
         { model: Usuario, required: false }
-      ]
-    })
-
+      ]},
+      )
+    
     return res.render('lista_servicos_freelancer',
       {
         title: 'Proposta',
