@@ -184,11 +184,27 @@ let CadPropController = {
         tiposServicos
       })
   },
+  excluirPropostaFreelancer: async (req, res) => {
+
+    let { idproposta } = req.body
+    
+    await Proposta.destroy(
+      {
+        where: {
+          idproposta: idproposta
+        }
+      }
+    )
+
+    return res.redirect('../freelancer/listapropostas')
+
+  },
   envioMensagemFreelancer: (req, res) => {
     res.locals.mensagemEnviada = true
     return res.render('cliente_mensagem_freelancer', { title: 'Contato - Freelancer', linkHome:'/', linkLogin: '/', loginCadastroUsuario: req.session.usuario.nome})
 },
 formMensagemCliente: (req, res) => {
+
   return res.render('freelancer_mensagem_cliente', { title: 'Contato - Cliente', linkHome:'/', linkLogin: '/', loginCadastroUsuario: req.session.usuario.nome})
 },
 envioMensagemCliente: (req, res) => {

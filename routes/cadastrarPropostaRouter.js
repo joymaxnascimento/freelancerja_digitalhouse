@@ -14,6 +14,7 @@ router.post('/cliente/listapropostas', CadPropController.aceitarPropostaCliente)
 router.post('/cliente/mensagemfreelancer', CadPropController.envioMensagemFreelancer)
 
 router.get('/freelancer/listapropostas', CadPropController.viewPropostasFreelancer)
+router.delete('/freelancer/listapropostas', CadPropController.excluirPropostaFreelancer)
 router.post('/freelancer/escrevermensagemcliente', CadPropController.formMensagemCliente)
 router.post('/freelancer/mensagemcliente', CadPropController.envioMensagemCliente)
 
