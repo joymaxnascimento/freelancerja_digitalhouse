@@ -43,6 +43,13 @@ module.exports = (sequelize, DataType) => {
         unique: 'unique_idservico_idusuariofreelancer'
       }
     })
+
+    Proposta.hasMany(model.Mensagem, {
+      foreignKey: {
+        name: 'idproposta',
+        allowNull: false
+      }
+    })
   }
 
   return Proposta

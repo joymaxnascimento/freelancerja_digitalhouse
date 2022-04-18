@@ -56,6 +56,20 @@ module.exports = (sequelize, DataType) => {
                 allowNull: false
             }
         })
+
+        Usuario.hasMany(model.Mensagem, {
+            foreignKey: {
+                name: 'idusuario_remetente',
+                allowNull: false
+            }
+        })
+
+        Usuario.hasMany(model.Mensagem, {
+            foreignKey: {
+                name: 'idusuario_destinatario',
+                allowNull: false
+            }
+        })
     }
 
     return Usuario
