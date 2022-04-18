@@ -52,11 +52,14 @@
                                         </h3>
                                     </div>
                                 </div>
-                                <button type="submit"><% if(proposta.aceite_cliente){ %>
-                                    Enviar Trabalho                                            
+                                <% if(proposta.aceite_cliente){ %>
+                                <div>
+                                    <button type="submit">Enviar Trabalho</button>
+                                    <button type="submit" formaction="./escrevermensagemcliente">Enviar Mensagem</button>
+                                </div>                                          
                                 <%} else{ %>
-                                    Excluir                                            
-                                <%}%></button>
+                                    <button type="submit">Excluir</button>                                            
+                                <%}%>
                             </form>
                         </div>
                         <% }) %>
