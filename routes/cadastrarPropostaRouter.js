@@ -11,6 +11,7 @@ router.post('/criar', validacoesCadProposta, CadPropController.salvarForm)
 
 router.get('/cliente/listapropostas', CadPropController.viewPropostasCliente)
 router.post('/cliente/listapropostas', CadPropController.aceitarPropostaCliente)
+router.post('/cliente/mensagemfreelancer', CadPropController.envioMensagemFreelancer)
 
 router.get('/freelancer/listapropostas', CadPropController.viewPropostasFreelancer)
 

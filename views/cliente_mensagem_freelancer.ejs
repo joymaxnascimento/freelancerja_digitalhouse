@@ -1,0 +1,19 @@
+<%- include('./partials/header') %>
+    <div class="fale-conosco">
+        <div>
+            <img src="/images/contato3.png" alt="">
+        </div>
+        <form action="../cliente/mensagemfreelancer" id="formMensagemParaFreelancer" method="POST">
+            <div>
+                <label for="mensagem">Mensagem:</label>
+                <textarea name="mensagem" id="mensagem" cols="30" rows="10" required="true"></textarea>
+            </div>
+            <button type="submit">Enviar</button>
+            <div>
+                <% if (locals.mensagemEnviada) { %>
+                  <p class="erros">Mensagem enviada com sucesso!</p>
+                  <% } %>
+              </div>
+        </form>
+    </div>
+    <%- include('./partials/footer') %>
