@@ -3,6 +3,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
+var methodOverride = require('method-override');
 
 var inicioRouter = require('./routes/inicioRouter');
 var loginRouter = require('./routes/loginRouter');
@@ -33,6 +34,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
 
 app.use('/', loginRouter);
 app.use('/admin', adminRouter);
