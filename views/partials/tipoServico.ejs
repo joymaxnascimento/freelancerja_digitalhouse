@@ -2,14 +2,22 @@
     <p>Categorias</p>
     <div class="erros">
         <% if(locals.erros && erros.idtipo_servico){ %>
-            <span><%= erros.idtipo_servico.msg %></span>
+            <span>
+                <%= erros.idtipo_servico.msg %>
+            </span>
+            <span></span>
             <% } %>
     </div>
     <% tiposServicos.forEach(tipo=> { %>
         <div>
             <label>
-                <input type="radio" name="idtipo_servico" id=<%=tipo.servico %> value = <%= tipo.idtipo_servico %> form=<%= formulario %>>
-                    <%= tipo.servico %>
+                <input type="radio" name="idtipo_servico" id=<%=tipo.servico %> value = <%= tipo.idtipo_servico %> form=
+                    <%= formulario %>
+                        <% if(locals.dadosAntigos && dadosAntigos.idtipo_servico==tipo.idtipo_servico){ %>
+                            checked
+                            <% } %>
+                                >
+                                <%= tipo.servico %>
             </label>
         </div>
         <% }) %>
