@@ -29,7 +29,7 @@ const UsuarioController = {
                 senha: bcrypt.hashSync(senha, 10),
                 data_cadastro: new Date(),
                 data_atualizacao: new Date(),
-                email,
+                email: email.toLowerCase(),
                 status: 1
             })
 
@@ -64,7 +64,7 @@ const UsuarioController = {
     logarUsuario: async (req, res) => {
         let { email, senha } = req.body
 
-        let usuarioLogado = await Usuario.findOne({ where: { email: email } })
+        let usuarioLogado = await Usuario.findOne({ where: { email: email.toLowerCase() } })
 
         if (!usuarioLogado) {
             res.redirect('/')

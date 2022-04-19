@@ -6,7 +6,7 @@ const validacoesCadUsuario = [
     check('nome').notEmpty().withMessage('Preencha o nome!').bail().escape(),
     check('email').notEmpty().withMessage('Preencha o E-mail').bail()
     .isEmail().withMessage('Informe um e-mail válido!').custom((value) => {
-        return Usuario.findOne({ where: { email: value } }).then((usuario) => {
+        return Usuario.findOne({ where: { email: value.toLowerCase() } }).then((usuario) => {
             if(usuario){
                 return Promise.reject('E-mail já cadastrado no sistema!')
             }
