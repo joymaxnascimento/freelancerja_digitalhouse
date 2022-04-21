@@ -111,3 +111,4 @@ dist
 database_config.json
 .vscode/
 /.vscode
+package-lock.json
