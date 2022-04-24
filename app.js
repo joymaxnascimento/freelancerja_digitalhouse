@@ -8,7 +8,7 @@ var methodOverride = require('method-override');
 var inicioRouter = require('./routes/inicioRouter');
 var loginRouter = require('./routes/loginRouter');
 var logoutRouter = require('./routes/logoutRouter');
-var cadastrarPropostaRouter = require('./routes/cadastrarPropostaRouter');
+var propostaRouter = require('./routes/propostaRouter');
 var cadastrarServicoRouter = require('./routes/cadastrarServicoRouter');
 var cadastrarUsuarioRouter = require('./routes/cadastrarUsuarioRouter')
 var faleconoscoRouter = require('./routes/faleconoscoRouter');
@@ -43,7 +43,7 @@ app.use('/faleconosco', faleconoscoRouter)
 app.use(auth);
 app.use('/sair', logoutRouter);
 app.use('/inicio', inicioRouter);
-app.use('/proposta', cadastrarPropostaRouter);
+app.use('/proposta', propostaRouter);
 app.use('/servico', cadastrarServicoRouter);
 
 
