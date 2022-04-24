@@ -1,11 +1,11 @@
 let express = require('express')
 let router = express.Router()
 
-let CadServicoController = require("../controllers/CadServicoController")
+let servicoController = require("../controllers/servicoController")
 
 const validacoesCadServico = require('../middlewares/validacoesCadServico')
 
-router.get('/', CadServicoController.viewForm)
-router.post('/criar', validacoesCadServico, CadServicoController.salvarForm)
+router.get('/', servicoController.viewForm)
+router.post('/criar', validacoesCadServico, servicoController.salvarForm)
 
 module.exports = router
