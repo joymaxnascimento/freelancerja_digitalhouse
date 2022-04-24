@@ -1,21 +1,21 @@
 let express = require('express')
 let router = express.Router()
 
-let CadPropController = require("../controllers/CadPropController")
+let propostaController = require("../controllers/propostaController")
 
 const validacoesCadProposta = require('../middlewares/validacoesCadProposta')
 
-router.get('/listaservicos', CadPropController.viewForm)
-router.post('/listaservicos', CadPropController.redirectForm)
-router.post('/criar', validacoesCadProposta, CadPropController.salvarForm)
+router.get('/listaservicos', propostaController.viewForm)
+router.post('/listaservicos', propostaController.redirectForm)
+router.post('/criar', validacoesCadProposta, propostaController.salvarForm)
 
-router.get('/cliente/listapropostas', CadPropController.viewPropostasCliente)
-router.post('/cliente/listapropostas', CadPropController.aceitarPropostaCliente)
-router.post('/cliente/mensagemfreelancer', CadPropController.envioMensagemFreelancer)
+router.get('/cliente/listapropostas', propostaController.viewPropostasCliente)
+router.post('/cliente/listapropostas', propostaController.aceitarPropostaCliente)
+router.post('/cliente/mensagemfreelancer', propostaController.envioMensagemFreelancer)
 
-router.get('/freelancer/listapropostas', CadPropController.viewPropostasFreelancer)
-router.delete('/freelancer/listapropostas', CadPropController.excluirPropostaFreelancer)
-router.post('/freelancer/escrevermensagemcliente', CadPropController.formMensagemCliente)
-router.post('/freelancer/mensagemcliente', CadPropController.envioMensagemCliente)
+router.get('/freelancer/listapropostas', propostaController.viewPropostasFreelancer)
+router.delete('/freelancer/listapropostas', propostaController.excluirPropostaFreelancer)
+router.post('/freelancer/escrevermensagemcliente', propostaController.formMensagemCliente)
+router.post('/freelancer/mensagemcliente', propostaController.envioMensagemCliente)
 
 module.exports = router
