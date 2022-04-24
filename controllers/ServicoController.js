@@ -1,4 +1,4 @@
-const { TipoServico, Servico, Proposta } = require('../database/models')
+const { TipoServico, Servico, Proposta, Mensagem } = require('../database/models')
 const {QueryTypes} = require('sequelize')
 const {sequelize} = require('../database/models/index')
 
@@ -105,7 +105,7 @@ const ServicoController = {
 
         let listaPropostas = await sequelize.query(
             "SELECT idproposta, proposta.descricao, valor_proposto_freelancer, proposta.idservico \
-            ,proposta.aceite_cliente \
+            ,proposta.aceite_cliente, proposta.idusuario_freelancer, servico.idusuario_cliente \
             FROM proposta \
             LEFT JOIN servico \
             ON proposta.idservico = servico.idservico \
@@ -123,19 +123,32 @@ const ServicoController = {
                 type: QueryTypes.SELECT
     },
       )
+    
+      let mensagens = await Mensagem.findAll({include: [
+        {
+          model: Proposta,
+          required: true,
+          where: {
+            idservico: idservico
+          }
+        }
+      ]})
 
-    let listaServicos = await Servico.findAll({ where: { idusuario_cliente: req.session.usuario.idusuario }, order: ['idservico'] })
+      console.log(mensagens)
 
-    return res.render('lista_propostas_cliente',
-      {
-        title: 'Propostas Recebidas',
-        linkHome: '/inicio',
-        loginCadastroUsuario: req.session.usuario.nome,
-        linkLogin: '/',
-        formulario: "formListaPropostasCliente",
-        propostas: listaPropostas,
-        listaServicos
-      })
+      let listaServicos = await Servico.findAll({ where: { idusuario_cliente: req.session.usuario.idusuario }, order: ['idservico'] })
+
+      return res.render('lista_propostas_cliente',
+        {
+          title: 'Propostas Recebidas',
+          linkHome: '/inicio',
+          loginCadastroUsuario: req.session.usuario.nome,
+          linkLogin: '/',
+          formulario: "formListaPropostasCliente",
+          propostas: listaPropostas,
+          listaServicos,
+          mensagens
+        })
     },
     aceitarPropostaCliente: async (req, res) => {
   
@@ -154,6 +167,26 @@ const ServicoController = {
       }
   
     },
+    mensagemPropostaCliente: async (req, res) => {
+      let {idusuario_remetente, idusuario_destinatario, idproposta, idmensagem_resposta, mensagem} = req.body
+      let proposta = await Proposta.findByPk( idproposta )
+
+      if(!proposta){
+        return res.redirect('/')
+      }else{
+        await Mensagem.create({
+          idproposta,
+          idusuario_destinatario,
+          idusuario_remetente,
+          mensagem,
+          idmensagem_resposta
+        })
+        
+        return res.redirect('../propostas/' + proposta.idservico)
+
+      }
+
+    }
 }
 
 module.exports = ServicoController
