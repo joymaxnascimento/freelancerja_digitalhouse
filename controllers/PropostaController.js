@@ -1,6 +1,6 @@
-const { TipoServico, Servico, Proposta, Usuario } = require('../database/models')
-const {Sequelize, QueryTypes, Op} = require('sequelize')
-const {sequelize} = require('../database/models/index')
+const { TipoServico, Servico, Proposta, Usuario, Mensagem } = require('../database/models')
+const { Sequelize, QueryTypes, Op } = require('sequelize')
+const { sequelize } = require('../database/models/index')
 
 const { validationResult } = require('express-validator')
 
@@ -20,15 +20,16 @@ let PropostaController = {
     ", {
       raw: true,
       model: Servico,
-      replacements: {usuario: req.session.usuario.idusuario},
+      replacements: { usuario: req.session.usuario.idusuario },
       type: QueryTypes.SELECT,
       include: [
         { model: Proposta, required: false },
         { model: TipoServico, required: false },
         { model: Usuario, required: false }
-      ]},
-      )
-    
+      ]
+    },
+    )
+
     return res.render('lista_servicos_freelancer',
       {
         title: 'Proposta',
@@ -112,6 +113,10 @@ let PropostaController = {
             { model: TipoServico }
           ],
           required: true
+        },
+        {
+          model: Mensagem,
+          required: false
         }
       ],
       where: { idusuario_freelancer: req.session.usuario.idusuario }
@@ -133,7 +138,7 @@ let PropostaController = {
   excluirPropostaFreelancer: async (req, res) => {
 
     let { idproposta } = req.body
-    
+
     await Proposta.destroy(
       {
         where: {
@@ -145,18 +150,27 @@ let PropostaController = {
     return res.redirect('../freelancer/listapropostas')
 
   },
-  envioMensagemFreelancer: (req, res) => {
-    res.locals.mensagemEnviada = true
-    return res.render('cliente_mensagem_freelancer', { title: 'Contato - Freelancer', linkHome:'/', linkLogin: '/', loginCadastroUsuario: req.session.usuario.nome})
-},
-formMensagemCliente: (req, res) => {
+  mensagemPropostaFreelancer: async (req, res) => {
 
-  return res.render('freelancer_mensagem_cliente', { title: 'Contato - Cliente', linkHome:'/', linkLogin: '/', loginCadastroUsuario: req.session.usuario.nome})
-},
-envioMensagemCliente: (req, res) => {
-  res.locals.mensagemEnviada = true
-  return res.render('freelancer_mensagem_cliente', { title: 'Contato - Cliente', linkHome:'/', linkLogin: '/', loginCadastroUsuario: req.session.usuario.nome})
-}
+    console.log(req.body)
+
+    let { idusuario_remetente, idusuario_destinatario, idproposta, idmensagem_resposta, mensagem } = req.body
+    let proposta = await Proposta.findByPk(idproposta)
+
+    if (!proposta) {
+      return res.redirect('/')
+    } else {
+      await Mensagem.create({
+        idproposta,
+        idusuario_destinatario,
+        idusuario_remetente,
+        mensagem,
+        idmensagem_resposta
+      })
+
+      return res.redirect('../freelancer/listapropostas')
+    }
+  }
 }
 
 module.exports = PropostaController
