@@ -9,7 +9,7 @@ var inicioRouter = require('./routes/inicioRouter');
 var loginRouter = require('./routes/loginRouter');
 var logoutRouter = require('./routes/logoutRouter');
 var propostaRouter = require('./routes/propostaRouter');
-var cadastrarServicoRouter = require('./routes/cadastrarServicoRouter');
+var servicoRouter = require('./routes/servicoRouter');
 var cadastrarUsuarioRouter = require('./routes/cadastrarUsuarioRouter')
 var faleconoscoRouter = require('./routes/faleconoscoRouter');
 var adminRouter = require('./routes/adminRouter');
@@ -44,7 +44,7 @@ app.use(auth);
 app.use('/sair', logoutRouter);
 app.use('/inicio', inicioRouter);
 app.use('/proposta', propostaRouter);
-app.use('/servico', cadastrarServicoRouter);
+app.use('/servico', servicoRouter);
 
 
 app.use('/', errorRouter)
