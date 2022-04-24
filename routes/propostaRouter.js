@@ -1,7 +1,7 @@
 let express = require('express')
 let router = express.Router()
 
-let propostaController = require("../controllers/propostaController")
+let propostaController = require("../controllers/PropostaController")
 
 const validacoesCadProposta = require('../middlewares/validacoesCadProposta')
 
@@ -9,8 +9,6 @@ router.get('/listaservicos', propostaController.viewForm)
 router.post('/listaservicos', propostaController.redirectForm)
 router.post('/criar', validacoesCadProposta, propostaController.salvarForm)
 
-router.get('/cliente/listapropostas', propostaController.viewPropostasCliente)
-router.post('/cliente/listapropostas', propostaController.aceitarPropostaCliente)
 router.post('/cliente/mensagemfreelancer', propostaController.envioMensagemFreelancer)
 
 router.get('/freelancer/listapropostas', propostaController.viewPropostasFreelancer)

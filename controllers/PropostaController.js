@@ -4,7 +4,7 @@ const {sequelize} = require('../database/models/index')
 
 const { validationResult } = require('express-validator')
 
-let CadPropController = {
+let PropostaController = {
   viewForm: async (req, res) => {
 
     let tiposServicos = await TipoServico.findAll({ order: ['servico'] })
@@ -103,60 +103,6 @@ let CadPropController = {
         })
     }
   },
-  viewPropostasCliente: async (req, res) => {
-
-    let listaPropostas = await sequelize.query("\
-    SELECT idproposta, proposta.descricao, valor_proposto_freelancer, proposta.idservico \
-    ,proposta.aceite_cliente \
-    FROM proposta \
-    LEFT JOIN servico \
-    ON proposta.idservico = servico.idservico \
-    LEFT JOIN tipo_servico \
-    ON servico.idtipo_servico = tipo_servico.idtipo_servico \
-    WHERE servico.idusuario_cliente = :usuario \
-    AND proposta.aceite_cliente = 1 \
-    OR proposta.idservico NOT IN( \
-      SELECT idservico FROM proposta \
-      WHERE aceite_cliente = 1) \
-    ", {
-      raw: true,
-      model: Proposta,
-      replacements: {usuario: req.session.usuario.idusuario},
-      type: QueryTypes.SELECT
-    },
-      )
-
-    let listaServicos = await Servico.findAll({ where: { idusuario_cliente: req.session.usuario.idusuario }, order: ['idservico'] })
-
-    return res.render('lista_propostas_cliente',
-      {
-        title: 'Propostas Recebidas',
-        linkHome: '/inicio',
-        loginCadastroUsuario: req.session.usuario.nome,
-        linkLogin: '/',
-        formulario: "formListaPropostasCliente",
-        propostas: listaPropostas,
-        listaServicos
-      })
-  },
-  aceitarPropostaCliente: async (req, res) => {
-
-    let { idproposta } = req.body
-
-    let proposta = await Proposta.findByPk( idproposta )
-    console.log(proposta)
-
-    if (proposta.aceite_cliente) {
-      return res.render('cliente_mensagem_freelancer', { title: 'Contato - Freelancer', linkHome:'/', linkLogin: '/', loginCadastroUsuario: req.session.usuario.nome})      
-    }else{
-      await Proposta.update(
-        { aceite_cliente: true },
-        { where: { 'idproposta': idproposta } })
-  
-      return res.redirect('../cliente/listapropostas')
-    }
-
-  },
   viewPropostasFreelancer: async (req, res) => {
 
     let listaPropostas = await Proposta.findAll({
@@ -213,4 +159,4 @@ envioMensagemCliente: (req, res) => {
 }
 }
 
-module.exports = CadPropController
+module.exports = PropostaController
