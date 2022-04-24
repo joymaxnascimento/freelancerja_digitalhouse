@@ -1,72 +1,72 @@
 const { TipoServico, Servico, Proposta, Mensagem } = require('../database/models')
-const {QueryTypes} = require('sequelize')
-const {sequelize} = require('../database/models/index')
+const { QueryTypes } = require('sequelize')
+const { sequelize } = require('../database/models/index')
 
 const { validationResult } = require('express-validator')
 
 const ServicoController = {
-    viewForm: async (req, res) => {
+  viewForm: async (req, res) => {
 
-        let tiposServicos = await TipoServico.findAll({ order: ['servico'] })
+    let tiposServicos = await TipoServico.findAll({ order: ['servico'] })
 
-        return res.render('cadastro_servico_cliente', {
-            title: 'Propor Serviço',
-            linkHome: '/inicio',
-            tiposServicos: tiposServicos,
-            loginCadastroUsuario: req.session.usuario.nome,
-            linkLogin: '/',
-            formulario: 'formCadastroServico'
-        })
-    },
-    salvarForm: async (req, res) => {
+    return res.render('cadastro_servico_cliente', {
+      title: 'Propor Serviço',
+      linkHome: '/inicio',
+      tiposServicos: tiposServicos,
+      loginCadastroUsuario: req.session.usuario.nome,
+      linkLogin: '/',
+      formulario: 'formCadastroServico'
+    })
+  },
+  salvarForm: async (req, res) => {
 
-        let erros = validationResult(req)
+    let erros = validationResult(req)
 
-        if (erros.isEmpty()) {
+    if (erros.isEmpty()) {
 
-            let tiposServicos = await TipoServico.findAll({order: ['servico']})
-            
-            const { idtipo_servico, descricao, valor_a_pagar, data_entrega } = req.body
+      let tiposServicos = await TipoServico.findAll({ order: ['servico'] })
 
-            await Servico.create({
-                idusuario_cliente: req.session.usuario.idusuario,
-                idtipo_servico,
-                descricao,
-                valor_a_pagar,
-                data_entrega
-            })
+      const { idtipo_servico, descricao, valor_a_pagar, data_entrega } = req.body
 
-            res.locals.servicoCriado = true
+      await Servico.create({
+        idusuario_cliente: req.session.usuario.idusuario,
+        idtipo_servico,
+        descricao,
+        valor_a_pagar,
+        data_entrega
+      })
 
-            return res.render('cadastro_servico_cliente', {
-                title: 'Propor Serviço',
-                linkHome:'/inicio',
-                tiposServicos: tiposServicos,
-                loginCadastroUsuario: req.session.usuario.nome,
-                linkLogin: '/',
-                formulario:'formCadastroServico'
-            })
+      res.locals.servicoCriado = true
 
-        } else {
+      return res.render('cadastro_servico_cliente', {
+        title: 'Propor Serviço',
+        linkHome: '/inicio',
+        tiposServicos: tiposServicos,
+        loginCadastroUsuario: req.session.usuario.nome,
+        linkLogin: '/',
+        formulario: 'formCadastroServico'
+      })
 
-            let tiposServicos = await TipoServico.findAll({ order: ['servico'] })
+    } else {
 
-            return res.render('cadastro_servico_cliente', {
-                title: 'Propor Serviço',
-                linkHome: '/inicio',
-                tiposServicos: tiposServicos,
-                loginCadastroUsuario: req.session.usuario.nome,
-                linkLogin: '/',
-                formulario: 'formCadastroServico',
-                erros: erros.mapped(),
-                dadosAntigos: req.body
-            })
-        }
-    },
-    viewServicosCliente: async (req, res) => {
+      let tiposServicos = await TipoServico.findAll({ order: ['servico'] })
 
-        let tiposServicos = await TipoServico.findAll({ order: ['servico'] })
-        let servicos = await sequelize.query("\
+      return res.render('cadastro_servico_cliente', {
+        title: 'Propor Serviço',
+        linkHome: '/inicio',
+        tiposServicos: tiposServicos,
+        loginCadastroUsuario: req.session.usuario.nome,
+        linkLogin: '/',
+        formulario: 'formCadastroServico',
+        erros: erros.mapped(),
+        dadosAntigos: req.body
+      })
+    }
+  },
+  viewServicosCliente: async (req, res) => {
+
+    let tiposServicos = await TipoServico.findAll({ order: ['servico'] })
+    let servicos = await sequelize.query("\
         SELECT servico.idservico, tipo_servico.servico, servico.descricao, \
         servico.data_entrega, servico.valor_a_pagar, count(proposta.idproposta) as propostas\
         FROM servico \
@@ -77,17 +77,18 @@ const ServicoController = {
         WHERE idusuario_cliente = :usuario \
         GROUP BY servico.idservico, tipo_servico.servico, servico.descricao \
         , servico.data_entrega, servico.valor_a_pagar"
-        , {
-            raw: true,
-            model: Servico,
-            replacements: {usuario: req.session.usuario.idusuario},
-            type: QueryTypes.SELECT,
-            include: [
-                { model: Proposta, required: false },
-                { model: TipoServico, required: false }
-            ]},
-      )
-    
+      , {
+        raw: true,
+        model: Servico,
+        replacements: { usuario: req.session.usuario.idusuario },
+        type: QueryTypes.SELECT,
+        include: [
+          { model: Proposta, required: false },
+          { model: TipoServico, required: false }
+        ]
+      },
+    )
+
     return res.render('lista_servicos_cliente',
       {
         title: 'Serviços',
@@ -98,13 +99,13 @@ const ServicoController = {
         linkLogin: '/',
         formulario: 'formListaServicos'
       })
-    },
-    viewPropostasServico: async (req, res) =>{
-        
-        let {idservico} = req.params
+  },
+  viewPropostasServico: async (req, res) => {
 
-        let listaPropostas = await sequelize.query(
-            "SELECT idproposta, proposta.descricao, valor_proposto_freelancer, proposta.idservico \
+    let { idservico } = req.params
+
+    let listaPropostas = await sequelize.query(
+      "SELECT idproposta, proposta.descricao, valor_proposto_freelancer, proposta.idservico \
             ,proposta.aceite_cliente, proposta.idusuario_freelancer, servico.idusuario_cliente \
             FROM proposta \
             LEFT JOIN servico \
@@ -116,15 +117,16 @@ const ServicoController = {
             OR proposta.idservico NOT IN( \
             SELECT idservico FROM proposta \
             WHERE aceite_cliente = 1))"
-            , {
-                raw: true,
-                model: Proposta,
-                replacements: {idservico: idservico},
-                type: QueryTypes.SELECT
-    },
-      )
-    
-      let mensagens = await Mensagem.findAll({include: [
+      , {
+        raw: true,
+        model: Proposta,
+        replacements: { idservico: idservico },
+        type: QueryTypes.SELECT
+      },
+    )
+
+    let mensagens = await Mensagem.findAll({
+      include: [
         {
           model: Proposta,
           required: true,
@@ -132,61 +134,60 @@ const ServicoController = {
             idservico: idservico
           }
         }
-      ]})
+      ]
+    })
 
-      console.log(mensagens)
+    let listaServicos = await Servico.findAll({ where: { idusuario_cliente: req.session.usuario.idusuario }, order: ['idservico'] })
 
-      let listaServicos = await Servico.findAll({ where: { idusuario_cliente: req.session.usuario.idusuario }, order: ['idservico'] })
+    return res.render('lista_propostas_cliente',
+      {
+        title: 'Propostas Recebidas',
+        linkHome: '/inicio',
+        loginCadastroUsuario: req.session.usuario.nome,
+        linkLogin: '/',
+        formulario: "formListaPropostasCliente",
+        propostas: listaPropostas,
+        listaServicos,
+        mensagens
+      })
+  },
+  aceitarPropostaCliente: async (req, res) => {
 
-      return res.render('lista_propostas_cliente',
-        {
-          title: 'Propostas Recebidas',
-          linkHome: '/inicio',
-          loginCadastroUsuario: req.session.usuario.nome,
-          linkLogin: '/',
-          formulario: "formListaPropostasCliente",
-          propostas: listaPropostas,
-          listaServicos,
-          mensagens
-        })
-    },
-    aceitarPropostaCliente: async (req, res) => {
-  
-      let { idproposta } = req.body
-  
-      let proposta = await Proposta.findByPk( idproposta )
-      
-      if (!proposta) {
-        return res.redirect('/')      
-      }else{
-        await Proposta.update(
-          { aceite_cliente: true },
-          { where: { 'idproposta': idproposta } })
-    
-        return res.redirect('../propostas/' + proposta.idservico)
-      }
-  
-    },
-    mensagemPropostaCliente: async (req, res) => {
-      let {idusuario_remetente, idusuario_destinatario, idproposta, idmensagem_resposta, mensagem} = req.body
-      let proposta = await Proposta.findByPk( idproposta )
+    let { idproposta } = req.body
 
-      if(!proposta){
-        return res.redirect('/')
-      }else{
-        await Mensagem.create({
-          idproposta,
-          idusuario_destinatario,
-          idusuario_remetente,
-          mensagem,
-          idmensagem_resposta
-        })
-        
-        return res.redirect('../propostas/' + proposta.idservico)
+    let proposta = await Proposta.findByPk(idproposta)
 
-      }
+    if (!proposta) {
+      return res.redirect('/')
+    } else {
+      await Proposta.update(
+        { aceite_cliente: true },
+        { where: { 'idproposta': idproposta } })
+
+      return res.redirect('../propostas/' + proposta.idservico)
+    }
+
+  },
+  mensagemPropostaCliente: async (req, res) => {
+    let { idusuario_remetente, idusuario_destinatario, idproposta, idmensagem_resposta, mensagem } = req.body
+    let proposta = await Proposta.findByPk(idproposta)
+
+    if (!proposta) {
+      return res.redirect('/')
+    } else {
+      await Mensagem.create({
+        idproposta,
+        idusuario_destinatario,
+        idusuario_remetente,
+        mensagem,
+        idmensagem_resposta
+      })
+
+      return res.redirect('../propostas/' + proposta.idservico)
 
     }
+
+  }
 }
 
 module.exports = ServicoController
