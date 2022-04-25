@@ -9,8 +9,7 @@
                 <div class="cards">
                     <% propostas.forEach(proposta=> { %>
                         <div class="card">
-                            <form action="../proposta/freelancer/listapropostas" id="formListaPropostasFreelancer"
-                                method="POST">
+                            <form id="formListaPropostasFreelancer" method="POST">
                                 <input id="idservico" type="hidden" name="idservico" value=<%=proposta.idservico %>>
                                 <input id="idproposta" type="hidden" name="idproposta" value=<%=proposta.idproposta %> >
                                 <input id="idtipo_servico" type="hidden" name="idtipo_servico"
@@ -54,47 +53,44 @@
                                         </h3>
                                     </div>
                                 </div>
-                                <% if(proposta.aceite_cliente){ %>
-                                    <button type="submit">Enviar Trabalho</button>
-                                    <% if(proposta.Mensagems.length> 0){ %>
+                                <% if(!proposta.aceite_cliente){ %>
+                                    <button type="submit" formaction="./listapropostas?_method=delete">Excluir</button>
+                                            <%} else{ %>
+                                                <button type="button">Enviar Trabalho</button>                                                
+                                                <%}%>
+                            </form>
+                            <% if(proposta.aceite_cliente){ %>
+                                <div class="mensagem">
+                                    <% if(proposta.Mensagems.length > 0) {%>
                                         <% proposta.Mensagems.forEach(mensagem => { %>
-                                        <form action="./mensagem" method="post">
-                                            <div>
+                                            <form action="./mensagem" method="post">
                                                 <p>
                                                     <%= mensagem.mensagem %>
                                                 </p>
-                                                <input type="hidden" name="idmensagem_resposta" id="idmensagem_resposta"
-                                                    value="<%= mensagem.idmensagem %>">
-                                                <input type="hidden" name="idproposta" id="idproposta"
-                                                    value="<%= proposta.idproposta %>">
-                                                <input type="hidden" name="idusuario_destinatario"
-                                                    id="idusuario_destinatario"
-                                                    value="<%= proposta.Servico.idusuario_cliente %>">
-                                                <input type="hidden" name="idusuario_remetente" id="idusuario_remetente"
-                                                    value="<%= proposta.idusuario_freelancer %>">
-                                                <input type="text" name="mensagem" id="mensagem"
-                                                    placeholder="Responder">
-                                                <button type="submit">Enviar</button>
-                                            </div>
-                                        </form>
-                                        <% }) %>
-                                        <%}%>
-                                        <form action="./mensagem" method="post">
-                                            <div>                                            
+                                                <input type="hidden" name="idmensagem_resposta" id="idmensagem_resposta" value="<%= mensagem.idmensagem %>">
                                                 <input type="hidden" name="idproposta" id="idproposta" value="<%= proposta.idproposta %>">
-                                                <input type="hidden" name="idusuario_destinatario" id="idusuario_destinatario" value="<%= proposta.idusuario_freelancer %>">
-                                                <input type="hidden" name="idusuario_remetente" id="idusuario_remetente" value="<%= proposta.idusuario_cliente %>">
+                                                <input type="hidden" name="idusuario_destinatario" id="idusuario_destinatario" value="<%= proposta.Servico.idusuario_cliente %>">
+                                                <input type="hidden" name="idusuario_remetente" id="idusuario_remetente" value="<%= proposta.idusuario_freelancer %>">
+                                                <div>
+                                                    <input type="text" name="mensagem" id="mensagem" placeholder="Responder">
+                                                    <button type="submit">Enviar</button>
+                                                </div>
+                                        </form>
+                                            <% }) %>
+                                        <% } %>
+                                        <form action="./mensagem" method="post">                                          
+                                            <input type="hidden" name="idproposta" id="idproposta" value="<%= proposta.idproposta %>">
+                                            <input type="hidden" name="idusuario_destinatario" id="idusuario_destinatario" value="<%= proposta.Servico.idusuario_cliente %>">
+                                            <input type="hidden" name="idusuario_remetente" id="idusuario_remetente" value="<%= proposta.idusuario_freelancer %>">
+                                            <div>
                                                 <input type="text" name="mensagem" id="mensagem" placeholder="Nova Mensagem">
                                                 <button type="submit">Enviar</button>
                                             </div>
-                                        </form>
-                                            <%} else{ %>
-                                                <button type="submit"
-                                                    formaction="./listapropostas?_method=delete">Excluir</button>
-                                                <%}%>
-                            </form>
+                                    </form>
+                                </div>
+                            <% } %>                     
                         </div>
-                        <% }) %>
+                    <% }) %>
                 </div>
             </div>
     </div>
