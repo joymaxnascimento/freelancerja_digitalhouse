@@ -56,8 +56,10 @@
                                             <input type="hidden" name="idproposta" id="idproposta" value="<%= proposta.idproposta %>">
                                             <input type="hidden" name="idusuario_destinatario" id="idusuario_destinatario" value="<%= proposta.idusuario_freelancer %>">
                                             <input type="hidden" name="idusuario_remetente" id="idusuario_remetente" value="<%= proposta.idusuario_cliente %>">
-                                            <input type="text" name="mensagem" id="mensagem" placeholder="Responder">
-                                            <button type="submit">Enviar</button>
+                                            <div>
+                                                <input type="text" name="mensagem" id="mensagem" placeholder="Responder">
+                                                <button type="submit">Enviar</button>
+                                            </div>
                                     </form>
                                     <% }) %>
                                     <% } %>
