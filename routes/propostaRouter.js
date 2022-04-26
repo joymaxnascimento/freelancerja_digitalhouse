@@ -11,6 +11,7 @@ router.post('/criar', validacoesCadProposta, propostaController.salvarForm)
 
 router.get('/freelancer/listapropostas', propostaController.viewPropostasFreelancer)
 router.post('/freelancer/mensagem', propostaController.mensagemPropostaFreelancer)
+router.put('/freelancer/enviartrabalho', propostaController.enviarTrabalhoPropostaFreelancer)
 router.delete('/freelancer/listapropostas', propostaController.excluirPropostaFreelancer)
 
 module.exports = router

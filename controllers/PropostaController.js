@@ -161,8 +161,6 @@ let PropostaController = {
   },
   mensagemPropostaFreelancer: async (req, res) => {
 
-    console.log(req.body)
-
     let { idusuario, idproposta, idmensagem_resposta, mensagem } = req.body
     let proposta = await Proposta.findByPk(idproposta)
 
@@ -178,6 +176,24 @@ let PropostaController = {
 
       return res.redirect('../freelancer/listapropostas')
     }
+  },
+  enviarTrabalhoPropostaFreelancer: async (req, res) => {
+
+    let {idproposta} = req.body
+    let proposta = await Proposta.findByPk(idproposta)
+
+    if(!proposta){
+      return res.redirect('/')
+    }else{
+        await Proposta.update(
+          {arq_trabalhos: true},
+          {where: {
+            idproposta
+          }}
+        )
+        return res.redirect('../freelancer/listapropostas')
+    }
+
   }
 }
 

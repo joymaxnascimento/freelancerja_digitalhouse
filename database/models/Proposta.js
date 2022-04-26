@@ -19,8 +19,14 @@ module.exports = (sequelize, DataType) => {
       defaultValue: false
     },
     arq_trabalhos: {
-      type: DataType.BLOB('medium'),
-      allowNull: true
+      type: DataType.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
+    pagamento_cliente: {
+      type: DataType.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
     }
   }, {
     tableName: 'proposta',

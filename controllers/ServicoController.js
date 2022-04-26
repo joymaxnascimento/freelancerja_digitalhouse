@@ -145,6 +145,7 @@ const ServicoController = {
     let listaPropostas = await sequelize.query(
       "SELECT idproposta, proposta.descricao, valor_proposto_freelancer, proposta.idservico \
             ,proposta.aceite_cliente, proposta.idusuario_freelancer, servico.idusuario_cliente \
+            ,proposta.arq_trabalhos, proposta.pagamento_cliente \
             FROM proposta \
             LEFT JOIN servico \
             ON proposta.idservico = servico.idservico \
@@ -208,6 +209,40 @@ const ServicoController = {
     } else {
       await Proposta.update(
         { aceite_cliente: true },
+        { where: { 'idproposta': idproposta } })
+
+      return res.redirect('../propostas/' + proposta.idservico)
+    }
+
+  },
+  liberarPagamentoProposta: async (req, res) => {
+
+    let { idproposta } = req.body
+
+    let proposta = await Proposta.findByPk(idproposta)
+
+    if (!proposta) {
+      return res.redirect('/')
+    } else {
+      await Proposta.update(
+        { pagamento_cliente: true },
+        { where: { 'idproposta': idproposta } })
+
+      return res.redirect('../propostas/' + proposta.idservico)
+    }
+
+  },
+  recusarTrabalho: async (req, res) => {
+
+    let { idproposta } = req.body
+
+    let proposta = await Proposta.findByPk(idproposta)
+
+    if (!proposta) {
+      return res.redirect('/')
+    } else {
+      await Proposta.update(
+        { arq_trabalhos: false },
         { where: { 'idproposta': idproposta } })
 
       return res.redirect('../propostas/' + proposta.idservico)

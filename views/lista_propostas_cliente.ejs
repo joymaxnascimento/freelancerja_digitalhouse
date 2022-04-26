@@ -27,17 +27,22 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h4>Veja meus trabalhos:</h4>
-                                        <h4>
-                                            <%= proposta.arq_trabalhos %>
-                                        </h4>
-                                    </div>
-                                    <div>
                                         <h4>Valor proposto:</h4>
                                         <h3>
                                             <%= proposta.valor_proposto_freelancer %>
                                         </h3>
                                     </div>
+                                    <% if(proposta.pagamento_cliente){ %>
+                                        <div>
+                                            <h1>Proposta finalizada!</h1>
+                                        </div>
+                                        <%} %>
+                                    <% if(proposta.arq_trabalhos && !proposta.pagamento_cliente) {%>
+                                        <div>                                
+                                            <button formaction="../propostas/liberarpagamento?_method=put" type="submit">Liberar Pagamento</button>
+                                            <button formaction="../propostas/recusartrabalho?_method=put" type="submit">Recusar Trabalho Recebido</button>
+                                        </div>                                  
+                                    <%}%>
                                 </div>
                                 <% if(!proposta.aceite_cliente){ %>
                                     <button formaction="../propostas/aceitar?_method=put" type="submit">Aceitar</button>                                
@@ -55,14 +60,16 @@
                                             <input type="hidden" name="idmensagem_resposta" id="idmensagem_resposta" value="<%= mensagem.idmensagem %>">
                                             <input type="hidden" name="idproposta" id="idproposta" value="<%= proposta.idproposta %>">
                                             <input type="hidden" name="idusuario" id="idusuario" value="<%= proposta.idusuario_cliente %>">
+                                            <% if(!proposta.pagamento_cliente){ %>
                                             <div>
                                                 <input type="text" name="mensagem" id="mensagem" placeholder="Responder">
                                                 <button type="submit">Enviar</button>
                                             </div>
+                                            <%} %>
                                     </form>
                                     <% }) %>
                                     <% } %>
-
+                                    <% if(!proposta.pagamento_cliente){ %>
                                 <form action="../propostas/mensagem" method="post">                                          
                                         <input type="hidden" name="idproposta" id="idproposta" value="<%= proposta.idproposta %>">
                                         <input type="hidden" name="idusuario" id="idusuario" value="<%= proposta.idusuario_cliente %>">
@@ -71,6 +78,7 @@
                                             <button type="submit">Enviar</button>
                                         </div>
                                 </form>
+                                <%} %>
                             </div>
                             <%}%>
                         </div>
