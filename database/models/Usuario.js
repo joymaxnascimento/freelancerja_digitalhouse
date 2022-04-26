@@ -59,14 +59,7 @@ module.exports = (sequelize, DataType) => {
 
         Usuario.hasMany(model.Mensagem, {
             foreignKey: {
-                name: 'idusuario_remetente',
-                allowNull: false
-            }
-        })
-
-        Usuario.hasMany(model.Mensagem, {
-            foreignKey: {
-                name: 'idusuario_destinatario',
+                name: 'idusuario',
                 allowNull: false
             }
         })

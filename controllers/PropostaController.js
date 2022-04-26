@@ -116,7 +116,16 @@ let PropostaController = {
         },
         {
           model: Mensagem,
-          required: false
+          required: false,
+          include: [
+            {
+              model: Usuario,
+              required: true,
+              attributes: [
+                'nome'
+              ]
+            }        
+          ]
         }
       ],
       where: { idusuario_freelancer: req.session.usuario.idusuario }
@@ -154,7 +163,7 @@ let PropostaController = {
 
     console.log(req.body)
 
-    let { idusuario_remetente, idusuario_destinatario, idproposta, idmensagem_resposta, mensagem } = req.body
+    let { idusuario, idproposta, idmensagem_resposta, mensagem } = req.body
     let proposta = await Proposta.findByPk(idproposta)
 
     if (!proposta) {
@@ -162,8 +171,7 @@ let PropostaController = {
     } else {
       await Mensagem.create({
         idproposta,
-        idusuario_destinatario,
-        idusuario_remetente,
+        idusuario,
         mensagem,
         idmensagem_resposta
       })

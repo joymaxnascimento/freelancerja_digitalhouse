@@ -1,4 +1,4 @@
-const { TipoServico, Servico, Proposta, Mensagem } = require('../database/models')
+const { TipoServico, Servico, Proposta, Mensagem, Usuario } = require('../database/models')
 const { QueryTypes } = require('sequelize')
 const { sequelize } = require('../database/models/index')
 
@@ -171,6 +171,14 @@ const ServicoController = {
           where: {
             idservico: idservico
           }
+        },
+        {
+          model: Usuario,
+          required: true,
+          attributes: [
+            'nome'
+          ]
+
         }
       ]
     })
@@ -207,7 +215,7 @@ const ServicoController = {
 
   },
   mensagemPropostaCliente: async (req, res) => {
-    let { idusuario_remetente, idusuario_destinatario, idproposta, idmensagem_resposta, mensagem } = req.body
+    let { idusuario, idproposta, idmensagem_resposta, mensagem } = req.body
     let proposta = await Proposta.findByPk(idproposta)
 
     if (!proposta) {
@@ -215,8 +223,7 @@ const ServicoController = {
     } else {
       await Mensagem.create({
         idproposta,
-        idusuario_destinatario,
-        idusuario_remetente,
+        idusuario,
         mensagem,
         idmensagem_resposta
       })

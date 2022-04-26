@@ -24,14 +24,7 @@ module.exports = (sequelize, DataType) => {
   
       Mensagem.belongsTo(model.Usuario, {
         foreignKey: {
-          name: 'idusuario_remetente',
-          allowNull: false
-        }
-      })
-
-      Mensagem.belongsTo(model.Usuario, {
-        foreignKey: {
-          name: 'idusuario_destinatario',
+          name: 'idusuario',
           allowNull: false
         }
       })

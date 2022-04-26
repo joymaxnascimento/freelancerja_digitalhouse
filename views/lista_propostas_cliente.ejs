@@ -48,13 +48,13 @@
                                 <% if(mensagens.length > 0) {%>
                                     <% mensagens.forEach(mensagem => { %>
                                     <form action="../propostas/mensagem" method="post">
-                                            <p>
-                                                <%= mensagem.mensagem %>
-                                            </p>
+                                            <div>
+                                                <sub><%= mensagem.Usuario.nome %>:</sub>
+                                                <p><%= mensagem.mensagem %></p>                                           
+                                            </div>
                                             <input type="hidden" name="idmensagem_resposta" id="idmensagem_resposta" value="<%= mensagem.idmensagem %>">
                                             <input type="hidden" name="idproposta" id="idproposta" value="<%= proposta.idproposta %>">
-                                            <input type="hidden" name="idusuario_destinatario" id="idusuario_destinatario" value="<%= proposta.idusuario_freelancer %>">
-                                            <input type="hidden" name="idusuario_remetente" id="idusuario_remetente" value="<%= proposta.idusuario_cliente %>">
+                                            <input type="hidden" name="idusuario" id="idusuario" value="<%= proposta.idusuario_cliente %>">
                                             <div>
                                                 <input type="text" name="mensagem" id="mensagem" placeholder="Responder">
                                                 <button type="submit">Enviar</button>
@@ -65,8 +65,7 @@
 
                                 <form action="../propostas/mensagem" method="post">                                          
                                         <input type="hidden" name="idproposta" id="idproposta" value="<%= proposta.idproposta %>">
-                                        <input type="hidden" name="idusuario_destinatario" id="idusuario_destinatario" value="<%= proposta.idusuario_freelancer %>">
-                                        <input type="hidden" name="idusuario_remetente" id="idusuario_remetente" value="<%= proposta.idusuario_cliente %>">
+                                        <input type="hidden" name="idusuario" id="idusuario" value="<%= proposta.idusuario_cliente %>">
                                         <div>
                                             <input type="text" name="mensagem" id="mensagem" placeholder="Nova Mensagem">
                                             <button type="submit">Enviar</button>
