@@ -6,9 +6,11 @@ window.addEventListener('load', () => {
 
     var msgServicoCriado = document.querySelector('p.erros')
 
-    document.addEventListener('click', (e) =>{
-        msgServicoCriado.style.display = 'none'
-    })    
+    if(msgServicoCriado != null){
+        document.addEventListener('click', (e) =>{
+            msgServicoCriado.style.display = 'none'
+        })
+    }    
 
     /*
     Lista de serviços

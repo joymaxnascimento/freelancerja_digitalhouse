@@ -10,6 +10,7 @@
                     <% servicos.forEach(servico=> { %>
                         <div class="card">
                             <form id="formListaServicos" method="GET">
+                                <input id="idtipo_servico" type="hidden" name="idtipo_servico" value=<%= servico.idtipo_servico %>>
                                 <div>
                                     <div>
                                         <h4>Categoria:</h4>

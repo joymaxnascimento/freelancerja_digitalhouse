@@ -105,7 +105,7 @@ const ServicoController = {
 
     let tiposServicos = await TipoServico.findAll({ order: ['servico'] })
     let servicos = await sequelize.query("\
-        SELECT servico.idservico, tipo_servico.servico, servico.descricao, \
+        SELECT servico.idservico, servico.idtipo_servico, tipo_servico.servico, servico.descricao, \
         servico.data_entrega, servico.valor_a_pagar, count(proposta.idproposta) as propostas\
         FROM servico \
         LEFT JOIN tipo_servico \
