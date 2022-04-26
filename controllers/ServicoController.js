@@ -18,6 +18,44 @@ const ServicoController = {
       formulario: 'formCadastroServico'
     })
   },
+  viewEditarServico: async (req, res) =>{
+
+    let { idservico } = req.params
+
+    let tiposServicos = await TipoServico.findAll({ order: ['servico'] })
+
+    let servico = await Servico.findByPk(idservico)
+
+    return res.render('editar_servico_cliente', {
+      title: 'Editar Serviço',
+      linkHome: '/inicio',
+      tiposServicos: tiposServicos,
+      loginCadastroUsuario: req.session.usuario.nome,
+      linkLogin: '/',
+      formulario: 'formCadastroServico',
+      dadosAntigos: servico
+    })    
+  },
+  salvarEdicaoServico: async (req, res) => {
+
+    let {idservico, descricao, valor_a_pagar, data_entrega, idtipo_servico} = req.body
+
+    let servico = await Servico.findByPk( idservico )
+
+    if (!servico) {
+      return res.redirect('/')
+    } else {
+      await Servico.update(
+        {descricao,
+          valor_a_pagar,
+          data_entrega,
+          idtipo_servico
+         },
+        { where: { idservico } })
+
+      return res.redirect('../servico/cliente/lista')
+    }
+  },
   salvarForm: async (req, res) => {
 
     let erros = validationResult(req)
@@ -86,7 +124,7 @@ const ServicoController = {
           { model: Proposta, required: false },
           { model: TipoServico, required: false }
         ]
-      },
+      }
     )
 
     return res.render('lista_servicos_cliente',
@@ -122,7 +160,7 @@ const ServicoController = {
         model: Proposta,
         replacements: { idservico: idservico },
         type: QueryTypes.SELECT
-      },
+      }
     )
 
     let mensagens = await Mensagem.findAll({
@@ -186,7 +224,6 @@ const ServicoController = {
       return res.redirect('../propostas/' + proposta.idservico)
 
     }
-
   }
 }
 

@@ -40,7 +40,7 @@
                                     </div>
                                 </div>
                                 <% if(servico.propostas==0) {%>
-                                    <button type="submit">Editar</button>
+                                    <button type="submit" formaction="/servico/<%=servico.idservico %>">Editar</button>
                                     <% } else{%>
                                         <button type="submit"
                                             formaction="/servico/propostas/<%=servico.idservico %>">Ver
