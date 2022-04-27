@@ -87,8 +87,7 @@
                                         <% if(!proposta.pagamento_cliente){ %>
                                         <form action="./mensagem" method="post">                                          
                                             <input type="hidden" name="idproposta" id="idproposta" value="<%= proposta.idproposta %>">
-                                            <input type="hidden" name="idusuario_destinatario" id="idusuario_destinatario" value="<%= proposta.Servico.idusuario_cliente %>">
-                                            <input type="hidden" name="idusuario_remetente" id="idusuario_remetente" value="<%= proposta.idusuario_freelancer %>">
+                                            <input type="hidden" name="idusuario" id="idusuario" value="<%= proposta.idusuario_freelancer %>">
                                             <div>
                                                 <input type="text" name="mensagem" id="mensagem" placeholder="Nova Mensagem">
                                                 <button type="submit">Enviar</button>
