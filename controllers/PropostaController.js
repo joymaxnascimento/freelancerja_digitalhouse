@@ -25,7 +25,9 @@ let PropostaController = {
       include: [
         { model: Proposta, required: false },
         { model: TipoServico, required: false },
-        { model: Usuario, required: false }
+        { model: Usuario, required: false,
+          attributes: ['idusuario']
+         }
       ]
     },
     )
@@ -151,7 +153,8 @@ let PropostaController = {
     await Proposta.destroy(
       {
         where: {
-          idproposta: idproposta
+          idproposta: idproposta,
+          idusuario_freelancer: req.session.usuario.idusuario
         }
       }
     )
@@ -164,8 +167,8 @@ let PropostaController = {
     let { idusuario, idproposta, idmensagem_resposta, mensagem } = req.body
     let proposta = await Proposta.findByPk(idproposta)
 
-    if (!proposta) {
-      return res.redirect('/')
+    if (!proposta || idusuario != req.session.usuario.idusuario) {
+      return res.redirect(403, '/')
     } else {
       await Mensagem.create({
         idproposta,

@@ -6,12 +6,9 @@ const { validationResult } = require('express-validator')
 const UsuarioController = {
     viewForm: async (req, res) => {
 
-        let usuarios = await Usuario.findAll({ order: ['nome'] })
-
         return res.render('cadastro_usuario', {
             title: 'Cadastro de Usuário',
             linkHome: '/',
-            usuarios: usuarios,
             loginCadastroUsuario: 'Login',
             linkLogin: '/'
         })
@@ -64,7 +61,13 @@ const UsuarioController = {
     logarUsuario: async (req, res) => {
         let { email, senha } = req.body
 
-        let usuarioLogado = await Usuario.findOne({ where: { email: email.toLowerCase() } })
+        let usuarioLogado = await Usuario.findOne(
+            { where: {
+                email: email.toLowerCase()
+            },
+            attributes: ['idusuario', 'nome','email', 'senha']
+         }
+        )
 
         if (!usuarioLogado) {
             res.redirect('/')
@@ -78,6 +81,9 @@ const UsuarioController = {
                     linkLogin: '/cadastro'
                 })
             } else {
+                usuarioLogado.senha = ''
+                usuarioLogado.email = ''
+
                 req.session.usuario = usuarioLogado
 
                 res.render('inicio', {

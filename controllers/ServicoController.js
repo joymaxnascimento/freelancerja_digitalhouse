@@ -24,26 +24,40 @@ const ServicoController = {
 
     let tiposServicos = await TipoServico.findAll({ order: ['servico'] })
 
-    let servico = await Servico.findByPk(idservico)
+    let servico = await Servico.findOne({
+      where: {
+        idservico,
+        idusuario_cliente: req.session.usuario.idusuario
+      }
+    })
 
-    return res.render('editar_servico_cliente', {
-      title: 'Editar Serviço',
-      linkHome: '/inicio',
-      tiposServicos: tiposServicos,
-      loginCadastroUsuario: req.session.usuario.nome,
-      linkLogin: '/',
-      formulario: 'formCadastroServico',
-      dadosAntigos: servico
-    })    
+    if(servico){
+      return res.render('editar_servico_cliente', {
+        title: 'Editar Serviço',
+        linkHome: '/inicio',
+        tiposServicos: tiposServicos,
+        loginCadastroUsuario: req.session.usuario.nome,
+        linkLogin: '/',
+        formulario: 'formCadastroServico',
+        dadosAntigos: servico
+      })
+    }else{
+      return res.redirect(403, '/inicio')
+    }
   },
   salvarEdicaoServico: async (req, res) => {
 
     let {idservico, descricao, valor_a_pagar, data_entrega, idtipo_servico} = req.body
 
-    let servico = await Servico.findByPk( idservico )
+    let servico = await Servico.findOne({
+      where: {
+        idservico,
+        idusuario_cliente: req.session.usuario.idusuario
+      }
+    })
 
     if (!servico) {
-      return res.redirect('/')
+      return res.redirect(403, '/inicio')
     } else {
       await Servico.update(
         {descricao,
@@ -51,7 +65,10 @@ const ServicoController = {
           data_entrega,
           idtipo_servico
          },
-        { where: { idservico } })
+        { where: {
+          idservico,
+          idusuario_cliente: req.session.usuario.idusuario
+        } })
 
       return res.redirect('../servico/cliente/lista')
     }
@@ -142,61 +159,78 @@ const ServicoController = {
 
     let { idservico } = req.params
 
-    let listaPropostas = await sequelize.query(
-      "SELECT idproposta, proposta.descricao, valor_proposto_freelancer, proposta.idservico \
-            ,proposta.aceite_cliente, proposta.idusuario_freelancer, servico.idusuario_cliente \
-            ,proposta.arq_trabalhos, proposta.pagamento_cliente \
-            FROM proposta \
-            LEFT JOIN servico \
-            ON proposta.idservico = servico.idservico \
-            LEFT JOIN tipo_servico \
-            ON servico.idtipo_servico = tipo_servico.idtipo_servico \
-            WHERE proposta.idservico = :idservico \
-            AND (proposta.aceite_cliente = 1 \
-            OR proposta.idservico NOT IN( \
-            SELECT idservico FROM proposta \
-            WHERE aceite_cliente = 1))"
-      , {
-        raw: true,
-        model: Proposta,
-        replacements: { idservico: idservico },
-        type: QueryTypes.SELECT
+    let servico = await Servico.findOne({
+      where: {
+        idservico,
+        idusuario_cliente: req.session.usuario.idusuario
       }
-    )
-
-    let mensagens = await Mensagem.findAll({
-      include: [
-        {
-          model: Proposta,
-          required: true,
-          where: {
-            idservico: idservico
-          }
-        },
-        {
-          model: Usuario,
-          required: true,
-          attributes: [
-            'nome'
-          ]
-
-        }
-      ]
     })
 
-    let listaServicos = await Servico.findAll({ where: { idusuario_cliente: req.session.usuario.idusuario }, order: ['idservico'] })
+    if(servico){
 
-    return res.render('lista_propostas_cliente',
-      {
-        title: 'Propostas Recebidas',
-        linkHome: '/inicio',
-        loginCadastroUsuario: req.session.usuario.nome,
-        linkLogin: '/',
-        formulario: "formListaPropostasCliente",
-        propostas: listaPropostas,
-        listaServicos,
-        mensagens
+      let listaPropostas = await sequelize.query(
+        "SELECT idproposta, proposta.descricao, valor_proposto_freelancer, proposta.idservico \
+              ,proposta.aceite_cliente, proposta.idusuario_freelancer, servico.idusuario_cliente \
+              ,proposta.arq_trabalhos, proposta.pagamento_cliente \
+              FROM proposta \
+              LEFT JOIN servico \
+              ON proposta.idservico = servico.idservico \
+              LEFT JOIN tipo_servico \
+              ON servico.idtipo_servico = tipo_servico.idtipo_servico \
+              WHERE proposta.idservico = :idservico \
+              AND servico.idusuario_cliente = :usuario \
+              AND (proposta.aceite_cliente = 1 \
+              OR proposta.idservico NOT IN( \
+              SELECT idservico FROM proposta \
+              WHERE aceite_cliente = 1))"
+        , {
+          raw: true,
+          model: Proposta,
+          replacements: { 
+            idservico: idservico,
+            usuario: req.session.usuario.idusuario
+           },
+          type: QueryTypes.SELECT
+        }
+      )
+  
+      let mensagens = await Mensagem.findAll({
+        include: [
+          {
+            model: Proposta,
+            required: true,
+            where: {
+              idservico: idservico
+            }
+          },
+          {
+            model: Usuario,
+            required: true,
+            attributes: [
+              'nome'
+            ]
+  
+          }
+        ]
       })
+  
+      let listaServicos = await Servico.findAll({ where: { idusuario_cliente: req.session.usuario.idusuario }, order: ['idservico'] })
+  
+      return res.render('lista_propostas_cliente',
+        {
+          title: 'Propostas Recebidas',
+          linkHome: '/inicio',
+          loginCadastroUsuario: req.session.usuario.nome,
+          linkLogin: '/',
+          formulario: "formListaPropostasCliente",
+          propostas: listaPropostas,
+          listaServicos,
+          mensagens
+        })
+
+    }else{
+      return res.redirect(403, '/inicio')
+    }
   },
   aceitarPropostaCliente: async (req, res) => {
 
@@ -205,7 +239,7 @@ const ServicoController = {
     let proposta = await Proposta.findByPk(idproposta)
 
     if (!proposta) {
-      return res.redirect('/')
+      return res.redirect(403, '/')
     } else {
       await Proposta.update(
         { aceite_cliente: true },
@@ -222,7 +256,7 @@ const ServicoController = {
     let proposta = await Proposta.findByPk(idproposta)
 
     if (!proposta) {
-      return res.redirect('/')
+      return res.redirect(403, '/')
     } else {
       await Proposta.update(
         { pagamento_cliente: true },
@@ -239,7 +273,7 @@ const ServicoController = {
     let proposta = await Proposta.findByPk(idproposta)
 
     if (!proposta) {
-      return res.redirect('/')
+      return res.redirect(403, '/')
     } else {
       await Proposta.update(
         { arq_trabalhos: false },
@@ -253,8 +287,8 @@ const ServicoController = {
     let { idusuario, idproposta, idmensagem_resposta, mensagem } = req.body
     let proposta = await Proposta.findByPk(idproposta)
 
-    if (!proposta) {
-      return res.redirect('/')
+    if (!proposta || idusuario != req.session.usuario.idusuario) {
+      return res.redirect(403, '/')
     } else {
       await Mensagem.create({
         idproposta,
