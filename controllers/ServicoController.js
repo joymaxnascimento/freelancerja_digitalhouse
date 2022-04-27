@@ -171,7 +171,7 @@ const ServicoController = {
       let listaPropostas = await sequelize.query(
         "SELECT idproposta, proposta.descricao, valor_proposto_freelancer, proposta.idservico \
               ,proposta.aceite_cliente, proposta.idusuario_freelancer, servico.idusuario_cliente \
-              ,proposta.arq_trabalhos, proposta.pagamento_cliente \
+              ,proposta.arq_trabalhos, proposta.pagamento_cliente, tipo_servico.servico \
               FROM proposta \
               LEFT JOIN servico \
               ON proposta.idservico = servico.idservico \
