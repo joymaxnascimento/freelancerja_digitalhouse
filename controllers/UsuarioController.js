@@ -17,10 +17,17 @@ const UsuarioController = {
     salvarForm: async (req, res) => {
 
         let erros = validationResult(req)
+        const { nome, senha, email } = req.body
+        let usuarioExistente = await Usuario.findOne({
+            where: {
+                email
+            },
+            attributes: [
+                'idusuario'
+            ]
+        })
 
-        if (erros.isEmpty()) {
-            const { nome, senha, email } = req.body
-
+        if (erros.isEmpty() || !usuarioExistente) {
             await Usuario.create({
                 nome,
                 senha: bcrypt.hashSync(senha, 10),
