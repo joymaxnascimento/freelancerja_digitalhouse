@@ -522,5 +522,13 @@ li.menu-usuario {
     justify-content: space-around;
     padding-left: 10vw;
     }
+    
+    .fale-conosco form div {
+        flex-direction: column;
+    }
+
+    .fale-conosco label {
+        width: auto;
+    }
 
 }
